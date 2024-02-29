@@ -17,8 +17,6 @@
 <div 
   class="background" slot="background" 
   bind:clientWidth={width} bind:clientHeight={height}>
-  <Map bind:geoJsonToFit {index} />
-  <Graph {index} {width} {height} {projection} />
   <div class="progress-bars">
     <p>current section: <strong>{index + 1}/{count}</strong></p>
     <progress value={count ? (index + 1) / count : 0} />
