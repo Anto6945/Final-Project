@@ -14,6 +14,7 @@
   bind:offset
   bind:progress
 >
+
 <div 
   class="background" slot="background" 
   bind:clientWidth={width} bind:clientHeight={height}>
