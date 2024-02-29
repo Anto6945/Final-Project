@@ -1,7 +1,8 @@
 <script>
-  // Write your JS here, or import other files
   import Scroller from "@sveltejs/svelte-scroller";
   
+  let count, index, offset, progress;
+  let width, height;
 </script>
 <main>
 <Scroller
