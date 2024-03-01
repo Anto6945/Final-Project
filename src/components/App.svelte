@@ -3,6 +3,7 @@
   import Scroller from "@sveltejs/svelte-scroller";
   import BarGraph1 from './BarGraph1.svelte';
   import BarGraph2 from './BarGraph2.svelte';
+  import BarGraph2temporaire from "./BarGraph2temporaire.svelte";
   import Writeup from './Writeup.svelte';
   import {onMount} from 'svelte';
   import Map from './Map.svelte';
@@ -51,7 +52,7 @@
       <section>Map Interactive.<Map/></section>
       <p> The bar chart below shows the most popular countries for travel. As we can see after 2004, it seems that France tends to be the most popular country with the most number of arrivals!</p>
       <section>Bar Chart showing the top 10 most traveled countries!<BarGraph1/></section>
-      <section>Bar Chart showing the top 10 least traveled countries!<BarGraph2/></section>
+      <section>Bar Chart showing the top 10 least traveled countries!<BarGraph2temporaire/></section>
       <section> Writeup<Writeup/></section>
     </div>
   </Scroller>
