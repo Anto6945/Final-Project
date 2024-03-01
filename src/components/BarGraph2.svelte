@@ -68,9 +68,6 @@
 		</g>
 	</svg>
 </div>
-<main>
-	<p> This visualization shows the countries that are the least popular among people to visit. Many of the countries are islands with small population and different countries in the African continent.</p>
-  </main>
 <style>
 	h2 {
 		text-align: center;
