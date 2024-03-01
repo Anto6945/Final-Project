@@ -6517,4 +6517,10 @@ function getTop10(arr, property) {
   // Return the top 10 objects
   return sortedArr.slice(0, 10);
 }
-export let datatop = getTop10(data,'2020');
+let totarr = data[0];
+let property;
+for (let i=0;i<Object.keys(data[0]).length-2;i++) {
+  property = Object.keys(data[0])[i];
+  totarr[property] = getTop10(data,property);
+}
+export let datatop = totarr;
