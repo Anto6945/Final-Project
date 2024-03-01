@@ -30,6 +30,8 @@
 </script>
 
 <main>
+  <h1>International Tourism over the Years (Arrivals Per Country)</h1>
+  <p> Our project aims to show which countries have the most arrivals. We examine the most traveled and the least traveled countries and events that have occured that has changed the way we travel. </p>
   <Scroller
     top={0.0}
     bottom={1}

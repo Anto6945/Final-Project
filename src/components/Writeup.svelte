@@ -7,7 +7,7 @@
     <p> The most challenging part of the project is most probably going to be the depicting the storytelling
         part of the project well. Adding the right animations and information to make our project engaging
         and informative, might take us time to perfect. I think the animations might be a little difficult 
-        because both of us are not too sure how to do them in javascript or svelte. We might have to do additional
+        because both of us are not too sure how to do them in javascript or svelte. We will have to do additional
         research about international tourism to add annotations about events like COVID-19 or conflicts that have
-        impacted travel.  </p> 
+        impacted travel. </p> 
 </main>
