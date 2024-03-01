@@ -13,11 +13,11 @@
   onMount(async () => {
     await loadWorldData();
 
-    const width = 960;
-    const height = 600;
+    const width = 500; // Set desired width
+    const height = 390; // Set desired height
 
     const projection = d3.geoMercator()
-      .scale(150)
+      .scale(100) // Adjust scale to make the map smaller
       .translate([width / 2, height / 2]);
 
     const path = d3.geoPath().projection(projection);
@@ -43,6 +43,7 @@
 <style>
   svg {
     width: 100%;
-    height: 100%;
+    height: auto; /* Allow SVG to scale with container width */
+    max-height: 80vh; /* Limit maximum height */
   }
 </style>
