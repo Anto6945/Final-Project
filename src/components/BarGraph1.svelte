@@ -87,6 +87,9 @@
       </svg>
     </div>
 </div>
+<main>
+  <p> The bar chart below shows the most popular countries for travel. As we can see from 2004 onwards, France tends to be the most popular country with the most number of arrivals!</p>
+</main>
 
 <style>
     @import url("https://fonts.googleapis.com/css?family=Merriweather:700&display=swap");
