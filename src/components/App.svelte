@@ -31,7 +31,8 @@
 
 <main>
   <h1>International Tourism over the Years (Arrivals Per Country)</h1>
-  <p> Our project aims to show which countries have the most arrivals. We examine the most traveled and the least traveled countries and events that have occured that has changed the way we travel. </p>
+  <p> Our project aims to show which countries have the most arrivals from abroad. We examine the most traveled and the least traveled countries and events that have occured that has changed the way people travel. 
+  For example, COVID-19 was a major impact that significantly impacted international travel.  </p>
   <Scroller
     top={0.0}
     bottom={1}
@@ -48,6 +49,7 @@
     ></div>
     <div class="foreground" slot="foreground">
       <section>Map Interactive.<Map/></section>
+      <p> The bar chart below shows the most popular countries for travel. As we can see after 2004, it seems that France tends to be the most popular country with the most number of arrivals!</p>
       <section>Bar Chart showing the top 10 most traveled countries!<BarGraph1/></section>
       <section>Bar Chart showing the top 10 least traveled countries!<BarGraph2/></section>
       <section> Writeup<Writeup/></section>
