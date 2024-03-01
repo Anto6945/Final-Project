@@ -47,7 +47,7 @@
     <div class="foreground" slot="foreground">
       <section>Map Interactive.<Map/></section>
       <section>Bar Chart showing the top 10 most traveled countries!<BarGraph1/></section>
-      <section>Bar Chart showing the top 10 least traveled countries!<BarGraph2/></section>
+      <section>Bar Chart showing the top 10 least traveled countries!</section>
       <Writeup/>
     </div>
   </Scroller>
