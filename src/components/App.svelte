@@ -3,6 +3,7 @@
   import Scroller from "@sveltejs/svelte-scroller";
   import BarGraph1 from './BarGraph1.svelte';
   import BarGraph2 from './BarGraph2.svelte';
+  import BarGraph2temporaire from "./BarGraph2temporaire.svelte";
   import Writeup from './Writeup.svelte';
   import {onMount} from 'svelte';
   import Map from './Map.svelte';
@@ -47,7 +48,7 @@
     <div class="foreground" slot="foreground">
       <section>Map Interactive.<Map/></section>
       <section>Bar Chart showing the top 10 most traveled countries!<BarGraph1/></section>
-      <section>Bar Chart showing the top 10 least traveled countries!</section>
+      <section>Bar Chart showing the top 10 least traveled countries!<BarGraph2temporaire/></section>
       <section><Writeup/></section>
     </div>
   </Scroller>

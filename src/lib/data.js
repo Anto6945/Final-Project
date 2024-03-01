@@ -6487,10 +6487,24 @@ function getTop10(arr, property) {
   // Return the top 10 objects
   return sortedArr.slice(0, 10);
 }
-let totarr = data[0];
+function getLeast10(arr, property) {
+  // Filter out values that are null, undefined, "", or 0
+  const filteredArr = arr.filter(item => item[property] !== null && item[property] !== undefined && item[property] !== "" && item[property] !== 0);
+  
+  // Sort the filtered array of objects by the specified property in ascending order
+  const sortedArr = filteredArr.slice().sort((a, b) => a[property] - b[property]);
+
+  // Return the least 10 objects
+  return sortedArr.slice(0, Math.min(10, sortedArr.length)); // Ensure not to exceed the array length
+}
+
+let totarr = Object.assign({}, data[0]);
+let leastarr = Object.assign({}, data[0]);
 let property;
 for (let i=0;i<Object.keys(data[0]).length-2;i++) {
   property = Object.keys(data[0])[i];
   totarr[property] = getTop10(data,property);
+  leastarr[property] = getLeast10(data,property);
 }
+export let dataleast = leastarr
 export let datatop = totarr;
