@@ -1,8 +1,29 @@
 <script>
   import Scroller from "@sveltejs/svelte-scroller";
+  import BarGraph1 from '../components/BarGraph1.svelte';
+  //import BarGraph2 from '../components/BarGraph2.svelte';
+  import {onMount} from 'svelte';
+  import * as d3 from 'd3';
   
   let count, index, offset, progress;
   let width, height;
+  let data1 = [];
+onMount(async () => {
+  function getTop10Objects(arr, property) {
+    // Sort the array of objects by the specified property in descending order
+    const sortedArr = arr.slice().sort((a, b) => b[property] - a[property]);
+
+    // Return the top 10 objects
+    return sortedArr.slice(0, 10);
+  }
+  const res = await fetch('data_cleaned.csv'); 
+  const csv = await res.text();
+  data1 = d3.csvParse(csv, d3.autoType)
+  console.log(data1)
+  const top10Objects = getTop10Objects(data1, '1995');
+  console.log(top10Objects);
+});
+
 </script>
 <main>
 <Scroller
@@ -18,18 +39,10 @@
 <div 
   class="background" slot="background" 
   bind:clientWidth={width} bind:clientHeight={height}>
-  <div class="progress-bars">
-    <p>current section: <strong>{index + 1}/{count}</strong></p>
-    <progress value={count ? (index + 1) / count : 0} />
-    <p>offset in current section</p>
-    <progress value={offset || 0} />
-    <p>total progress</p>
-    <progress value={progress || 0} />
-    </div>
 </div>
 <div class="foreground" slot="foreground">
   <section>This is the first section.</section>
-  <section>This is the second section.</section>
+  <section>This is the second section.<BarGraph1/></section>
   <section>This is the third section.</section>
   <section>This is the fourth section.</section>
 </div>
@@ -41,30 +54,25 @@
     width: 100%;
     height: 100vh;
     position: relative;
+    background-color: rgba(0, 0, 0, 0.2); /* 20% opaque */
     outline: green solid 3px;
   }
 
   .foreground {
-    width: 50%;
+    width: 70%;
     margin: 0 auto;
     height: auto;
     position: relative;
     outline: red solid 3px;
   }
 
-  .progress-bars {
-    position: absolute;
-    background: rgba(170, 51, 120, 0.2) /*  40% opaque */;
-    visibility: visible;
-  }
-
   section {
     height: 80vh;
-    background-color: rgba(0, 0, 0, 0.2); /* 20% opaque */
+    background-color: white; /* 20% opaque */
     /* color: white; */
     outline: magenta solid 3px;
     text-align: center;
-    max-width: 750px; /* adjust at will */
+    max-width: 2000px; /* adjust at will */
     color: black;
     padding: 1em;
     margin: 0 0 2em 0;
