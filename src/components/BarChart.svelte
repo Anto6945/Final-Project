@@ -1,75 +1,86 @@
 <script>
 	import * as d3 from "d3";
-	
+	import { createEventDispatcher } from "svelte";
+
 	export let datatop;
 
 	const formatLabel = d3.format(',.0f');
   
 	const margin = {
-    top: 30,
-    right: 100,
-    bottom: 0,
-    left: 110,
-  };
+		top: 30,
+		right: 100,
+		bottom: 0,
+		left: 110,
+	};
 
 	let width = 400;
-  let height = 320;
+	let height = 320;
 
-  $: innerWidth = width - margin.left - margin.right;
-  let innerHeight = height - margin.top - margin.bottom;
+	$: innerWidth = width - margin.left - margin.right;
+	let innerHeight = height - margin.top - margin.bottom;
 
 	$: xScale = d3
-    .scaleLinear()
-    .domain([0, d3.max(datatop, d => d['2020']*0.8)])
-    .range([0, innerWidth*0.8]);
+		.scaleLinear()
+		.domain([0, d3.max(datatop, d => d['2020']*0.8)])
+		.range([0, innerWidth*0.8]);
 
-  const yScale = d3
-    .scaleBand()
-    .domain(datatop.map(d => d.Country_Name))
-    .range([innerHeight, 0])
-    .padding(0.25);
+	const yScale = d3
+		.scaleBand()
+		.domain(datatop.map(d => d.Country_Name))
+		.range([innerHeight, 0])
+		.padding(0.25);
+
+	const dispatch = createEventDispatcher();
+
+	function handleNumberClick(value) {
+		dispatch("numberClick", value);
+	}
 </script>
 
 <div class="wrapper" bind:clientWidth={width}>
-  <svg {width} {height}>
-    <g transform={`translate(${margin.left}, ${margin.top})`}>
-      {#each datatop as player}
-        <text
-          text-anchor="end"
-          x={-10}
-          y={yScale(player.Country_Name) + yScale.bandwidth() / 2}
-          dy=".35em"
-        >
-          {player.Country_Name}
-        </text>
-        <rect
-          x={0}
+	<svg {width} {height}>
+		<g transform={`translate(${margin.left}, ${margin.top})`}>
+			{#each datatop as player}
+				<text
+					text-anchor="end"
+					x={-10}
+					y={yScale(player.Country_Name) + yScale.bandwidth() / 2}
+					dy=".35em"
+				>
+					{player.Country_Name}
+				</text>
+				<rect
+					x={0}
 					y={yScale(player.Country_Name)}
 					width={xScale(player['2020'])}
-          height={yScale.bandwidth()}
-        />
-        <text
-          text-anchor="start"
-          x={xScale(player['2020'])}
-          dx="10"
-          y={yScale(player.Country_Name) + yScale.bandwidth() / 2}
-          dy=".35em"
-        >
-          {formatLabel(player['2020'])}
-        </text>
-      {/each}
-    </g>
-  </svg>
+					height={yScale.bandwidth()}
+				/>
+				<foreignObject
+					x={xScale(player['2020'])}
+					y={yScale(player.Country_Name)}
+					width={innerWidth - xScale(player['2020'])}
+					height={yScale.bandwidth()}
+				>
+					<button
+						on:click={() => handleNumberClick(player['2020'])}
+						style="width: 100%; height: 100%; cursor: pointer; background: none; border: none; padding: 0; display: flex; justify-content: flex-start; align-items: center;"
+					>
+						<span>{formatLabel(player['2020'])}</span>
+					</button>
+				</foreignObject>
+			{/each}
+		</g>
+	</svg>
 </div>
 
 <style>
-  .wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 700px;
-  }
+	.wrapper {
+		position: relative;
+		width: 100%;
+		max-width: 700px;
+	}
 
-  rect {
-    fill: #4427ca;
-  }
+	rect {
+		fill: #4427ca;
+	}
 </style>
