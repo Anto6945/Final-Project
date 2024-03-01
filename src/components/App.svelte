@@ -2,6 +2,7 @@
   import Scroller from "@sveltejs/svelte-scroller";
   import BarGraph1 from './BarGraph1.svelte';
   import BarGraph2 from './BarGraph2.svelte';
+  import Map from  '../components/Map.svelte'
   import {onMount} from 'svelte';
   import * as d3 from 'd3';
   
@@ -41,7 +42,7 @@ onMount(async () => {
   bind:clientWidth={width} bind:clientHeight={height}>
 </div>
 <div class="foreground" slot="foreground">
-  <section>This is the first section.</section>
+  <section>This is the first section.<Map/></section>
   <section>This is the second section.<BarGraph1/></section>
   <section>This is the third section.<BarGraph2/></section>
   <section>This is the fourth section.</section>
