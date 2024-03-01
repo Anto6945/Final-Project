@@ -2486,7 +2486,7 @@ export const data =[
     2018: "65148000",
     2019: "55913000",
     2020: "3569000",
-    Country_Name: "Hong Kong SAR, China",
+    Country_Name: "Hong Kong",
     Country_Code: "HKG"
   },
   {
