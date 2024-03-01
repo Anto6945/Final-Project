@@ -3,14 +3,26 @@
   import BarGraph1 from '../components/BarGraph1.svelte';
   //import BarGraph2 from '../components/BarGraph2.svelte';
   import {onMount} from 'svelte';
+  import * as d3 from 'd3';
   
   let count, index, offset, progress;
   let width, height;
   let data1 = [];
 onMount(async () => {
-  const res = fetch('data_cleaned.csv'); 
-  const csv = res.text();
-  data1 = d3.csvParse(csv, d3.autoType)});
+  function getTop10Objects(arr, property) {
+    // Sort the array of objects by the specified property in descending order
+    const sortedArr = arr.slice().sort((a, b) => b[property] - a[property]);
+
+    // Return the top 10 objects
+    return sortedArr.slice(0, 10);
+  }
+  const res = await fetch('data_cleaned.csv'); 
+  const csv = await res.text();
+  data1 = d3.csvParse(csv, d3.autoType)
+  console.log(data1)
+  const top10Objects = getTop10Objects(data1, '1995');
+  console.log(top10Objects);
+});
 
 </script>
 <main>

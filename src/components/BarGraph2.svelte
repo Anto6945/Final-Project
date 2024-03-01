@@ -1,127 +1,118 @@
 <script>
-    import { Chart, Card, Dropdown, DropdownItem } from 'flowbite-svelte';
+  import { onMount } from 'svelte'; 
+  import * as d3 from 'd3';
+
+
+
+  let width= 980;
+  let height= 495;
+  const margin = { top: 20, right: 20, bottom: 20, left: 125 };
+  const innerHeight = height - margin.top - margin.bottom;
+  const innerWidth = width - margin.left - margin.right;
+
+  let hovered=null;
   
-    const options = {
-      series: [
-        {
-          name: 'Income',
-          color: '#31C48D',
-          data: ['1420', '1620', '1820', '1420', '1650', '2120']
-        },
-        {
-          name: 'Expense',
-          data: ['788', '810', '866', '788', '1100', '1200'],
-          color: '#F05252'
-        }
-      ],
-      chart: {
-        sparkline: {
-          enabled: false
-        },
-        type: 'bar',
-        width: '100%',
-        height: 400,
-        toolbar: {
-          show: false
-        }
-      },
-      fill: {
-        opacity: 1
-      },
-      plotOptions: {
-        bar: {
-          horizontal: true,
-          columnWidth: '100%',
-          borderRadiusApplication: 'end',
-          borderRadius: 6,
-          dataLabels: {
-            position: 'top'
-          }
-        }
-      },
-      legend: {
-        show: true,
-        position: 'bottom'
-      },
-      dataLabels: {
-        enabled: false
-      },
-      tooltip: {
-        shared: true,
-        intersect: false,
-        formatter: function (value) {
-          return '$' + value;
-        }
-      },
-      xaxis: {
-        labels: {
-          show: true,
-          style: {
-            fontFamily: 'Inter, sans-serif',
-            cssClass: 'text-xs font-normal fill-gray-500 dark:fill-gray-400'
-          },
-          formatter: function (value) {
-            return '$' + value;
-          }
-        },
-        categories: ['Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-        axisTicks: {
-          show: false
-        },
-        axisBorder: {
-          show: false
-        }
-      },
-      yaxis: {
-        labels: {
-          show: true,
-          style: {
-            fontFamily: 'Inter, sans-serif',
-            cssClass: 'text-xs font-normal fill-gray-500 dark:fill-gray-400'
-          }
-        }
-      },
-      grid: {
-        show: true,
-        strokeDashArray: 4,
-        padding: {
-          left: 2,
-          right: 2,
-          top: -20
-        }
-      }
-    };
-  </script>
+  let data1 = [];
+onMount(async () => {
+  function getTop10Objects(arr, property) {
+    // Sort the array of objects by the specified property in descending order
+    const sortedArr = arr.slice().sort((a, b) => b[property] - a[property]);
+
+    // Return the top 10 objects
+    return sortedArr.slice(0, 10);
+  }
+  const res = await fetch('data_cleaned.csv'); 
+  const csv = await res.text();
+  data1 = d3.csvParse(csv, d3.autoType)
+  console.log(data1)
+  const top10Objects = getTop10Objects(data1, '1995');
+  console.log(top10Objects);
+});
+  function update(update_state) {
+    selected_state = update_state;
+  };
+data_top = getTop10(data1)
+
+
+  $: xDomain = data1A.map((d) => d[0]);
+  $: yDomain = data1A.map((d) => +d[selected_state]);
+
+  $: yScale = d3.scaleBand().domain(xDomain).range([0, innerHeight]).padding(0.1);
+  $: xScale = d3.scaleLinear()
+    .domain([0, Math.max.apply(null, yDomain)])
+    .range([0, innerWidth]);
+
+</script>
+
+<div class='chart-container' bind:clientWidth={width} on:mouseout={()=>{hovered=null}}>
+  <svg {width} {height}>
+    <g transform={`translate(${margin.left},${margin.top})`}>
+      {#each xScale.ticks() as tickValue}
+        <g transform={`translate(${xScale(tickValue)},0)`}>
+          <line y2={innerHeight} stroke="#E8EDEA" />
+          <text text-anchor="middle" dy=".7em" y={innerHeight + 3}>
+            {tickValue}
+          </text>
+        </g>
+      {/each}
+      
+      {#each data1 as d}
+        <text
+          text-anchor="end"
+          x="-3"
+          dy=".3em"
+          y={yScale(d[Country_Name]) + yScale.bandwidth() / 2}
+        >
+          {d.category}
+        </text>
+        <rect class='bars'
+          role="presentation"
+          x="0"
+          y={hovered? hovered == d ? yScale(d.category)-7:yScale(d[Country_Name]):yScale(d.Country_Name)}
+          width={xScale(d[2020])}
+          height={hovered ? hovered == d ?yScale.bandwidth()+14:yScale.bandwidth():yScale.bandwidth()}
+          opacity={hovered ? hovered == d ? "1" : ".3" : "1"}
+          fill="#F9746F"
+          on:mouseover={() => {hovered=d}}
+        >{console.log(d)}</rect>
+      {/each}
+    </g>
+  </svg>
+
+  <p class='x-axis'>count</p>
   
-  <Card>
-    <div class="flex justify-between border-gray-200 border-b dark:border-gray-700 pb-3">
-      <dl>
-        <dt class="text-base font-normal text-gray-500 dark:text-gray-400 pb-1">Profit</dt>
-        <dd class="leading-none text-3xl font-bold text-gray-900 dark:text-white">$5,405</dd>
-      </dl>
-    </div>
+
+</div>
+
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
   
-    <div class="grid grid-cols-2 py-3">
-      <dl>
-        <dt class="text-base font-normal text-gray-500 dark:text-gray-400 pb-1">Income</dt>
-        <dd class="leading-none text-xl font-bold text-green-500 dark:text-green-400">$23,635</dd>
-      </dl>
-      <dl>
-        <dt class="text-base font-normal text-gray-500 dark:text-gray-400 pb-1">Expense</dt>
-        <dd class="leading-none text-xl font-bold text-red-600 dark:text-red-500">-$18,230</dd>
-      </dl>
-    </div>
+  .chart-container {
+    position: relative;
+    width: 1000px;
+    height: 520px;
+    z-index: 15;
+    margin-left: auto;
+    margin-top: auto;
+    margin-right: auto;
+  }
+
+  .x-axis {
+    position: relative;
+    width: 1000px;
+    margin-left: 35px;
+    margin-top: auto;
+    margin-right: auto;
+    font-size: 20px;
+  }
   
-    <Chart {options} />
-    <div class="grid grid-cols-1 items-center border-gray-200 border-t dark:border-gray-700 justify-between">
-      <div class="flex justify-between items-center pt-5">
-        <Dropdown class="w-40" offset="-6">
-          <DropdownItem>Yesterday</DropdownItem>
-          <DropdownItem>Today</DropdownItem>
-          <DropdownItem>Last 7 days</DropdownItem>
-          <DropdownItem>Last 30 days</DropdownItem>
-          <DropdownItem>Last 90 days</DropdownItem>
-        </Dropdown>
-      </div>
-    </div>
-  </Card>
+  
+  rect {
+    transition: all 450ms ease;
+  }
+
+  text {
+    font-weight: 700;
+  }
+</style>
