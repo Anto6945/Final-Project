@@ -2,14 +2,32 @@
 	
   import { datatop } from '../lib/data';
   import BarChart from './BarChart.svelte';
-  
+  export var selectedYear = 2020;
+  let dataUsed;
+  console.log(selectedYear);
+  function updateYear(value){
+    dataUsed = datatop[value];
+  }
+  updateYear(selectedYear);
 </script>
+
+<div class="overlay">
+  <label for="slider">Years <span id="displayValue"></span></label>
+  <input
+      id="slider"
+      type="range"
+      min="1995"
+      max="2020"
+      bind:value={selectedYear}
+      on:input={() => updateYear(selectedYear)}
+  />
+</div>
 
 <div class="app">
   <BarChart 
-        datatop={datatop.sort(
-      (a, b) => a['2020'] - b['2020'],
-    )} 
+        datatop={dataUsed.sort(
+      (a, b) => a[selectedYear] - b[selectedYear],
+    )}
     />
 </div>
 
