@@ -2,17 +2,18 @@
 	
   import { datatop } from '../lib/data';
   import BarChart from './BarChart.svelte';
-  export var selectedYear = 2020;
+  export let selectedYear = 2020;
   let dataUsed;
-  console.log(selectedYear);
   function updateYear(value){
-    dataUsed = datatop[value];
-  }
+    console.log(selectedYear);
+    dataUsed = datatop[String(value)];
+    console.log(dataUsed);
+  };
   updateYear(selectedYear);
 </script>
 
 <div class="overlay">
-  <label for="slider">Years <span id="displayValue"></span></label>
+  <label for="slider">Years {selectedYear}</label>
   <input
       id="slider"
       type="range"
