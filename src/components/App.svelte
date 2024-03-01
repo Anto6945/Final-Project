@@ -42,9 +42,9 @@ onMount(async () => {
   bind:clientWidth={width} bind:clientHeight={height}>
 </div>
 <div class="foreground" slot="foreground">
-  <section>This is the first section.<Map/></section>
-  <section>This is the second section.<BarGraph1/></section>
-  <section>This is the third section.<BarGraph2/></section>
+  <section>Map Interactive.<Map/></section>
+  <section>Bar Chart showing the top 10 most traveled countries!<BarGraph1/></section>
+  <section>Bar Chart showing the top 10 least traveled countries!<BarGraph2/></section>
   <section>This is the fourth section.</section>
 </div>
 </Scroller>
