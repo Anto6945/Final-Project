@@ -38,7 +38,6 @@
 
 <main>
   <svg></svg>
-  <p>Map showing arrivals</p>
 </main>
 
 <style>
