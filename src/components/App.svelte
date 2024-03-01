@@ -2,7 +2,6 @@
   import Scroller from "@sveltejs/svelte-scroller";
   import BarGraph1 from './BarGraph1.svelte';
   import BarGraph2 from './BarGraph2.svelte';
-  import Map from  '../components/Map.svelte'
   import {onMount} from 'svelte';
   import * as d3 from 'd3';
   
@@ -42,7 +41,7 @@ onMount(async () => {
   bind:clientWidth={width} bind:clientHeight={height}>
 </div>
 <div class="foreground" slot="foreground">
-  <section>Map Interactive.<Map/></section>
+  <section>Map Interactive.</section>
   <section>Bar Chart showing the top 10 most traveled countries!<BarGraph1/></section>
   <section>Bar Chart showing the top 10 least traveled countries!<BarGraph2/></section>
   <section>This is the fourth section.</section>
