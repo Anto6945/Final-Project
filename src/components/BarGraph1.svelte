@@ -1,6 +1,6 @@
 <script>
 	
-  import { datatop } from './data';
+  import { datatop } from '../lib/data';
   import BarChart from './BarChart.svelte';
   
 </script>
