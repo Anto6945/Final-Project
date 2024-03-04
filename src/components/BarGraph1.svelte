@@ -26,6 +26,8 @@
 
 	let width = 400;
   let height = 320;
+  let recorded_mouse_position = {x: 0, y: 0};
+  let hovered = -1;
 
   $: innerWidth = width - margin.left - margin.right;
   let innerHeight = height - margin.top - margin.bottom;
@@ -72,16 +74,24 @@
               y={yScale(country.Country_Name)}
               width={xScale(country[String(selectedYear)])}
               height={yScale.bandwidth()}
+              on:mouseover={(event) => { hovered = country[String(selectedYear)];
+                recorded_mouse_position = {
+                  x: event.pageX,
+                  y: event.pageY
+                  }}}
+              on:mouseout={() => hovered = -1}
             />
+            {#if hovered !== -1 && hovered === country[String(selectedYear)]}
             <text
-              text-anchor="start"
-              x={xScale(country[String(selectedYear)])}
-              dx="10"
-              y={yScale(country.Country_Name) + yScale.bandwidth() / 2}
-              dy=".35em"
-            >
-              {formatLabel(country[String(selectedYear)])}
-            </text>
+            text-anchor="start"
+            x={xScale(country[String(selectedYear)])}
+            dx="10"
+            y={yScale(country.Country_Name) + yScale.bandwidth() / 2}
+            dy=".35em"
+          >
+            {formatLabel(hovered)}
+          </text>
+            {/if}
           {/each}
         </g>
       </svg>
