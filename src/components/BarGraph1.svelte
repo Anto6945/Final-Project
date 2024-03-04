@@ -1,6 +1,7 @@
 <script>
 	
-  import { datatop } from '../lib/data';
+  import { select_multiple_value } from 'svelte/internal';
+import { datatop } from '../lib/data';
 
   export let selectedYear = 2020;
   import * as d3 from "d3";
@@ -63,17 +64,18 @@
           {#each dataUsed as country}
             <text
               text-anchor="end"
-              x={-10}
+              x={hovered === country[String(selectedYear)] ? -15 :-10}
               y={yScale(country.Country_Name) + yScale.bandwidth() / 2}
+              opacity={hovered ? hovered === country[String(selectedYear)] ? "1" : ".3" : "1"}
               dy=".35em"
             >
               {country.Country_Name}
             </text>
             <rect
               x={0}
-              y={yScale(country.Country_Name)}
+              y={hovered === country[String(selectedYear)] ? yScale(country.Country_Name)-1: yScale(country.Country_Name)}
               width={xScale(country[String(selectedYear)])}
-              height={yScale.bandwidth()}
+              height={hovered === country[String(selectedYear)] ? yScale.bandwidth()+2 : yScale.bandwidth()}
               on:mouseover={(event) => { hovered = country[String(selectedYear)];
                 recorded_mouse_position = {
                   x: event.pageX,
