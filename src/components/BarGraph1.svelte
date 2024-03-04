@@ -66,7 +66,7 @@ import { datatop } from '../lib/data';
               text-anchor="end"
               x={hovered === country[String(selectedYear)] ? -15 :-10}
               y={yScale(country.Country_Name) + yScale.bandwidth() / 2}
-              opacity={hovered ? hovered === country[String(selectedYear)] ? "1" : ".3" : "1"}
+              opacity={hovered ? hovered === country[String(selectedYear)] ? "1" : ".8" : "1"}
               dy=".35em"
             >
               {country.Country_Name}
@@ -76,6 +76,7 @@ import { datatop } from '../lib/data';
               y={hovered === country[String(selectedYear)] ? yScale(country.Country_Name)-1: yScale(country.Country_Name)}
               width={xScale(country[String(selectedYear)])}
               height={hovered === country[String(selectedYear)] ? yScale.bandwidth()+2 : yScale.bandwidth()}
+              opacity={hovered ? hovered === country[String(selectedYear)] ? "1" : ".7" : "1"}
               on:mouseover={(event) => { hovered = country[String(selectedYear)];
                 recorded_mouse_position = {
                   x: event.pageX,
