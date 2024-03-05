@@ -1,20 +1,11 @@
 <script>
 	
   import { select_multiple_value } from 'svelte/internal';
-import { datatop } from '../lib/data';
+  import { dataBargraph } from '../lib/dataBargraph';
 
   export let selectedYear = 2020;
   import * as d3 from "d3";
-  let dataUsed;
-  function updateYear(value){
-    console.log(selectedYear);
-    dataUsed = datatop[String(value)];
-    console.log(dataUsed);
-    dataUsed=dataUsed.sort(
-      (a, b) => a[selectedYear] - b[selectedYear],
-    )
-  };
-  updateYear(selectedYear);
+  let dataUsed = dataBargraph;
 	
 	const formatLabel = d3.format(',.0f');
 
@@ -35,25 +26,24 @@ import { datatop } from '../lib/data';
 
 	$: xScale = d3
     .scaleLinear()
-    .domain([0, d3.max(dataUsed, d => d[String(selectedYear)]*0.8)])
+    .domain([0, d3.max(dataUsed, d => d[String(Passengers)]*0.8)])
     .range([0, innerWidth*0.8]);
 
   $: yScale = d3
     .scaleBand()
-    .domain(dataUsed.map(d => d.Country_Name))
+    .domain(dataUsed.map(d => d.City))
     .range([innerHeight, 0])
     .padding(0.25);
 </script>
 
 <div class="overlay">
-  <label for="slider">Years {selectedYear}</label>
+  <label for="slider">Years {Passengers}</label>
   <input
       id="slider"
       type="range"
       min="1995"
       max="2020"
       bind:value={selectedYear}
-      on:input={() => updateYear(selectedYear)}
   />
 </div>
 
@@ -64,32 +54,31 @@ import { datatop } from '../lib/data';
           {#each dataUsed as country}
             <text
               text-anchor="end"
-              x={hovered === country[String(selectedYear)] ? -15 :-10}
-              y={yScale(country.Country_Name) + yScale.bandwidth() / 2}
-              opacity={hovered ? hovered === country[String(selectedYear)] ? "1" : ".8" : "1"}
+              x={hovered === country[String(Passengers)] ? -15 :-10}
+              y={yScale(country.City) + yScale.bandwidth() / 2}
+              opacity={hovered ? hovered === country[String(Passengers)] ? "1" : ".3" : "1"}
               dy=".35em"
             >
-              {country.Country_Name}
+              {country.City}
             </text>
             <rect
               x={0}
-              y={hovered === country[String(selectedYear)] ? yScale(country.Country_Name)-1: yScale(country.Country_Name)}
-              width={xScale(country[String(selectedYear)])}
-              height={hovered === country[String(selectedYear)] ? yScale.bandwidth()+2 : yScale.bandwidth()}
-              opacity={hovered ? hovered === country[String(selectedYear)] ? "1" : ".7" : "1"}
-              on:mouseover={(event) => { hovered = country[String(selectedYear)];
+              y={hovered === country[String(Passengers)] ? yScale(country.City)-1: yScale(country.City)}
+              width={xScale(country[String(Passengers)])}
+              height={hovered === country[String(Passengers)] ? yScale.bandwidth()+2 : yScale.bandwidth()}
+              on:mouseover={(event) => { hovered = country[String(Passengers)];
                 recorded_mouse_position = {
                   x: event.pageX,
                   y: event.pageY
                   }}}
               on:mouseout={() => hovered = -1}
             />
-            {#if hovered !== -1 && hovered === country[String(selectedYear)]}
+            {#if hovered !== -1 && hovered === country[String(Passengers)]}
             <text
             text-anchor="start"
-            x={xScale(country[String(selectedYear)])}
+            x={xScale(country[String(Passengers)])}
             dx="10"
-            y={yScale(country.Country_Name) + yScale.bandwidth() / 2}
+            y={yScale(country.City) + yScale.bandwidth() / 2}
             dy=".35em"
           >
             {formatLabel(hovered)}
