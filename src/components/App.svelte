@@ -2,7 +2,6 @@
 <script>
   import Scroller from "@sveltejs/svelte-scroller";
   import BarGraph1 from './BarGraph1.svelte';
-  import BarGraph2 from './BarGraph2.svelte';
   import BarGraph2temporaire from "./BarGraph2temporaire.svelte";
   import Writeup from './Writeup.svelte';
   import {onMount} from 'svelte';
@@ -70,7 +69,7 @@
   }
 
   .foreground {
-    width: 70%;
+    width: 100%;
     margin: 0 auto;
     height: auto;
     position: relative;
