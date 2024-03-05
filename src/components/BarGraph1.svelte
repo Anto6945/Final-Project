@@ -100,7 +100,6 @@ import { datatop } from '../lib/data';
       </svg>
     </div>
 </div>
-
 <style>
     @import url("https://fonts.googleapis.com/css?family=Merriweather:700&display=swap");
     @import url("https://fonts.googleapis.com/css?family=Lato:400&display=swap");
@@ -129,6 +128,6 @@ import { datatop } from '../lib/data';
   }
 
   rect {
-    fill: #4427ca;
+    fill: #af23d5;
   }
 </style>

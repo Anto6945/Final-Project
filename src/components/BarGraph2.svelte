@@ -68,7 +68,6 @@
 		</g>
 	</svg>
 </div>
-
 <style>
 	h2 {
 		text-align: center;
