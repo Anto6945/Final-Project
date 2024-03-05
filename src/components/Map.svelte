@@ -1,6 +1,7 @@
 <script>
   import { onMount } from 'svelte';
   import * as d3 from 'd3';
+  import { datatop } from '../lib/data';
 
   let svg;
   let worldData;

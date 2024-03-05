@@ -64,7 +64,7 @@
     width: 100%;
     height: 100vh;
     position: relative;
-    background-color: rgba(0, 0, 0, 0.2); /* 20% opaque */
+    background-color: rgba(0, 0, 0, 0); /* 20% opaque */
     outline: green solid 3px;
   }
 
