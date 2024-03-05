@@ -3,7 +3,6 @@
   import Scroller from "@sveltejs/svelte-scroller";
   import BarGraph1 from './BarGraph1.svelte';
   import BarGraph2temporaire from "./BarGraph2temporaire.svelte";
-  import Domestic from './Domestic.svelte';
   import Map from './Map.svelte';
   import {onMount} from 'svelte';
   import * as d3 from 'd3';
@@ -47,8 +46,8 @@
       bind:clientWidth={width} bind:clientHeight={height}
     ></div>
     <div class="foreground" slot="foreground">
-      <section>Map Interactive.<Domestic/></section>
-      <section> United States Domestic Routes<Map/></section>
+      <section>Map Interactive.<Map/></section>
+      <section> United States Domestic Routes</section>
       <p> The bar chart below shows the most popular countries for travel. As we can see from 2004 onwards, France tends to be the most popular country with the most number of arrivals!</p>
       <section>Bar Chart showing the top 10 most traveled countries!<BarGraph1/></section>
       <p> This visualization shows the countries that are the least popular among people to visit. Many of the countries are islands with small population and different countries in the African continent.</p>
