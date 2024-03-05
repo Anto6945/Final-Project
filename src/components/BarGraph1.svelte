@@ -127,6 +127,6 @@ import { datatop } from '../lib/data';
   }
 
   rect {
-    fill: #4427ca;
+    fill: #af23d5;
   }
 </style>
