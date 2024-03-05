@@ -30,9 +30,8 @@
 </script>
 
 <main>
-  <h1>International Tourism over the Years (Arrivals Per Country)</h1>
-  <p> Our project aims to show which countries have the most arrivals from abroad. We examine the most traveled and the least traveled countries and events that have occured that has changed the way people travel. 
-  For example, COVID-19 was a major impact that significantly impacted international travel.  </p>
+  <h1>Visualizing San Diego (SAN) Air Traffic </h1>
+  <p>  We aim to show the most common routes/destinations (domestically and internationally) and airlines that go through the San Diego airport. </p>
   <Scroller
     top={0.0}
     bottom={1}

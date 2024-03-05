@@ -14,8 +14,8 @@
   onMount(async () => {
     await loadWorldData();
 
-    const width = 500; // Set desired width
-    const height = 390; // Set desired height
+    const width = 800; // Set desired width
+    const height = 550; // Set desired height
 
     const projection = d3.geoMercator()
       .scale(100) // Adjust scale to make the map smaller
