@@ -1,8 +1,6 @@
 <script>
     import { onMount } from 'svelte';
     import * as d3 from 'd3';
-    // Assuming datatop is used for other purposes
-    // import { datatop } from '../lib/data';
   
     let svg;
     let usaData; // Variable to store United States data

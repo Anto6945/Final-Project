@@ -3,7 +3,7 @@
   import Scroller from "@sveltejs/svelte-scroller";
   import BarGraph1 from './BarGraph1.svelte';
   import BarGraph2temporaire from "./BarGraph2temporaire.svelte";
-  import Writeup from './Writeup.svelte';
+  import Domestic from './Domestic.svelte';
   import {onMount} from 'svelte';
   import Map from './Map.svelte';
   import * as d3 from 'd3';
@@ -52,7 +52,7 @@
       <section>Bar Chart showing the top 10 most traveled countries!<BarGraph1/></section>
       <p> This visualization shows the countries that are the least popular among people to visit. Many of the countries are islands with small population and different countries in the African continent.</p>
       <section>Bar Chart showing the top 10 least traveled countries!<BarGraph2temporaire/></section>
-      <section> Writeup<Writeup/></section>
+      <section> United States Domestic Routes<Domestic/></section>
     </div>
   </Scroller>
 </main>
