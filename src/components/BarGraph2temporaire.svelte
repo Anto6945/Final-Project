@@ -114,6 +114,6 @@
   }
 
   rect {
-    fill: #4427ca;
+    fill: hsl(354, 68%, 47%);
   }
 </style>
