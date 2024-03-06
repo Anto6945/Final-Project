@@ -1,7 +1,7 @@
 <script>
 	import * as d3 from 'd3';
 	import {data_pie_chart} from '../lib/data_pie_chart';
-  
+	let selectedYear = 2022;
 	
   
 	let arcGenerator = d3.arc()
@@ -20,16 +20,28 @@
   let dataAngle = [];
   
 	$:{
-	  for (let i = 0; i < data_pie_chart[2022].length; i++) {
+	  dataAngle = [];
+	  for (let i = 0; i < data_pie_chart[selectedYear].length; i++) {
 		const Angle = [
-		  data_pie_chart[2022][i]['Airline'],
-		  +data_pie_chart[2022][i]['Share']
+		  data_pie_chart[selectedYear][i]['Airline'],
+		  +data_pie_chart[selectedYear][i]['Share']
 	  ];
 		dataAngle.push(Angle); 
 		};
 		arc_data = pieAngleGenerator(dataAngle);
+		console.log("arc_data",arc_data);
 	  }
   </script>
+  <div class="overlay">
+	<label for="slider">Years {selectedYear}</label>
+	<input
+		id="slider"
+		type="range"
+		min="2018"
+		max="2022"
+		bind:value={selectedYear}
+	/>
+  </div>
   <div class="visualization">
   <svg width="500" height="500">
 	<g transform="translate(250, 120)">
@@ -40,7 +52,7 @@
 			endAngle: data.endAngle
 		  })}
 		  fill={index === hovered ? "brown": arc_color(index)}
-		  on:mouseover={(event) => { hovered = index; 
+		  on:mouseover={(event) => { hovered = index;console.log(index); 
 		  recorded_mouse_position = {
 			x: event.pageX,
 			y: event.pageY

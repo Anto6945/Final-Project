@@ -2,7 +2,6 @@
 	
   import { dataBargraph } from '../lib/dataBargraph';
 
-  export let selectedYear = 2020;
   import * as d3 from "d3";
 	const formatLabel = d3.format(',.0f');
 
@@ -32,17 +31,6 @@
     .range([innerHeight, 0])
     .padding(0.25);
 </script>
-
-<div class="overlay">
-  <label for="slider">Years {selectedYear}</label>
-  <input
-      id="slider"
-      type="range"
-      min="1995"
-      max="2020"
-      bind:value={selectedYear}
-  />
-</div>
 
 <div class="app">
     <div class="wrapper" bind:clientWidth={width}>
