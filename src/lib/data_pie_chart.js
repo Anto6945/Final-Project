@@ -33,75 +33,75 @@ export const data_pie_chart = {2022:[
  , 
 2021:[{
   Airline: "Southwest Airlines",
-  Share: "32.9%"
+  Share: "32.9"
 },
 {
   Airline: "United Airlines",
-  Share: "12.2%"
+  Share: "12.2"
 },
 {
   Airline: "Delta Air Lines",
-  Share: "12.6%"
+  Share: "12.6"
 },
 {
   Airline: "American Airlines",
-  Share: "13.1%"
+  Share: "13.1"
 },
 {
   Airline: "Alaska Airlines",
-  Share: "5.7%"
+  Share: "5.7"
 },
 {
   Airline: "Other Airlines",
-  Share: "23.5%"
+  Share: "23.5"
 }
 ]
 ,
 2020:[{
   Airline: "Southwest Airlines",
-  Share: "34.6%"
+  Share: "34.6"
 },
 {
   Airline: "United Airlines",
-  Share: "13.3%"
+  Share: "13.3"
 },
 {
   Airline: "Delta Air Lines",
-  Share: "12.5%"
+  Share: "12.5"
 },
 {
   Airline: "American Airlines",
-  Share: "13.6%"
+  Share: "13.6"
 },
 {
   Airline: "Alaska Airlines",
-  Share: "19.2%"
+  Share: "19.2"
 },
 {
   Airline: "Other Airlines",
-  Share: "6.8%"
+  Share: "6.8"
 }
 ]
 ,
 2019:[{
   Airline: "Southwest Airlines",
-  Share: "41.9%"
+  Share: "41.9"
 },
 {
   Airline: "United Airlines",
-  Share: "10.3%"
+  Share: "10.3"
 },
 {
   Airline: "Delta Air Lines",
-  Share: "12.1%"
+  Share: "12.1"
 },
 {
   Airline: "American Airlines",
-  Share: "11.9%"
+  Share: "11.9"
 },
 {
   Airline: "Alaska Airlines",
-  Share: "14.3%"
+  Share: "14.3"
 },
 {
   Airline: "Other Airlines",
@@ -111,27 +111,27 @@ export const data_pie_chart = {2022:[
 ,
 2018:[{
   Airline: "Southwest Airlines",
-  Share: "37.8%"
+  Share: "37.8"
 },
 {
   Airline: "United Airlines",
-  Share: "13.0%"
+  Share: "13.0"
 },
 {
   Airline: "Delta Air Lines",
-  Share: "11.7%"
+  Share: "11.7"
 },
 {
   Airline: "American Airlines",
-  Share: "12.1%"
+  Share: "12.1"
 },
 {
   Airline: "Alaska Airlines",
-  Share: "13.7%"
+  Share: "13.7"
 },
 {
   Airline: "Other Airlines",
-  Share: "11.5%"
+  Share: "11.5"
 }
 ]
 }

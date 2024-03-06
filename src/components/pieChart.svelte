@@ -1,7 +1,7 @@
 <script>
     import * as d3 from 'd3';
     import { data_pie_chart } from '../lib/data_pie_chart';
-
+	let selectedYear = 2022;
     let arcGenerator = d3.arc()
         .innerRadius(10)
         .outerRadius(200)
@@ -14,16 +14,25 @@
 
     // Define the color scale with different colors for each section
     const arc_color = d3.scaleOrdinal()
-        .domain(data_pie_chart[2022].map(d => d.Airline))
+        .domain(data_pie_chart[selectedYear].map(d => d.Airline))
         .range(d3.schemeCategory10); // You can use any color scheme you prefer
 
     $: {
         arc_data = d3.pie()
             .value(d => d.Share)
-            (data_pie_chart[2022]);
+            (data_pie_chart[selectedYear]);
     }
 </script>
-
+<div class="overlay">
+	<label for="slider">Years {selectedYear}</label>
+	<input
+		id="slider"
+		type="range"
+		min="2018"
+		max="2022"
+		bind:value={selectedYear}
+	/>
+  </div>
 <div class="visualization">
     <svg width="500" height="500">
         <g transform="translate(250, 250)">
