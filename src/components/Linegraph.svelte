@@ -179,7 +179,25 @@ svg.append('line')
     .style('fill', 'black') // Change text color if needed
     .text('Construction of SAN airport!');
 
-        
+    svg.append('text')
+    .attr('x', 1280) // Adjust x-coordinate based on your requirement
+    .attr('y', 250) // Adjust y-coordinate based on your requirement
+    .attr('text-anchor', 'end') // Align the text to the end of the specified coordinates
+    .style('font-size', '55px') // Adjust font size if needed
+    .style('font-family', 'Arial, sans-serif') // Change font family if needed
+    .style('fill', 'cornflowerblue')
+    .style('font-weight', 'bold') // Change text color if needed
+    .text('+ 17322.3%');
+
+    svg.append('text')
+    .attr('x', 1315) // Adjust x-coordinate based on your requirement
+    .attr('y', 277) // Adjust y-coordinate to position it below "1920"
+    .attr('text-anchor', 'end') // Align the text to the end of the specified coordinates
+    .style('font-size', '15px') // Adjust font size if needed
+    .style('font-family', 'Verdana, sans-serif') // Change font family if needed
+    .style('fill', 'black') // Change text color if needed
+    .text('Percentage increase in passengers since 1949');
+
     });
 </script>
 
