@@ -143,6 +143,23 @@ svg.append('line')
     .style('stroke', 'black')
     .style('stroke-width', '2px');
 
+    svg.append('text')
+    .attr('x', x(1984) + margin.left) // Adjust x-coordinate based on the year
+    .attr('y', y(800000) + margin.top - 10) // Adjusted y-coordinate for text
+    .attr('dy', '-1em') // Offset the text slightly above the point
+    .attr('text-anchor', 'middle')
+    .style('fill', 'black')
+    .style('font-size', '12px') // Adjust font size
+    .text('60s & 70s - air travel becomes more common');
+
+    svg.append('line')
+    .attr('x1', x(1973) + margin.left)
+    .attr('y1', y(15)) // Adjusted y-coordinate for the line
+    .attr('x2', x(1968) + margin.left)
+    .attr('y2', y(1900000) + margin.top - 17) // Length of the arrow line
+    .style('stroke', 'black')
+    .style('stroke-width', '2px');
+
         
     });
 </script>
