@@ -32,9 +32,11 @@
 		max="2022"
 		bind:value={selectedYear}
 	/>
-  </div>
+</div>
 <div class="visualization">
     <svg width="500" height="500">
+        <!-- Title for the graph -->
+        <text x="250" y="30" text-anchor="middle" font-size="18px" font-weight="bold">Airline distribution for San Diego Airport (2018-2022)</text>
         <g transform="translate(250, 250)">
             {#each arc_data as data, index}
                 <path
@@ -65,6 +67,11 @@
         {#if hovered !== -1}
             {arc_data[hovered].data.Share}% of the total flights are {arc_data[hovered].data.Airline == "Other Airlines" ? "other" : arc_data[hovered].data.Airline}.
         {/if}
+    </div>
+
+    <!-- Text below the pie chart -->
+    <div style="margin-top: 20px; text-align: left; font-size: 14px;">
+        Hover over the pie chart to find the percentage of space shared by each airline!
     </div>
 </div>
 

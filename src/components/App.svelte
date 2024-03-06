@@ -46,8 +46,8 @@
     ></div>
     <div class="foreground" slot="foreground">
       <section><Linegraph/></section>
-      <section><BarGraph1/></section>
       <section><PieChart/></section>
+      <section><BarGraph1/></section>
     </div>
   </Scroller>
 </main>
