@@ -69,7 +69,7 @@
         
         // Append a tooltip background rectangle
         const tooltipRect = svg.append('rect')
-            .attr('width', 170)
+            .attr('width', 200)
             .attr('height', 20)
             .attr('fill', 'lightgray')
             .style('opacity', 0);
@@ -77,7 +77,7 @@
         // Append a tooltip text element
         const tooltipText = svg.append('text')
             .style('opacity', 0)
-            .style('font-size', '12px')
+            .style('font-size', '15px')
             .style('fill', 'black');
         
         svg.append('text')
@@ -159,6 +159,25 @@ svg.append('line')
     .attr('y2', y(1900000) + margin.top - 17) // Length of the arrow line
     .style('stroke', 'black')
     .style('stroke-width', '2px');
+
+    svg.append('text')
+    .attr('x', 1200) // Adjust x-coordinate based on your requirement
+    .attr('y', 100) // Adjust y-coordinate based on your requirement
+    .attr('text-anchor', 'end') // Align the text to the end of the specified coordinates
+    .style('font-size', '55px')
+    .style('font-family', 'Arial, sans-serif') // Change font family to something visually appealing
+    .style('fill', 'lightblue')
+    .style('font-weight', 'bold') // Change text color to light blue
+    .text('1928');
+
+    svg.append('text')
+    .attr('x', 1248) // Adjust x-coordinate based on your requirement
+    .attr('y', 130) // Adjust y-coordinate to position it below "1920"
+    .attr('text-anchor', 'end') // Align the text to the end of the specified coordinates
+    .style('font-size', '15px') // Adjust font size if needed
+    .style('font-family', 'Verdana, sans-serif') // Change font family if needed
+    .style('fill', 'black') // Change text color if needed
+    .text('Construction of SAN airport!');
 
         
     });
