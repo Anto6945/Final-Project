@@ -30,7 +30,6 @@
 
 <main>
   <h1 class="custom-heading">Visualizing San Diego (SAN) Air Traffic</h1>
-  <p> Ever wonder what the statistics of San Diego's International Airport are? Here is some information on the number of passengers, the most common airlines, the most common destinations domestically and internationally from the San Diego Airport! </p>
   <Scroller
     top={0.0}
     bottom={1}
@@ -47,11 +46,8 @@
     ></div>
     <div class="foreground" slot="foreground">
       <section><Linegraph/></section>
-      <p> The bar chart below shows the most popular destinations from passengers flying out of SD. 
-      Europe, Mexico, and Canada seem to be popular international destinations. </p>
-      <section>Bar Chart showing the top 10 most traveled countries!<BarGraph1/></section>
-      <p> This visualization shows the countries that are the least popular among people to visit. Many of the countries are islands with small population and different countries in the African continent.</p>
-      <section>Bar Chart showing the top 10 least traveled countries!<BarGraph2temporaire/></section>
+      <section><BarGraph1/></section>
+      <section><BarGraph2temporaire/></section>
     </div>
   </Scroller>
 </main>
