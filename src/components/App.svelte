@@ -65,10 +65,8 @@ let dataAngle = [];
   style="left: {recorded_mouse_position.x + 40}px; top:
   {recorded_mouse_position.y + 40}px">
   {#if hovered !== -1}
-    There {arc_data[hovered].data[1] === 1 ? "is" : "are"}
-    {arc_data[hovered].data[1]}
-    record{arc_data[hovered].data[1] === 1 ? "" : "s"}
-    where you have "{arc_data[hovered].data[0]}" todo items.
+    {arc_data[hovered].data[1]}% of the total 
+    flights are flights of {arc_data[hovered].data[0] == "Other Airlines" ? "other airlines" : "the airline " + arc_data[hovered].data[0]}.
   {/if}
 </div>
 </div>
