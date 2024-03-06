@@ -36,7 +36,7 @@
 <div class="visualization">
     <svg width="500" height="500">
         <!-- Title for the graph -->
-        <text x="250" y="30" text-anchor="middle" font-size="18px" font-weight="bold">Airline distribution for San Diego Airport (2018-2022)</text>
+        <text x="250" y="30" text-anchor="middle" font-size="20px" font-weight="bold">Airline distribution for San Diego Airport (2018-2022)</text>
         <g transform="translate(250, 250)">
             {#each arc_data as data, index}
                 <path
