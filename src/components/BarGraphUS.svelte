@@ -1,91 +1,79 @@
 <script>
 	
-  import { dataleast } from '../lib/data';
-
-  export let selectedYear = 2020;
+  import { data_BarGraphUS } from '../lib/data_BargraphUS';
   import * as d3 from "d3";
-  let dataUsed;
-  function updateYear(value){
-    dataUsed = dataleast[String(value)];
-    dataUsed=dataUsed.sort(
-      (a, b) => a[selectedYear] - b[selectedYear],
-    )
-  };
-  updateYear(selectedYear);
-	
 	const formatLabel = d3.format(',.0f');
+  const data = data_BarGraphUS.slice().reverse();
 
 	const margin = {
     top: 30,
     right: 100,
     bottom: 0,
-    left: 110,
+    left: 180,
   };
 
-	let width = 400;
-  let height = 320;
+	let width = 500;
+  let height = 400;
+  let recorded_mouse_position = {x: 0, y: 0};
+  let hovered = -1;
 
   $: innerWidth = width - margin.left - margin.right;
   let innerHeight = height - margin.top - margin.bottom;
 
 	$: xScale = d3
     .scaleLinear()
-    .domain([0, d3.max(dataUsed, d => d[String(selectedYear)]*0.8)])
+    .domain([0, d3.max(data, d => +d["Passengers"]*0.8)])
     .range([0, innerWidth*0.8]);
 
   $: yScale = d3
     .scaleBand()
-    .domain(dataUsed.map(d => d.Country_Name))
+    .domain(data.map(d => d.City))
     .range([innerHeight, 0])
     .padding(0.25);
 </script>
-
-<div class="overlay">
-  <label for="slider">Years {selectedYear}</label>
-  <input
-      id="slider"
-      type="range"
-      min="1995"
-      max="2020"
-      bind:value={selectedYear}
-      on:input={() => updateYear(selectedYear)}
-  />
-</div>
 
 <div class="app">
     <div class="wrapper" bind:clientWidth={width}>
       <svg {width} {height}>
         <g transform={`translate(${margin.left}, ${margin.top})`}>
-          {#each dataUsed as country}
+          {#each data as country}
             <text
               text-anchor="end"
-              x={-10}
-              y={yScale(country.Country_Name) + yScale.bandwidth() / 2}
+              x={hovered == country["Passengers"] ? -15 :-10}
+              y={yScale(country.City) + yScale.bandwidth() / 2}
+              opacity={hovered ? hovered == country["Passengers"] ? "1" : ".3" : "1"}
               dy=".35em"
             >
-              {country.Country_Name}
+              {country.City}
             </text>
             <rect
               x={0}
-              y={yScale(country.Country_Name)}
-              width={xScale(country[String(selectedYear)])}
-              height={yScale.bandwidth()}
+              y={hovered == country["Passengers"] ? yScale(country.City)-1: yScale(country.City)}
+              width={xScale(+country["Passengers"])}
+              height={hovered == country["Passengers"] ? yScale.bandwidth()+2 : yScale.bandwidth()}
+              on:mouseover={(event) => { hovered = country["Passengers"];
+                recorded_mouse_position = {
+                  x: event.pageX,
+                  y: event.pageY
+                  }}}
+              on:mouseout={() => hovered = -1}
             />
+            {#if hovered !== -1 && hovered == country["Passengers"]}
             <text
-              text-anchor="start"
-              x={xScale(country[String(selectedYear)])}
-              dx="10"
-              y={yScale(country.Country_Name) + yScale.bandwidth() / 2}
-              dy=".35em"
-            >
-              {formatLabel(country[String(selectedYear)])}
-            </text>
+            text-anchor="start"
+            x={xScale(+country["Passengers"])}
+            dx="10"
+            y={yScale(country.City) + yScale.bandwidth() / 2}
+            dy=".35em"
+          >
+            {formatLabel(+country["Passengers"])}
+          </text>
+            {/if}
           {/each}
         </g>
       </svg>
     </div>
 </div>
-
 <style>
     @import url("https://fonts.googleapis.com/css?family=Merriweather:700&display=swap");
     @import url("https://fonts.googleapis.com/css?family=Lato:400&display=swap");
@@ -114,6 +102,6 @@
   }
 
   rect {
-    fill: hsl(354, 68%, 47%);
+    fill: #af23d5;
   }
 </style>
