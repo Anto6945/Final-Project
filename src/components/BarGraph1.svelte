@@ -4,6 +4,7 @@
 
   import * as d3 from "d3";
 	const formatLabel = d3.format(',.0f');
+  const data = dataBargraph.slice().reverse();
 
 	const margin = {
     top: 30,
@@ -22,12 +23,12 @@
 
 	$: xScale = d3
     .scaleLinear()
-    .domain([0, d3.max(dataBargraph, d => +d["Passengers"]*0.8)])
+    .domain([0, d3.max(data, d => +d["Passengers"]*0.8)])
     .range([0, innerWidth*0.8]);
 
   $: yScale = d3
     .scaleBand()
-    .domain(dataBargraph.map(d => d.City))
+    .domain(data.map(d => d.City))
     .range([innerHeight, 0])
     .padding(0.25);
 </script>
@@ -36,7 +37,7 @@
     <div class="wrapper" bind:clientWidth={width}>
       <svg {width} {height}>
         <g transform={`translate(${margin.left}, ${margin.top})`}>
-          {#each dataBargraph as country}
+          {#each data as country}
             <text
               text-anchor="end"
               x={hovered == country["Passengers"] ? -15 :-10}
