@@ -23,7 +23,16 @@
             (data_pie_chart[selectedYear]);
     }
 </script>
-
+<div class="overlay">
+	<label for="slider">Years {selectedYear}</label>
+	<input
+		id="slider"
+		type="range"
+		min="2018"
+		max="2022"
+		bind:value={selectedYear}
+	/>
+  </div>
 <div class="visualization">
     <svg width="500" height="500">
         <g transform="translate(250, 250)">
