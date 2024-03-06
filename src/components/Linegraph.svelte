@@ -198,6 +198,16 @@ svg.append('line')
     .style('fill', 'black') // Change text color if needed
     .text('Percentage increase in passengers since 1949');
 
+    svg.append('text')
+    .attr('x', 1220) // Adjust x-coordinate based on your requirement
+    .attr('y', 280) // Adjust y-coordinate based on your requirement
+    .attr('text-anchor', 'end') // Align the text to the end of the specified coordinates
+    .style('font-size', '55px') // Adjust font size if needed
+    .style('font-family', 'Arial, sans-serif') // Change font family if needed
+    style('fill', '#336699')
+    .style('font-weight', 'bold') // Change text color if needed
+    .text('#3');
+
     });
 </script>
 
