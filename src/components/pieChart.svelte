@@ -28,7 +28,6 @@
 		dataAngle.push(Angle); 
 		};
 		arc_data = pieAngleGenerator(dataAngle);
-		console.log("arc_data",arc_data);
 	  }
   </script>
   <div class="visualization">
@@ -41,7 +40,7 @@
 			endAngle: data.endAngle
 		  })}
 		  fill={index === hovered ? "brown": arc_color(index)}
-		  on:mouseover={(event) => { hovered = index;console.log(index); 
+		  on:mouseover={(event) => { hovered = index; 
 		  recorded_mouse_position = {
 			x: event.pageX,
 			y: event.pageY
