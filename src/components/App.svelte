@@ -2,10 +2,12 @@
 <script>
   import Scroller from "@sveltejs/svelte-scroller";
   import BarGraph1 from './BarGraph1.svelte';
+  import BarGraphUS from './BarGraphUS.svelte';
   import Linegraph from "./Linegraph.svelte";
   import PieChart from "./PieChart.svelte";
   import {onMount} from 'svelte';
   import * as d3 from 'd3';
+  import BarGraphUs from "./BarGraphUS.svelte";
   
   let count, index, offset, progress;
   let width, height;
@@ -46,8 +48,10 @@
     ></div>
     <div class="foreground" slot="foreground">
       <section><Linegraph/></section>
-      <section><BarGraph1/></section>
       <section><PieChart/></section>
+      <section><BarGraphUS/></section>
+      <section><BarGraph1/></section>
+      
     </div>
   </Scroller>
 </main>
