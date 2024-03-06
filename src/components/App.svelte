@@ -3,8 +3,7 @@
   import {data_pie_chart} from '../lib/data_pie_chart';
 
   
-  let dataAngle = [];
-  let dataAngle2 = [];
+
   let arcGenerator = d3.arc()
     .innerRadius(10)
     .outerRadius(100)
@@ -14,54 +13,28 @@
 
   let pieAngleGenerator = d3.pie().value( d => d[1] );
 let arc_data = [];
-let arc_data2 = [];
-let arc_data3 = [];
+
 const arc_color = d3.scaleLinear()
   .range(["#faffd1", "#db921d", "#b86a04", "#a65d29" ,"#6e3003"]);
 let hovered = -1;
-let count = 0;
-let data = data_pie_chart[2022].map(d => ({
-  value: parseFloat(d['Share'].replace(',', '.')), // Convert share to number
-  category: d['Airline']
-}));
-console.log("data", data);
-// Use pieAngleGenerator
-let pie = d3.pie()
-  .value(d => d.value);
+let dataAngle = [];
 
-
-// Output angle data
-console.log(arc_data);
   $:{
     for (let i = 0; i < data_pie_chart[2022].length; i++) {
-      console.log(data_pie_chart[2022][i]);
-      const Angle = {
-        "category": data_pie_chart[2022][i]['Airline'],
-        "startAngle": count,
-        "endAngle": count < 6.282185307179586 ? count + data_pie_chart[2022][i]['Share']*0.06283185307179586:6.283185307179586
-      };
-      count = Angle.endAngle;
-      dataAngle[i] = Angle;
-      const Angle2 = [
+      const Angle = [
         data_pie_chart[2022][i]['Airline'],
         +data_pie_chart[2022][i]['Share']
     ];
-      dataAngle2.push(Angle2); 
+      dataAngle.push(Angle); 
       };
-      console.log("dataAngle" + dataAngle);
-      console.log("dataAngle2" + dataAngle2);
-      arc_data = dataAngle;
-      arc_data2 = pieAngleGenerator(data);
-      arc_data3 = pieAngleGenerator(dataAngle2);
-      console.log("arc_data" , arc_data);
-      console.log("arc_data2",arc_data2);
-      console.log("arc_data3",arc_data3);
+      arc_data = pieAngleGenerator(dataAngle);
+      console.log("arc_data",arc_data);
     }
 </script>
 <div class="visualization">
 <svg width="500" height="500">
   <g transform="translate(250, 120)">
-    {#each arc_data3 as data, index}
+    {#each arc_data as data, index}
       <path
         d={arcGenerator({
           startAngle: data.startAngle,
