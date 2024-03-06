@@ -46,7 +46,7 @@
       bind:clientWidth={width} bind:clientHeight={height}
     ></div>
     <div class="foreground" slot="foreground">
-      <section>Map Interactive.<Linegraph/></section>
+      <section><Linegraph/></section>
       <section> United States Domestic Routes</section>
       <p> The bar chart below shows the most popular countries for travel. As we can see from 2004 onwards, France tends to be the most popular country with the most number of arrivals!</p>
       <section>Bar Chart showing the top 10 most traveled countries!<BarGraph1/></section>
