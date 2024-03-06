@@ -29,8 +29,7 @@
 </script>
 
 <main>
-  <h1 class="custom-heading">Visualizing San Diego (SAN) Air Traffic</h1>
-  <p> Ever wonder what the statistics of San Diego's International Airport are? Here is some information on the number of passengers, the most common airlines, the most common destinations domestically and internationally from the San Diego Airport! </p>
+  <h1 class="custom-heading">Visualizing San Diego Airport (SAN) Air Traffic</h1>
   <Scroller
     top={0.0}
     bottom={1}
@@ -86,7 +85,7 @@
     margin: 0 0 2em 0;}
     .custom-heading {
     font-family: Arial, sans-serif; /* Specify the desired font family */
-    font-size: 33px; /* Adjust font size as needed */
+    font-size: 34px; /* Adjust font size as needed */
     font-weight: bold; /* Optionally, adjust font weight */
     color: #333; /* Optionally, specify font color */
     text-align: center; 

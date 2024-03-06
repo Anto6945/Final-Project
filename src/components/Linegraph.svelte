@@ -84,7 +84,8 @@
             .attr('x', (width + margin.left + margin.right) / 2)
             .attr('y', margin.top / 2)
             .attr('text-anchor', 'middle')
-            .style('font-size', '18px')
+            .style('font-family', 'Verdana, sans-serif')
+            .style('font-size', '18.5px')
             .text('Annual Number of Passengers in SAN airport from 1949-2018');
         
         // Add x-axis label
@@ -92,7 +93,8 @@
             .attr('x', (width + margin.left + margin.right) / 2)
             .attr('y', height + margin.top + margin.bottom / 2)
             .attr('text-anchor', 'middle')
-            .style('font-size', '14px')
+            .style('font-family', 'Verdana, sans-serif')
+            .style('font-size', '14.5px')
             .text('Year');
         
         // Add y-axis label
@@ -101,7 +103,8 @@
             .attr('x', -(height + margin.top + margin.bottom) / 2)
             .attr('y', margin.left / 2)
             .attr('text-anchor', 'middle')
-            .style('font-size', '14px')
+            .style('font-family', 'Verdana, sans-serif')
+            .style('font-size', '14.5px')
             .text('Number of Passengers');
 
             svg.append('text')
