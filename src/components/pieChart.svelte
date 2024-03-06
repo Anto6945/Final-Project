@@ -4,7 +4,7 @@
 
     let arcGenerator = d3.arc()
         .innerRadius(10)
-        .outerRadius(155)
+        .outerRadius(200)
         .padAngle(.02)
         .cornerRadius(4);
 
@@ -42,9 +42,9 @@
                     y={arcGenerator.centroid(data)[1]}
                     text-anchor="middle"
                     alignment-baseline="middle"
-                    font-size="10px"
+                    font-size="12px"
                 >
-                    {data.data.Airline}
+                    {data.data.Airline.replace(' Airlines', '')} <!-- Remove 'Airlines' from the text -->
                 </text>
             {/each}
         </g>
@@ -53,7 +53,7 @@
     <div class={hovered === -1 ? "tooltip-hidden" : "tooltip-visible"}
         style="left: {recorded_mouse_position.x + 40}px; top: {recorded_mouse_position.y + 40}px">
         {#if hovered !== -1}
-            {arc_data[hovered].data.Share}% of the total flights are {arc_data[hovered].data.Airline == "Other Airlines" ? "other airlines" : " " + arc_data[hovered].data.Airline}.
+            {arc_data[hovered].data.Share}% of the total flights are {arc_data[hovered].data.Airline == "Other Airlines" ? "other" : arc_data[hovered].data.Airline}.
         {/if}
     </div>
 </div>
