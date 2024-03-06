@@ -51,7 +51,8 @@
                     y={arcGenerator.centroid(data)[1]}
                     text-anchor="middle"
                     alignment-baseline="middle"
-                    font-size="12px"
+                    font-size="13.5px"
+					style="font-family: Georgia;"
                 >
                     {data.data.Airline.replace(' Airlines', '')} <!-- Remove 'Airlines' from the text -->
                 </text>
@@ -68,11 +69,14 @@
 </div>
 
 <style>
+	.overlay {
+        text-align: left;
+    }
     .visualization {
         font: 20px sans-serif;
         margin: auto;
         margin-top: 1px;
-        text-align: middle;
+        text-align: left;
     }
 
     /* dynamic classes for the tooltip */
