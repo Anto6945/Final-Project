@@ -199,14 +199,23 @@ svg.append('line')
     .text('Percentage increase in passengers since 1949');
 
     svg.append('text')
-    .attr('x', 1220) // Adjust x-coordinate based on your requirement
-    .attr('y', 280) // Adjust y-coordinate based on your requirement
+    .attr('x', 1170) // Adjust x-coordinate based on your requirement
+    .attr('y', 405) // Adjust y-coordinate based on your requirement
     .attr('text-anchor', 'end') // Align the text to the end of the specified coordinates
     .style('font-size', '55px') // Adjust font size if needed
     .style('font-family', 'Arial, sans-serif') // Change font family if needed
-    style('fill', '#336699')
+    .style('fill', '#336699')
     .style('font-weight', 'bold') // Change text color if needed
     .text('#3');
+
+    svg.append('text')
+    .attr('x', 1273) // Adjust x-coordinate based on your requirement
+    .attr('y', 430) // Adjust y-coordinate to position it below "1920"
+    .attr('text-anchor', 'end') // Align the text to the end of the specified coordinates
+    .style('font-size', '15px') // Adjust font size if needed
+    .style('font-family', 'Verdana, sans-serif') // Change font family if needed
+    .style('fill', 'black') // Change text color if needed
+    .text('3rd most busiest airport in California');
 
     });
 </script>
