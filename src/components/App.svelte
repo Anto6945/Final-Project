@@ -30,7 +30,7 @@
 
 <main>
   <h1 class="custom-heading">Visualizing San Diego (SAN) Air Traffic</h1>
-  <p>  We aim to show the most common routes/destinations (domestically and internationally) and airlines that go through the San Diego airport. </p>
+  <p> Ever wonder what the statistics of San Diego's International Airport are? Here is some information on the number of passengers, the most common airlines, the most common destinations domestically and internationally from the San Diego Airport! </p>
   <Scroller
     top={0.0}
     bottom={1}

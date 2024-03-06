@@ -4,7 +4,7 @@
     import { data_lineGraph } from '../lib/data_lineGraph'; // Importing the data from the file
     
     // Define margins and larger dimensions with increased left margin
-    let margin = { top: 50, right: 70, bottom: 70, left: 130 };
+    let margin = { top: 50, right: 70, bottom: 70, left: 135 };
     let width = 850 - margin.left - margin.right;
     let height = 600 - margin.top - margin.bottom;
     
@@ -103,6 +103,47 @@
             .attr('text-anchor', 'middle')
             .style('font-size', '14px')
             .text('Number of Passengers');
+
+            svg.append('text')
+
+    // Append the text for the annotation
+svg.append('text')
+    .attr('x', x(2005) + margin.left) // Adjust x-coordinate based on the year
+    .attr('y', y(11000000) + margin.top - 10) // Adjusted y-coordinate for text
+    .attr('dy', '-1em') // Offset the text slightly above the point
+    .attr('text-anchor', 'middle')
+    .style('fill', 'black')
+    .style('font-size', '12px') // Adjust font size
+    .text('Air travel decreases - 9/11');
+
+// Append the line for the arrow
+svg.append('line')
+    .attr('x1', x(2001) + margin.left)
+    .attr('y1', y(12100000)) // Adjusted y-coordinate for the line
+    .attr('x2', x(2001) + margin.left)
+    .attr('y2', y(10000000) + margin.top - 55) // Length of the arrow line
+    .style('stroke', 'black')
+    .style('stroke-width', '1.75px');
+
+    svg.append('text')
+    .attr('x', x(2005) + margin.left) // Adjust x-coordinate based on the year
+    .attr('y', y(19600000) + margin.top - 10) // Adjusted y-coordinate for text
+    .attr('dy', '-1em') // Offset the text slightly above the point
+    .attr('text-anchor', 'middle')
+    .style('fill', 'black')
+    .style('font-size', '12px') // Adjust font size
+    .text('travel decreases - 2008 Recession');
+
+// Append the line for the arrow
+svg.append('line')
+    .attr('x1', x(2009) + margin.left)
+    .attr('y1', y(18000000)) // Adjusted y-coordinate for the line
+    .attr('x2', x(2009) + margin.left)
+    .attr('y2', y(16000000) + margin.top - 38) // Length of the arrow line
+    .style('stroke', 'black')
+    .style('stroke-width', '2px');
+
+        
     });
 </script>
 
