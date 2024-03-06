@@ -11,11 +11,11 @@
     top: 30,
     right: 100,
     bottom: 0,
-    left: 110,
+    left: 180,
   };
 
-	let width = 400;
-  let height = 320;
+	let width = 500;
+  let height = 400;
   let recorded_mouse_position = {x: 0, y: 0};
   let hovered = -1;
 
