@@ -2,7 +2,6 @@
 <script>
   import Scroller from "@sveltejs/svelte-scroller";
   import BarGraph1 from './BarGraph1.svelte';
-  import BarGraph2temporaire from "./BarGraph2temporaire.svelte";
   import Linegraph from "./Linegraph.svelte";
   import {onMount} from 'svelte';
   import * as d3 from 'd3';
@@ -46,11 +45,8 @@
     ></div>
     <div class="foreground" slot="foreground">
       <section><Linegraph/></section>
-      <p> The bar chart below shows the most popular destinations from passengers flying out of SD. 
-      Europe, Mexico, and Canada seem to be popular international destinations. </p>
-      <section>Bar Chart showing the top 10 most traveled countries!<BarGraph1/></section>
-      <p> This visualization shows the countries that are the least popular among people to visit. Many of the countries are islands with small population and different countries in the African continent.</p>
-      <section>Bar Chart showing the top 10 least traveled countries!<BarGraph2temporaire/></section>
+      <section><BarGraph1/></section>
+      <section></section>
     </div>
   </Scroller>
 </main>
