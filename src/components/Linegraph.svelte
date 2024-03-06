@@ -225,29 +225,7 @@ svg.append('line')
     .style('font-family', 'Verdana, sans-serif')
     .style('fill', 'black')
     .text('Hover over points to see total values for each year!');
-
-    // Append the plane image
-svg.append('image')
-    .attr('xlink:href', 'plane.png')
-    .attr('x', x(1200)) // Set the initial x-coordinate of the plane (point A)
-    .attr('y', y(460)) // Set the initial y-coordinate of the plane (point A)
-    .attr('width', 10) // Set the width of the plane
-    .attr('height', 10) // Set the height of the plane
-    .attr('opacity', 0) // Set initial opacity to 0 (invisible)
-    .transition()
-    .duration(1000) // Set the duration of the transition (in milliseconds)
-    .attr('opacity', 1); // Set opacity to 1 (visible)
-
-// Append animateMotion element to animate the movement of the plane
-svg.append('animateMotion')
-    .attr('dur', '5s') // Set the duration of the animation (in seconds)
-    .attr('repeatCount', 'indefinite') // Make the animation repeat indefinitely
-    .attr('path', `M${x(1200)} ${y(460)} L${x(1400)} ${y(500)}`) // Define the path for the plane to follow from point A to point B
-    .append('mpath')
-    .attr('xlink:href', 'plane.png'); // Reference the plane image
-
-
-    });
+});
 </script>
 
 <style>
