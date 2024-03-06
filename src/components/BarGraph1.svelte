@@ -9,7 +9,7 @@
     top: 30,
     right: 100,
     bottom: 0,
-    left: 180,
+    left: 300,
   };
 
 	let width = 500;
