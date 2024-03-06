@@ -1,7 +1,7 @@
 <script>
   import * as d3 from 'd3';
   import {data_pie_chart} from '../lib/data_pie_chart';
-  export let selectedYear = 2022;
+  let selectedYear = 2022;
   
 
   let arcGenerator = d3.arc()
