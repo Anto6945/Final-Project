@@ -1,37 +1,37 @@
- export const data_pie_chart = [{2022:[
+export const data_pie_chart = {2022:[
   {
     Airline: "Southwest Airlines",
-    Passengers: "8,162,000",
-    Share: "35.61%"
+    Passengers: "8162000",
+    Share: "35.61"
   },
   {
     Airline: "United Airlines",
-    Passengers: "2,921,000",
-    Share: "12.74%"
+    Passengers: "2921000",
+    Share: "12.74"
   },
   {
     Airline: "Delta Air Lines",
-    Passengers: "2,845,000",
-    Share: "12.41%"
+    Passengers: "2845000",
+    Share: "12.41"
   },
   {
     Airline: "American Airlines",
-    Passengers: "2,650,000",
-    Share: "11.56%"
+    Passengers: "2650000",
+    Share: "11.56"
   },
   {
     Airline: "Alaska Airlines",
-    Passengers: "2,561,000",
-    Share: "11.17%"
+    Passengers: "2561000",
+    Share: "11.17"
   },
   {
     Airline: "Other Airlines",
-    Passengers: "3,783,000",
-    Share: "16.50%"
+    Passengers: "3783000",
+    Share: "16.50"
   }
 ]
- },
-{2021:[{
+ , 
+2021:[{
   Airline: "Southwest Airlines",
   Share: "32.9%"
 },
@@ -56,8 +56,8 @@
   Share: "23.5%"
 }
 ]
-},
-{2020:[{
+,
+2020:[{
   Airline: "Southwest Airlines",
   Share: "34.6%"
 },
@@ -82,8 +82,8 @@
   Share: "6.8%"
 }
 ]
-},
-{2019:[{
+,
+2019:[{
   Airline: "Southwest Airlines",
   Share: "41.9%"
 },
@@ -108,8 +108,8 @@
   Share: "9.5"
 }
 ]
-},
-{2018:[{
+,
+2018:[{
   Airline: "Southwest Airlines",
   Share: "37.8%"
 },
@@ -135,4 +135,3 @@
 }
 ]
 }
-]

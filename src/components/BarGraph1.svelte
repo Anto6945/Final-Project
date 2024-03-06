@@ -4,7 +4,6 @@
 
   export let selectedYear = 2020;
   import * as d3 from "d3";
-	console.log(dataBargraph[0]["Passengers"]);
 	const formatLabel = d3.format(',.0f');
 
 	const margin = {

@@ -3,6 +3,7 @@
   import Scroller from "@sveltejs/svelte-scroller";
   import BarGraph1 from './BarGraph1.svelte';
   import Linegraph from "./Linegraph.svelte";
+  import PieChart from "./PieChart.svelte";
   import {onMount} from 'svelte';
   import * as d3 from 'd3';
   
@@ -46,7 +47,7 @@
     <div class="foreground" slot="foreground">
       <section><Linegraph/></section>
       <section><BarGraph1/></section>
-      <section></section>
+      <section><PieChart/></section>
     </div>
   </Scroller>
 </main>
