@@ -29,7 +29,7 @@
 </script>
 
 <main>
-  <h1>Visualizing San Diego (SAN) Air Traffic </h1>
+  <h1 class="custom-heading">Visualizing San Diego (SAN) Air Traffic</h1>
   <p>  We aim to show the most common routes/destinations (domestically and internationally) and airlines that go through the San Diego airport. </p>
   <Scroller
     top={0.0}
@@ -47,12 +47,10 @@
     ></div>
     <div class="foreground" slot="foreground">
       <section><Linegraph/></section>
-      <section> United States Domestic Routes</section>
       <p> The bar chart below shows the most popular countries for travel. As we can see from 2004 onwards, France tends to be the most popular country with the most number of arrivals!</p>
       <section>Bar Chart showing the top 10 most traveled countries!<BarGraph1/></section>
       <p> This visualization shows the countries that are the least popular among people to visit. Many of the countries are islands with small population and different countries in the African continent.</p>
       <section>Bar Chart showing the top 10 least traveled countries!<BarGraph2temporaire/></section>
-      <section>Map</section>
     </div>
   </Scroller>
 </main>
@@ -84,7 +82,13 @@
     max-width: 2000px; /* adjust at will */
     color: black;
     padding: 1em;
-    margin: 0 0 2em 0;
+    margin: 0 0 2em 0;}
+    .custom-heading {
+    font-family: Arial, sans-serif; /* Specify the desired font family */
+    font-size: 30px; /* Adjust font size as needed */
+    font-weight: bold; /* Optionally, adjust font weight */
+    color: #333; /* Optionally, specify font color */
+    text-align: center; 
   }
 
 </style>

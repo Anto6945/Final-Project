@@ -5,7 +5,7 @@
     
     // Define margins and larger dimensions with increased left margin
     let margin = { top: 50, right: 70, bottom: 70, left: 80 };
-    let width = 800 - margin.left - margin.right;
+    let width = 850 - margin.left - margin.right;
     let height = 600 - margin.top - margin.bottom;
     
     onMount(() => {
@@ -42,15 +42,43 @@
             .attr('stroke-width', 2)
             .attr('d', line);
     
+        // Add tooltips
         svg.selectAll('circle')
             .data(data_lineGraph)
             .enter()
             .append('circle')
             .attr('cx', d => x(parseInt(d.Year)) + margin.left)
             .attr('cy', d => y(parseInt(d.Total)) + margin.top)
-            .attr('r', 5)
+            .attr('r', 3.5)
             .attr('fill', 'blue')
-            .on('click', d => alert(`Number: ${d.Total}`));
+            .on('mouseover', (event, d) => {
+                // Show tooltip with year and total
+                tooltipRect.attr('x', x(parseInt(d.Year)) + margin.left + 5)
+                    .attr('y', y(parseInt(d.Total)) + margin.top - 20)
+                    .style('opacity', 0.8);
+                tooltipText.text(`${d.Year} - ${d.Total} passengers`)
+                    .attr('x', x(parseInt(d.Year)) + margin.left + 10)
+                    .attr('y', y(parseInt(d.Total)) + margin.top - 5)
+                    .style('opacity', 1);
+            })
+            .on('mouseout', () => {
+                // Hide tooltip
+                tooltipRect.style('opacity', 0);
+                tooltipText.style('opacity', 0);
+            });
+        
+        // Append a tooltip background rectangle
+        const tooltipRect = svg.append('rect')
+            .attr('width', 170)
+            .attr('height', 20)
+            .attr('fill', 'lightgray')
+            .style('opacity', 0);
+        
+        // Append a tooltip text element
+        const tooltipText = svg.append('text')
+            .style('opacity', 0)
+            .style('font-size', '12px')
+            .style('fill', 'black');
     });
 </script>
 
