@@ -1,12 +1,10 @@
 <script>
 	
-  import { select_multiple_value } from 'svelte/internal';
   import { dataBargraph } from '../lib/dataBargraph';
 
   export let selectedYear = 2020;
   import * as d3 from "d3";
-  let dataUsed = dataBargraph;
-	
+	console.log(dataBargraph[0]["Passengers"]);
 	const formatLabel = d3.format(',.0f');
 
 	const margin = {
@@ -26,18 +24,18 @@
 
 	$: xScale = d3
     .scaleLinear()
-    .domain([0, d3.max(dataUsed, d => d[String(Passengers)]*0.8)])
+    .domain([0, d3.max(dataBargraph, d => +d["Passengers"]*0.8)])
     .range([0, innerWidth*0.8]);
 
   $: yScale = d3
     .scaleBand()
-    .domain(dataUsed.map(d => d.City))
+    .domain(dataBargraph.map(d => d.City))
     .range([innerHeight, 0])
     .padding(0.25);
 </script>
 
 <div class="overlay">
-  <label for="slider">Years {Passengers}</label>
+  <label for="slider">Years {selectedYear}</label>
   <input
       id="slider"
       type="range"
@@ -51,37 +49,37 @@
     <div class="wrapper" bind:clientWidth={width}>
       <svg {width} {height}>
         <g transform={`translate(${margin.left}, ${margin.top})`}>
-          {#each dataUsed as country}
+          {#each dataBargraph as country}
             <text
               text-anchor="end"
-              x={hovered === country[String(Passengers)] ? -15 :-10}
+              x={hovered == country["Passengers"] ? -15 :-10}
               y={yScale(country.City) + yScale.bandwidth() / 2}
-              opacity={hovered ? hovered === country[String(Passengers)] ? "1" : ".3" : "1"}
+              opacity={hovered ? hovered == country["Passengers"] ? "1" : ".3" : "1"}
               dy=".35em"
             >
               {country.City}
             </text>
             <rect
               x={0}
-              y={hovered === country[String(Passengers)] ? yScale(country.City)-1: yScale(country.City)}
-              width={xScale(country[String(Passengers)])}
-              height={hovered === country[String(Passengers)] ? yScale.bandwidth()+2 : yScale.bandwidth()}
-              on:mouseover={(event) => { hovered = country[String(Passengers)];
+              y={hovered == country["Passengers"] ? yScale(country.City)-1: yScale(country.City)}
+              width={xScale(+country["Passengers"])}
+              height={hovered == country["Passengers"] ? yScale.bandwidth()+2 : yScale.bandwidth()}
+              on:mouseover={(event) => { hovered = country["Passengers"];
                 recorded_mouse_position = {
                   x: event.pageX,
                   y: event.pageY
                   }}}
               on:mouseout={() => hovered = -1}
             />
-            {#if hovered !== -1 && hovered === country[String(Passengers)]}
+            {#if hovered !== -1 && hovered == country["Passengers"]}
             <text
             text-anchor="start"
-            x={xScale(country[String(Passengers)])}
+            x={xScale(+country["Passengers"])}
             dx="10"
             y={yScale(country.City) + yScale.bandwidth() / 2}
             dy=".35em"
           >
-            {formatLabel(hovered)}
+            {formatLabel(+country["Passengers"])}
           </text>
             {/if}
           {/each}

@@ -1,4 +1,4 @@
- data = [
+ export const data_lineGraph = [
   {
     Year: "1949",
     Total: "139327"
