@@ -85,7 +85,7 @@
     margin: 0 0 2em 0;}
     .custom-heading {
     font-family: Arial, sans-serif; /* Specify the desired font family */
-    font-size: 30px; /* Adjust font size as needed */
+    font-size: 33px; /* Adjust font size as needed */
     font-weight: bold; /* Optionally, adjust font weight */
     color: #333; /* Optionally, specify font color */
     text-align: center; 

@@ -4,7 +4,7 @@
     import { data_lineGraph } from '../lib/data_lineGraph'; // Importing the data from the file
     
     // Define margins and larger dimensions with increased left margin
-    let margin = { top: 50, right: 70, bottom: 70, left: 80 };
+    let margin = { top: 50, right: 70, bottom: 70, left: 130 };
     let width = 850 - margin.left - margin.right;
     let height = 600 - margin.top - margin.bottom;
     
@@ -79,6 +79,30 @@
             .style('opacity', 0)
             .style('font-size', '12px')
             .style('fill', 'black');
+        
+        svg.append('text')
+            .attr('x', (width + margin.left + margin.right) / 2)
+            .attr('y', margin.top / 2)
+            .attr('text-anchor', 'middle')
+            .style('font-size', '18px')
+            .text('Annual Number of Passengers in SAN airport from 1949-2018');
+        
+        // Add x-axis label
+        svg.append('text')
+            .attr('x', (width + margin.left + margin.right) / 2)
+            .attr('y', height + margin.top + margin.bottom / 2)
+            .attr('text-anchor', 'middle')
+            .style('font-size', '14px')
+            .text('Year');
+        
+        // Add y-axis label
+        svg.append('text')
+            .attr('transform', 'rotate(-90)')
+            .attr('x', -(height + margin.top + margin.bottom) / 2)
+            .attr('y', margin.left / 2)
+            .attr('text-anchor', 'middle')
+            .style('font-size', '14px')
+            .text('Number of Passengers');
     });
 </script>
 
