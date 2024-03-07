@@ -103,6 +103,6 @@
   }
 
   rect {
-    fill: red;
+    fill: orange;
   }
 </style>
