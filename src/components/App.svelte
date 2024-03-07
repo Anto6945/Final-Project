@@ -4,7 +4,7 @@
   import BarGraph1 from './BarGraph1.svelte';
   import BarGraphUS from './BarGraphUS.svelte';
   import Linegraph from "./Linegraph.svelte";
-  import PieChart from "./PieChart.svelte";
+  import Pie from "./Pie.svelte";
   import {onMount} from 'svelte';
   import * as d3 from 'd3';
   
@@ -47,7 +47,7 @@
     ></div>
     <div class="foreground" slot="foreground">
       <section><Linegraph/></section>
-      <section><PieChart/></section>
+      <section><Pie/></section>
       <section><BarGraphUS/></section>
       <section><BarGraph1/></section>
       
