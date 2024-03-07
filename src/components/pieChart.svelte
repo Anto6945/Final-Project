@@ -118,7 +118,7 @@
         border: 2px solid #000000;
         border-radius: 10px;
         position: absolute;
-        top: 1550px; /* Adjust as needed */
+        top: 1530px; /* Adjust as needed */
         right: 240px; /* Adjust as needed */
         font-family: Arial, sans-serif; /* Change font to Arial */
         font-size: 16px; /* Reduce font size */
