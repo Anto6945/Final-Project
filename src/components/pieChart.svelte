@@ -23,16 +23,6 @@
             (data_pie_chart[selectedYear]);
     }
 </script>
-<div class="overlay">
-	<label for="slider">Years {selectedYear}</label>
-	<input
-		id="slider"
-		type="range"
-		min="2018"
-		max="2022"
-		bind:value={selectedYear}
-	/>
-</div>
 <div class="visualization">
     <svg width="500" height="500">
         <!-- Title for the graph -->
@@ -80,6 +70,16 @@
         <p> What does this tell us about SAN airport? Many people use it for connecting flights and to travel domestically within the U.S.
             While people a good amount of passengers do international travel, domestic travel seems to dominate by a large margin. </p>
     </div>
+</div>
+<div class="overlay" style="margin-top: 20px;">
+    <label for="slider">Years {selectedYear}</label>
+    <input
+        id="slider"
+        type="range"
+        min="2018"
+        max="2022"
+        bind:value={selectedYear}
+    />
 </div>
 
 <style>
