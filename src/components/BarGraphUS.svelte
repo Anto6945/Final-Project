@@ -35,7 +35,7 @@
 <div class="app">
     <div class="wrapper" bind:clientWidth={width}>
       <svg {width} {height}>
-        <text x="250" y="16" text-anchor="middle" font-size="20px" font-weight="bold">Most Popular domestic Destinations from San Diego</text>
+        <text x="250" y="16" text-anchor="middle" font-size="20px" font-weight="bold"> Most Popular domestic Destinations from San Diego</text>
         <g transform={`translate(${margin.left}, ${margin.top})`}>
           {#each data as country}
             <text
