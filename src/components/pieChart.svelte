@@ -73,10 +73,10 @@
             Among all the years in the visualization, we see that it has the largest share among all airlines. 
         </p>
         <p>We notice something interesting that <strong>majority of the flights passing through the San Diego airport are domestic 
-            flights.</strong> Delta, United, Southwest, etc. that seem to be the leading flights are all U.S owned airlines. Even if you 
+            flights.</strong> Delta, United, Southwest, etc. that seem to be the leading flights are all U.S nationally owned airlines. Even if you 
             change the year, the "other" portion indicating various international airlines only seem to make up a really small 
             portion (less than 25 percent) of the pie chart. </p>
-        <p> What does this tell us about SAN airport? Many people use it for connecting flights and to travel domestically.
+        <p> What does this tell us about SAN airport? Many people use it for connecting flights and to travel domestically within the U.S.
             While people a good amount of passengers do international travel, domestic travel seems to dominate by a large margin. </p>
     </div>
 </div>
@@ -121,6 +121,6 @@
         top: 1550px; /* Adjust as needed */
         right: 240px; /* Adjust as needed */
         font-family: Arial, sans-serif; /* Change font to Arial */
-        font-size: 17px; /* Reduce font size */
+        font-size: 16px; /* Reduce font size */
     }
 </style>
