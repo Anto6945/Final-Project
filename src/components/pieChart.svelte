@@ -68,6 +68,15 @@
             {arc_data[hovered].data.Share}% of the total flights are {arc_data[hovered].data.Airline == "Other Airlines" ? "other" : arc_data[hovered].data.Airline}.
         {/if}
     </div>
+    <div class="info-box">
+        <p> As we can see, Southwest has been dominating consistently in terms of being the most flown airline in the airspace.
+            Among all the years in the visualization, we see that it has the largest share among all airlines. 
+        </p>
+        <p>We notice something interesting that <strong>majority of the flights passing through the San Diego airport are domestic 
+            flights.</strong> Delta, United, Southwest, etc. that seem to be the leading flights are all U.S owned airlines. Even if you 
+            change the year, the "other" portion indicating various international airlines only seem to make up a really small 
+            portion (less than 25 percent) of the pie chart. </p>
+    </div>
 </div>
 
 <style>
@@ -99,5 +108,17 @@
         color: black;
         position: absolute;
         padding: 10px;
+    }
+    .info-box {
+        width: 400px;
+        padding: 20px;
+        background-color: #f9f1f9;
+        border: 2px solid #000000;
+        border-radius: 10px;
+        position: absolute;
+        top: 1550px; /* Adjust as needed */
+        right: 240px; /* Adjust as needed */
+        font-family: Arial, sans-serif; /* Change font to Arial */
+        font-size: 17px; /* Reduce font size */
     }
 </style>
