@@ -49,7 +49,6 @@
     <div class="foreground" slot="foreground">
       <section><Linegraph/></section>
       <section><PieChart/></section>
-      <h2 style="font-weight: bold;">Most popular domestic destinations from San Diego</h2>
       <section><BarGraphUS/></section>
       <section><BarGraph1/></section>
       
