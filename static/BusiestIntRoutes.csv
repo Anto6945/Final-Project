@@ -1,11 +1,12 @@
-Rank,City,Passengers,Carriers
-1,"London–Heathrow, United Kingdom","182,222",British Airways
-2,"San José del Cabo, Mexico","131,967","Alaska, Southwest"
-3,"Vancouver, Canada","119,760","Air Canada, WestJet"
-4,"Toronto–Pearson, Canada","109,033",Air Canada
-5,"Munich, Germany","96,757",Lufthansa
-6,"Tokyo–Narita, Japan","63,844",Japan Airlines
-7,"Calgary, Canada","54,589",WestJet
-6,"Puerto Vallarta, Mexico","44,847",Alaska
-9,"Montréal–Trudeau, Canada","44,287",Air Canada
-10,"Cancún, Mexico","5,849",Alaska
+Rank,City,Passengers,Carriers,CoordinatesN, CoordinatesW
+1,"London–Heathrow, United Kingdom","182,222",British Airways,"51.4700", "0.4543"
+2,"San José del Cabo, Mexico","131,967","Alaska, Southwest","23.1625", "109.7217"
+3,"Vancouver, Canada","119,760","Air Canada, WestJet","49.2827", "123.1207"
+4,"Toronto–Pearson, Canada","109,033",Air Canada,"43.6777", "79.6248"
+5,"Munich, Germany","96,757",Lufthansa,"48.3537", "-11.7750"
+6,"Tokyo–Narita, Japan","63,844",Japan Airlines,"35.7647", "-140.3863"
+7,"Calgary, Canada","54,589",WestJet,"51.1314", "114.0103"
+6,"Puerto Vallarta, Mexico","44,847",Alaska,"20.6801", "105.2544"
+9,"Montréal–Trudeau, Canada","44,287",Air Canada,"45.4577", "73.7497"
+10,"Cancún, Mexico","5,849",Alaska,"21.1619", "86.8515"
+
