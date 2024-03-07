@@ -5,7 +5,7 @@
     Passengers: "182222",
     Carriers: "British Airways",
     CoordinatesN: "51.4700",
-     CoordinatesW: "0.4543"
+     CoordinatesE: "0.4543"
   },
   {
     Rank: "2",
@@ -13,7 +13,7 @@
     Passengers: "131967",
     Carriers: "Alaska, Southwest",
     CoordinatesN: "23.1625",
-     CoordinatesW: "109.7217"
+     CoordinatesE: "109.7217"
   },
   {
     Rank: "3",
@@ -21,7 +21,7 @@
     Passengers: "119760",
     Carriers: "Air Canada, WestJet",
     CoordinatesN: "49.2827",
-     CoordinatesW: "123.1207"
+     CoordinatesE: "123.1207"
   },
   {
     Rank: "4",
@@ -29,7 +29,7 @@
     Passengers: "109033",
     Carriers: "Air Canada",
     CoordinatesN: "43.6777",
-     CoordinatesW: "79.6248"
+     CoordinatesE: "79.6248"
   },
   {
     Rank: "5",
@@ -37,7 +37,7 @@
     Passengers: "96757",
     Carriers: "Lufthansa",
     CoordinatesN: "48.3537",
-     CoordinatesW: "-11.7750"
+     CoordinatesE: "-11.7750"
   },
   {
     Rank: "6",
@@ -45,7 +45,7 @@
     Passengers: "63844",
     Carriers: "Japan Airlines",
     CoordinatesN: "35.7647",
-     CoordinatesW: "-140.3863"
+     CoordinatesE: "-140.3863"
   },
   {
     Rank: "7",
@@ -53,7 +53,7 @@
     Passengers: "54589",
     Carriers: "WestJet",
     CoordinatesN: "51.1314",
-     CoordinatesW: "114.0103"
+     CoordinatesE: "114.0103"
   },
   {
     Rank: "6",
@@ -61,7 +61,7 @@
     Passengers: "44847",
     Carriers: "Alaska",
     CoordinatesN: "20.6801",
-     CoordinatesW: "105.2544"
+     CoordinatesE: "105.2544"
   },
   {
     Rank: "9",
@@ -69,7 +69,7 @@
     Passengers: "44287",
     Carriers: "Air Canada",
     CoordinatesN: "45.4577",
-     CoordinatesW: "73.7497"
+     CoordinatesE: "73.7497"
   },
   {
     Rank: "10",
@@ -77,6 +77,6 @@
     Passengers: "5849",
     Carriers: "Alaska",
     CoordinatesN: "21.1619",
-     CoordinatesW: "86.8515"
+     CoordinatesE: "86.8515"
   },
 ];
