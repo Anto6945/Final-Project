@@ -203,7 +203,7 @@ svg.append('line')
 
     svg.append('text')
     .attr('x', 1170) // Adjust x-coordinate based on your requirement
-    .attr('y', 405) // Adjust y-coordinate based on your requirement
+    .attr('y', 400) // Adjust y-coordinate based on your requirement
     .attr('text-anchor', 'end') // Align the text to the end of the specified coordinates
     .style('font-size', '55px') // Adjust font size if needed
     .style('font-family', 'Arial, sans-serif') // Change font family if needed
@@ -213,7 +213,7 @@ svg.append('line')
 
     svg.append('text')
     .attr('x', 1273) // Adjust x-coordinate based on your requirement
-    .attr('y', 430) // Adjust y-coordinate to position it below "1920"
+    .attr('y', 425) // Adjust y-coordinate to position it below "1920"
     .attr('text-anchor', 'end') // Align the text to the end of the specified coordinates
     .style('font-size', '15px') // Adjust font size if needed
     .style('font-family', 'Verdana, sans-serif') // Change font family if needed
@@ -221,62 +221,23 @@ svg.append('line')
     .text('3rd most busiest airport in California');
 
     svg.append('text')
-    .attr('x', (width + margin.left + margin.right) / 2)
-    .attr('y', margin.top + 3) // Adjust y-coordinate based on your requirement
-    .attr('text-anchor', 'middle')
-    .style('font-size', '13px')
-    .style('font-family', 'Verdana, sans-serif')
-    .style('fill', 'black')
-    .text('Hover over points to see total values for each year!');
-
-    // Append the plane image
-svg.append('image')
-    .attr('xlink:href', 'plane.png')
-    .attr('x', x(1200)) // Set the initial x-coordinate of the plane (point A)
-    .attr('y', y(460)) // Set the initial y-coordinate of the plane (point A)
-    .attr('width', 10) // Set the width of the plane
-    .attr('height', 10) // Set the height of the plane
-    .attr('opacity', 0) // Set initial opacity to 0 (invisible)
-    .transition()
-    .duration(1000) // Set the duration of the transition (in milliseconds)
-    .attr('opacity', 1); // Set opacity to 1 (visible)
-
-// Append animateMotion element to animate the movement of the plane
-svg.append('animateMotion')
-    .attr('dur', '5s') // Set the duration of the animation (in seconds)
-    .attr('repeatCount', 'indefinite') // Make the animation repeat indefinitely
-    .attr('path', `M${x(1200)} ${y(460)} L${x(1400)} ${y(500)}`) // Define the path for the plane to follow from point A to point B
-    .append('mpath')
-    .attr('xlink:href', 'plane.png'); // Reference the plane image
-
-
-    svg.append('text')
-    .attr('x', 1170) // Adjust x-coordinate based on your requirement
-    .attr('y', 405) // Adjust y-coordinate based on your requirement
+    .attr('x', 1180) // Adjust x-coordinate based on your requirement
+    .attr('y', 545) // Adjust y-coordinate based on your requirement
     .attr('text-anchor', 'end') // Align the text to the end of the specified coordinates
     .style('font-size', '55px') // Adjust font size if needed
     .style('font-family', 'Arial, sans-serif') // Change font family if needed
-    .style('fill', '#336699')
+    .style('fill', 'darkblue')
     .style('font-weight', 'bold') // Change text color if needed
-    .text('#3');
+    .text('#24');
 
     svg.append('text')
-    .attr('x', 1273) // Adjust x-coordinate based on your requirement
-    .attr('y', 430) // Adjust y-coordinate to position it below "1920"
+    .attr('x', 1290) // Adjust x-coordinate based on your requirement
+    .attr('y', 567) // Adjust y-coordinate based on your requirement
     .attr('text-anchor', 'end') // Align the text to the end of the specified coordinates
     .style('font-size', '15px') // Adjust font size if needed
     .style('font-family', 'Verdana, sans-serif') // Change font family if needed
-    .style('fill', 'black') // Change text color if needed
-    .text('3rd most busiest airport in California');
-
-    svg.append('text')
-    .attr('x', (width + margin.left + margin.right) / 2)
-    .attr('y', margin.top + 3) // Adjust y-coordinate based on your requirement
-    .attr('text-anchor', 'middle')
-    .style('font-size', '13px')
-    .style('font-family', 'Verdana, sans-serif')
     .style('fill', 'black')
-    .text('Hover over points to see total values for each year!');
+    .text('24th busiest airport in the United States');
 });
 </script>
 
