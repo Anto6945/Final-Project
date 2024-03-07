@@ -1,6 +1,6 @@
 <script>
 	
-  import { data_BarGraphUS } from '../lib/data_BargraphUS';
+  import { data_BarGraphUS } from '../lib/data_BargraphUS.js';
   import * as d3 from "d3";
 	const formatLabel = d3.format(',.0f');
   const data = data_BarGraphUS.slice().reverse();
