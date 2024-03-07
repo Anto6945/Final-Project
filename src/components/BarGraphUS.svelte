@@ -90,7 +90,7 @@
   .app {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: left;
     height: 100%;
     width: 100%;
         margin: 0 15px;

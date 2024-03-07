@@ -68,11 +68,6 @@
             {arc_data[hovered].data.Share}% of the total flights are {arc_data[hovered].data.Airline == "Other Airlines" ? "other" : arc_data[hovered].data.Airline}.
         {/if}
     </div>
-
-    <!-- Text below the pie chart -->
-    <div style="margin-top: 20px; text-align: left; font-size: 14px;">
-        Hover over the pie chart to find the percentage of space shared by each airline!
-    </div>
 </div>
 
 <style>
