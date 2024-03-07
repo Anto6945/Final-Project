@@ -1,6 +1,6 @@
 <script>
 	
-  import { data_BarGraphUS } from '../lib/data_BargraphUS';
+  import { data_BarGraphUS } from '../lib/data_BargraphUS.js';
   import * as d3 from "d3";
 	const formatLabel = d3.format(',.0f');
   const data = data_BarGraphUS.slice().reverse();
@@ -35,7 +35,7 @@
 <div class="app">
     <div class="wrapper" bind:clientWidth={width}>
       <svg {width} {height}>
-        <text x="250" y="16" text-anchor="middle" font-size="20px" font-weight="bold">Most Popular domestic Destinations from San Diego</text>
+        <text x="250" y="16" text-anchor="middle" font-size="20px" font-weight="bold"> Most Popular domestic Destinations from San Diego</text>
         <g transform={`translate(${margin.left}, ${margin.top})`}>
           {#each data as country}
             <text
