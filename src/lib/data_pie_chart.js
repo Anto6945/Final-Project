@@ -1,4 +1,4 @@
- export const data_pie_chart = {2022:[
+export const data_pie_chart = {2022:[
   {
     Airline: "Southwest Airlines",
     Passengers: "8162000",

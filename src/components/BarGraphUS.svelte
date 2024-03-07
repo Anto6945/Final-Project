@@ -1,16 +1,15 @@
 <script>
 	
-  import { dataBargraph } from '../lib/dataBargraph';
-
+  import { data_BarGraphUS } from '../lib/data_BargraphUS';
   import * as d3 from "d3";
 	const formatLabel = d3.format(',.0f');
-  const data = dataBargraph.slice().reverse();
+  const data = data_BarGraphUS.slice().reverse();
 
 	const margin = {
     top: 30,
     right: 100,
     bottom: 0,
-    left: 300,
+    left: 180,
   };
 
 	let width = 500;
