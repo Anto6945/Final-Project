@@ -10,7 +10,7 @@
     top: 30,
     right: 100,
     bottom: 0,
-    left: 300,
+    left: 180,
   };
 
 	let width = 500;
@@ -31,11 +31,12 @@
     .domain(data.map(d => d.City))
     .range([innerHeight, 0])
     .padding(0.25);
-</script>
+  </script>
 
 <div class="app">
     <div class="wrapper" bind:clientWidth={width}>
       <svg {width} {height}>
+        <text x="250" y="16" text-anchor="middle" font-size="20px" font-weight="bold"> Most Popular international Destinations from San Diego</text>
         <g transform={`translate(${margin.left}, ${margin.top})`}>
           {#each data as country}
             <text
