@@ -84,9 +84,16 @@
             .attr('x', (width + margin.left + margin.right) / 2)
             .attr('y', margin.top / 2)
             .attr('text-anchor', 'middle')
-            .style('font-size', '18px')
-            .style('font-size', '18px')
+            .style('font-size', '20px')
+            .style('font-weight', 'bold')
             .text('Annual Number of Passengers in SAN airport from 1949-2018');
+
+        svg.append('text')
+            .attr('x', (width + margin.left + margin.right) / 2)
+            .attr('y', (margin.top / 2)+28)
+            .attr('text-anchor', 'middle')
+            .style('font-size', '14px')
+            .text('Hover over the points to see values!');
         
         // Add x-axis label
         svg.append('text')
