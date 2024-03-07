@@ -35,7 +35,7 @@
     }
 
     onMount(async () => {
-        svgMap = d3.select('svgMap')
+        svgMap = d3.select('svg')
             .attr('width', width)
             .attr('height', height)
             .style('display', 'none'); // Hide the svgMap element initially
@@ -72,11 +72,11 @@
 </script>
 
 <main>
-    <svg id = svgMap></svg>
+    <svgMap></svgMap>
 </main>
 
 <style>
-    svg {
+    svgMap {
   position: absolute;
   top: 50%; /* Position the top of the svgMap element at 50% of the containing element's height */
   left: 50%; /* Position the left side of the svgMap element at 50% of the containing element's width */
