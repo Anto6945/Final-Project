@@ -7,7 +7,6 @@
   import PieChart from "./PieChart.svelte";
   import {onMount} from 'svelte';
   import * as d3 from 'd3';
-  import BarGraphUs from "./BarGraphUS.svelte";
   
   let count, index, offset, progress;
   let width, height;
