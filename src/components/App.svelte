@@ -49,7 +49,7 @@
       <section><Linegraph/></section>
       <section><PieChart/></section>
       <section><BarGraphUS/></section>
-      <section><BarGraph1/></section>
+      <section></section>
       
     </div>
   </Scroller>
