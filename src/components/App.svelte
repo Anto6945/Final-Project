@@ -5,9 +5,9 @@
   import BarGraphUS from './BarGraphUS.svelte';
   import Linegraph from "./Linegraph.svelte";
   import PieChart from "./PieChart.svelte";
+  import Introduction from "./Introduction.svelte";
   import {onMount} from 'svelte';
   import * as d3 from 'd3';
-  import BarGraphUs from "./BarGraphUS.svelte";
   
   let count, index, offset, progress;
   let width, height;
@@ -47,6 +47,7 @@
       bind:clientWidth={width} bind:clientHeight={height}
     ></div>
     <div class="foreground" slot="foreground">
+      <section><Introduction/></section>
       <section><Linegraph/></section>
       <section><PieChart/></section>
       <section><BarGraphUS/></section>
