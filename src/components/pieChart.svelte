@@ -76,6 +76,8 @@
             flights.</strong> Delta, United, Southwest, etc. that seem to be the leading flights are all U.S owned airlines. Even if you 
             change the year, the "other" portion indicating various international airlines only seem to make up a really small 
             portion (less than 25 percent) of the pie chart. </p>
+        <p> What does this tell us about SAN airport? Many people use it for connecting flights and to travel domestically.
+            While people a good amount of passengers do international travel, domestic travel seems to dominate by a large margin. </p>
     </div>
 </div>
 
@@ -110,7 +112,7 @@
         padding: 10px;
     }
     .info-box {
-        width: 400px;
+        width: 450px;
         padding: 20px;
         background-color: #f9f1f9;
         border: 2px solid #000000;
