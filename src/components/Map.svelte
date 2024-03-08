@@ -1,65 +1,67 @@
 <script>
-    import { onMount } from 'svelte';
-    import * as d3 from 'd3';
-   
-    let svg;
-    let worldData;
-   
-   
-    async function loadWorldData() {
-      const response = await fetch('https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson');
-      worldData = await response.json();
-    }
-   
-   
-    onMount(async () => {
-      await loadWorldData();
-   
-   
-      const width = 800; // Set desired width
-      const height = 550; // Set desired height
-   
-   
-      const projection = d3.geoMercator()
-        .scale(100) // Adjust scale to make the map smaller
-        .translate([width / 2, height / 2]);
-   
-   
-      const path = d3.geoPath().projection(projection);
-   
-   
-      svg = d3.select('svg')
-        .attr('width', width)
-        .attr('height', height);
-   
-   
-      svg.selectAll('path')
-        .data(worldData.features)
-        .enter().append('path')
-        .attr('d', path)
-        .style('fill', 'lightblue')
-        .style('stroke', 'white')
-        .style('stroke-width', 0.5);
+    import { dataBarGraphUS } from '../lib/data_BarGraphUS';
+    import { feature } from 'topojson-client';
+    import { geoPath, geoAlbersUsa } from 'd3-geo';
+    import { csv } from 'd3-fetch';
+  
+    let us;
+    let coordinates = [];
+  
+    const projection = geoAlbersUsa()
+        .scale(1000)
+        .translate([400, 275]);
+  
+    const path = geoPath(projection);
+  
+    csv('https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson').then((data) => {
+        us = feature(data, data.objects.countries);
     });
-   </script>
-   
-   
-   <main>
-    <svg>
-        <g fill="hotpink">
-            {#each coordinates as { long, lat }, i}
-                <circle r="3" transform="translate({projection([long, lat])})" />
-            {/each}
-        </g>
-    </svg>
-   </main>
-   
-   
-   <style>
-    svg {
-        position: relative;
-        width: 100%;
-        height: auto; /* Allow SVG to scale with container width */
-        max-height: 80vh; /* Limit maximum height */
+  
+    for (let i = 0; i < dataBarGraphUS.length; i++) {
+        let coordinate = {
+            long: +dataBarGraphUS[i].CoordinatesE,
+            lat: +dataBarGraphUS[i].CoordinatesN,
+            passengers: +dataBarGraphUS[i].Passengers
+        };
+        console.log(coordinate);
+        coordinates.push(coordinate);
     }
-   </style>
+  
+    const radiusScale = d3.scaleLinear()
+        .domain([0, d3.max(dataBarGraphUS, d => +d.Passengers)])
+        .range([2, 10]);
+  </script>
+  
+  <main>
+    <svg viewBox="0 0 800 550">
+        {#if us}
+            {#each us.features as feature}
+                <path d={path(feature)} fill="lightblue" stroke="white" stroke-width="0.5" />
+            {/each}
+            {#each coordinates as coordinate}
+                <circle
+                    cx={projection([coordinate.long, coordinate.lat])[0]}
+                    cy={projection([coordinate.long, coordinate.lat])[1]}
+                    r={radiusScale(coordinate.passengers)}
+                    fill="hotpink"
+                />
+            {/each}
+        {:else}
+            <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">Loading...</text>
+        {/if}
+    </svg>
+  </main>
+  
+  <style>
+    svg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: auto;
+        max-height: 80vh;
+        z-index: 1;
+    }
+  </style>
+  
