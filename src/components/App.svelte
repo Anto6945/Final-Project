@@ -1,5 +1,5 @@
-<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
 <script>
+  //<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
   import Scroller from "@sveltejs/svelte-scroller";
   import BarGraph1 from './BarGraph1.svelte';
   import BarGraphUS from './BarGraphUS.svelte';
