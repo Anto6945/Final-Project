@@ -1,9 +1,5 @@
 <script>
-	// https://github.com/topojson/us-atlas
-	// https://github.com/d3/d3-geo
-	// https://observablehq.com/@mbostock/u-s-state-map
-	// TODO: https://observablehq.com/@d3/u-s-map
-	// TODO: https://observablehq.com/@jeantimex/us-state-county-map
+
 	
 	import { onMount } from 'svelte';
   import { data_BarGraphUS } from '../lib/data_BarGraphUS';
@@ -11,7 +7,6 @@
 	import { geoPath, geoAlbersUsa } from 'd3-geo';
 	import { draw } from 'svelte/transition';
 	
-	// https://github.com/topojson/us-atlas#us-atlas-topojson
 	const projection = geoAlbersUsa().scale(1300).translate([487.5, 305])
 	
 	const path = geoPath().projection(null);
@@ -19,7 +14,7 @@
 	let states = [];
 	let mesh;
 	let selected;
-	//$: console.log({ selected })
+
 	let coordinates = [];
   for (let i = 0; i < data_BarGraphUS.length; i++) {
         let coordinate = {
