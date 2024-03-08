@@ -4,23 +4,16 @@
 	import { geoAlbersUsa } from 'd3-geo';
 	import { scaleQuantize } from 'd3-scale';
 
-	// For a map example with a tooltip, check out https://layercake.graphics/example/MapSvg
+
 
 	import MapSvg from './Map-svg.svelte';
 
 	import usStates from '../lib/us-states-topojson.js';
 
 
-
-	/* --------------------------------------------
-	 * Create lookups to more easily join our data
-	 * `dataJoinKey` is the name of the field in the data
-	 * `mapJoinKey` is the name of the field in the map file
-	 */
   
 	const mapJoinKey = 'name';
 	const dataLookup = new Map();
-
 
 
 	const geojson = feature(usStates, usStates.objects.collection);

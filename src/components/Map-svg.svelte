@@ -5,7 +5,8 @@
  <script>
 	import { getContext, createEventDispatcher } from 'svelte';
 	import { geoPath } from 'd3-geo';
-	import { raise } from 'layercake';
+    import * as d3 from 'd3';
+    import { data_BarGraphUS } from '../lib/data_BarGraphUS';
 
 	const { data, width, height, zGet } = getContext('LayerCake');
 
@@ -31,6 +32,14 @@
 	 * Here's how you would do cross-component hovers
 	 */
 	const dispatch = createEventDispatcher();
+    let coordinates = data_BarGraphUS.map(({ CoordinatesE, CoordinatesN, Passengers }) => ({
+      long: +CoordinatesE,
+      lat: +CoordinatesN,
+      passengers: +Passengers
+  }));
+  const radiusScale = d3.scaleLinear()
+      .domain([0, d3.max(data_BarGraphUS, d => +d.Passengers)])
+      .range([0, 1]);
 
 	$: fitSizeRange = fixedAspectRatio ? [100, 100 / fixedAspectRatio] : [$width, $height];
 
@@ -41,7 +50,6 @@
 
 	function handleMousemove(feature) {
 		return function handleMousemoveFn(e) {
-			raise(this);
 			// When the element gets raised, it flashes 0,0 for a second so skip that
 			if (e.layerX !== 0 && e.layerY !== 0) {
 				dispatch('mousemove', { e, props: feature.properties });
@@ -58,7 +66,7 @@
 	{#each (features || $data.features) as feature}
 		<path
 			class="feature-path"
-			fill="{fill || $zGet(feature.properties)}"
+			fill="{"lightblue" || $zGet(feature.properties)}"
 			stroke={stroke}
 			stroke-width={strokeWidth}
 			d="{geoPathFn(feature)}"
@@ -67,6 +75,14 @@
 			on:mousemove={handleMousemove(feature)}
 		></path>
 	{/each}
+    {#each coordinates as coordinate}
+          <circle
+              cx={projectionFn([coordinate.long, coordinate.lat])[0]}
+              cy={projectionFn([coordinate.long, coordinate.lat])[1]}
+              r={radiusScale(coordinate.passengers)}
+              fill="hotpink"
+          />
+    {/each}
 </g>
 
 <style>
