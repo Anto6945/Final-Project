@@ -284,14 +284,16 @@
   }
 ];
 
-let show = false;
+let show = true;
 let margin = { top: 50, right: 70, bottom: 70, left: 135 };
+
     let width = 850 - margin.left - margin.right;
+
     let height = 600 - margin.top - margin.bottom;
 	// scales
 	const xScale = d3.scaleLinear()
 		.domain(d3.extent(data_lineGraph.map(d => d.Year)))
-		.range([0,width]);
+		.range([0,100]);
 	
 	const yScale = d3.scaleLinear()
 		.domain(d3.extent(data_lineGraph.map(d => d.Total)))
@@ -305,7 +307,7 @@ let margin = { top: 50, right: 70, bottom: 70, left: 135 };
 </script>
 <label for="show" style="display: inline;">Show Line:</label>
 <input id="show" type="checkbox" bind:checked={show} />
-<svg viewBox="0 0 300 300">
+<svg viewBox="0 0 100 100">
 	{#if (show)}
 		<path transition:draw={{duration: 2000}}
 					d={pathLine(data_lineGraph)} />
