@@ -3,12 +3,10 @@
 </div>
 
 <div class="sky">
-    <div class="plane"></div>
+    <div class="plane">
+        <div class="oval"></div>
+    </div>
 </div>
-
-<script>
-    // JavaScript code can go here if needed
-</script>
 
 <style>
     .header-text {
@@ -27,27 +25,32 @@
         position: relative; /* Position relative to contain the plane */
         width: 100%;
         height: 100%; /* Fill the height of the header-text */
+        overflow: hidden; /* Hide overflow content */
     }
 
     .plane {
-        width: 0;
-        height: 0;
-        border-left: 50px solid transparent; /* Left wing */
-        border-right: 50px solid transparent; /* Right wing */
-        border-bottom: 20px solid blue; /* Body */
         position: absolute;
-        left: -100px;
-        top: 50%; /* Place the plane vertically in the middle of the header */
-        transform: translateY(-10%); /* Adjust for vertical centering */
-        animation: fly 4s linear infinite; /* Animation name, duration, timing function, and iteration count */
+        top: 50%; /* Place the plane vertically in the middle of the sky */
+        animation: fly 29s linear infinite; /* Animation name, duration, timing function, and iteration count */
+    }
+
+    .oval {
+        width: 150px;
+        height: 50px;
+        background-color: blue; /* Color of the oval */
+        border-radius: 50%; /* Make the shape an oval */
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
     }
 
     @keyframes fly {
         0% {
-            transform: translateX(-100%); /* Initial position, off-screen to the left */
+            left: -100px; /* Initial position, off-screen to the left */
         }
         100% {
-            transform: translateX(100%); /* Final position, off-screen to the right */
+            left: 1000%; /* Final position, off-screen to the right */
         }
     }
 </style>
