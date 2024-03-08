@@ -20,7 +20,7 @@
         .sky {
             position: relative; /* Position relative to contain the plane */
             width: 100%;
-            height: 200px; /* Fixed height */
+            height: 300px; /* Fixed height */
             overflow: hidden; /* Hide overflow content */
         }
 
