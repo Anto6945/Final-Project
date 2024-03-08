@@ -1,11 +1,12 @@
-Rank,City,Passengers,Carriers
-1,"Las Vegas, Nevada","794,000","Delta, Frontier, Southwest, Spirit"
-2,"Denver, Colorado","730,000","Frontier, Southwest, United"
-3,"Phoenix, Arizona","632,000","American, Frontier, Southwest"
-4,"San Francisco, California","625,000","Alaska, Southwest, United"
-5,"Seattle, Washington","624,000","Alaska, Delta"
-6,"San Jose, California","602,000","Alaska, Southwest, Spirit"
-7,"Sacramento, California","594,000","Alaska, Southwest, Spirit"
-8,"Dallas/Fort Worth, Texas","575,000","American, Frontier"
-9,"Oakland, California","415,000","Southwest, Spirit"
-10,"Chicago–O'Hare, Illinois","398,000","American, United"
+Rank,City,Passengers,Carriers,CoordinatesN,CoordinatesW
+1,"Las Vegas, Nevada","794,000","Delta, Frontier, Southwest, Spirit","36.0851", "115.1514"
+2,"Denver, Colorado","730,000","Frontier, Southwest, United","39.8561", "104.6737"
+3,"Phoenix, Arizona","632,000","American, Frontier, Southwest","33.4342", "112.0083"
+4,"San Francisco, California","625,000","Alaska, Southwest, United","37.6215", "122.3790"
+5,"Seattle, Washington","624,000","Alaska, Delta","47.4502", "122.3088"
+6,"San Jose, California","602,000","Alaska, Southwest, Spirit","37.3639", "121.9289"
+7,"Sacramento, California","594,000","Alaska, Southwest, Spirit","38.6957", "121.5908"
+8,"Dallas/Fort Worth, Texas","575,000","American, Frontier","32.8998", "97.0403"
+9,"Oakland, California","415,000","Southwest, Spirit","37.7214", "122.2208"
+10,"Chicago, Illinois","398,000","American, United","41.9742", "87.9073"
+

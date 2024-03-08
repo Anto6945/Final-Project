@@ -1,4 +1,4 @@
-<!-- Your main Svelte file -->
+<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
 <script>
   import Scroller from "@sveltejs/svelte-scroller";
   import BarGraph1 from './BarGraph1.svelte';
@@ -8,7 +8,10 @@
   import Introduction from "./Introduction.svelte";
   import {onMount} from 'svelte';
   import * as d3 from 'd3';
-   let count, index, offset, progress;
+  import Map from "./Map.svelte";
+  //import svgMap from "./Map.js";
+  
+  let count, index, offset, progress;
   let width, height;
   let data1 = [];
    onMount(async () => {
@@ -53,7 +56,12 @@
       <section><PieChart/></section>
       <section><BarGraphUS/></section>
       <section><BarGraph1/></section>
-     
+      <section></section>
+      <section></section>
+      <section></section>
+      <section></section>
+      <section><div class="display"><Map/></div></section>
+
     </div>
   </Scroller>
  </main>
