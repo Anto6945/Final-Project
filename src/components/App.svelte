@@ -11,7 +11,9 @@
   import Map from "./Map.svelte";
   import MapUS from "./MapUS.svelte";
   
-/script>
+  let count, index, offset, progress;
+  let width, height;
+ </script>
  
  
  <main>
@@ -38,6 +40,12 @@
       <section><BarGraphUS/></section>
       <section><BarGraph1/></section>
       <section><MapUS/></section>
+      <section></section>
+      <section></section>
+      <section></section>
+      <section></section>
+      <section></section>
+      <section></section>
       <section><Map/></section>
 
 
