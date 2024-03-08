@@ -285,14 +285,17 @@
 ];
 
 let show = false;
+let margin = { top: 50, right: 70, bottom: 70, left: 135 };
+    let width = 850 - margin.left - margin.right;
+    let height = 600 - margin.top - margin.bottom;
 	// scales
 	const xScale = d3.scaleLinear()
 		.domain(d3.extent(data_lineGraph.map(d => d.Year)))
-		.range([5,95]);
+		.range([0,width]);
 	
 	const yScale = d3.scaleLinear()
 		.domain(d3.extent(data_lineGraph.map(d => d.Total)))
-		.range([5,95]);
+		.range([0,height]);
 	
 	// the path generator
 	const pathLine = d3.line()
