@@ -21,6 +21,7 @@
     "d3": "^7.8.5",
     "flowbite": "^2.3.0",
     "flowbite-svelte": "^0.44.24",
+    "layercake": "^8.0.3",
     "mapbox-gl": "^3.2.0",
     "svelte-scroller": "^1.2.2"
   }
