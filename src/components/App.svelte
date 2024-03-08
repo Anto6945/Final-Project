@@ -53,7 +53,7 @@
       <section><BarGraphUS/></section>
       <section><BarGraph1/></section>
       <section><div class="display"><Map/></div></section>
-      <Map/>
+
     </div>
   </Scroller>
 </main>

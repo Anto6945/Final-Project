@@ -9,7 +9,7 @@
     let height = 600 - margin.top - margin.bottom;
     
     onMount(() => {
-        const svg = d3.select('svg')
+        const svgLinegraph = d3.select('svg')
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom);
         
@@ -27,15 +27,15 @@
         x.domain(d3.extent(years));
         y.domain([0, d3.max(totals)]);
     
-        svg.append('g')
+        svgLinegraph.append('g')
             .attr('transform', `translate(${margin.left}, ${height + margin.top})`)
             .call(d3.axisBottom(x).tickFormat(d3.format("d"))); // Format x-axis ticks without commas
     
-        svg.append('g')
+        svgLinegraph.append('g')
             .attr('transform', `translate(${margin.left}, ${margin.top})`)
             .call(d3.axisLeft(y));
     
-        svg.append('path')
+        svgLinegraph.append('path')
             .datum(data_lineGraph)
             .attr('fill', 'none')
             .attr('stroke', 'steelblue')
@@ -43,7 +43,7 @@
             .attr('d', line);
     
         // Add tooltips
-        svg.selectAll('circle')
+        svgLinegraph.selectAll('circle')
             .data(data_lineGraph)
             .enter()
             .append('circle')
@@ -68,19 +68,19 @@
             });
         
         // Append a tooltip background rectangle
-        const tooltipRect = svg.append('rect')
+        const tooltipRect = svgLinegraph.append('rect')
             .attr('width', 200)
             .attr('height', 20)
             .attr('fill', 'lightgray')
             .style('opacity', 0);
         
         // Append a tooltip text element
-        const tooltipText = svg.append('text')
+        const tooltipText = svgLinegraph.append('text')
             .style('opacity', 0)
             .style('font-size', '15px')
             .style('fill', 'black');
         
-        svg.append('text')
+        svgLinegraph.append('text')
             .attr('x', (width + margin.left + margin.right) / 2)
             .attr('y', margin.top / 2)
             .attr('text-anchor', 'middle')
@@ -89,7 +89,7 @@
             .text('Annual Number of Passengers in SAN airport from 1949-2018');
         
         // Add x-axis label
-        svg.append('text')
+        svgLinegraph.append('text')
             .attr('x', (width + margin.left + margin.right) / 2)
             .attr('y', height + margin.top + margin.bottom / 2)
             .attr('text-anchor', 'middle')
@@ -98,7 +98,7 @@
             .text('Year');
         
         // Add y-axis label
-        svg.append('text')
+        svgLinegraph.append('text')
             .attr('transform', 'rotate(-90)')
             .attr('x', -(height + margin.top + margin.bottom) / 2)
             .attr('y', margin.left / 2)
@@ -107,10 +107,10 @@
             .style('font-size', '14px')
             .text('Number of Passengers');
 
-            svg.append('text')
+            svgLinegraph.append('text')
 
     // Append the text for the annotation
-svg.append('text')
+svgLinegraph.append('text')
     .attr('x', x(2005) + margin.left) // Adjust x-coordinate based on the year
     .attr('y', y(11000000) + margin.top - 10) // Adjusted y-coordinate for text
     .attr('dy', '-1em') // Offset the text slightly above the point
@@ -120,7 +120,7 @@ svg.append('text')
     .text('Air travel decreases - 9/11');
 
 // Append the line for the arrow
-svg.append('line')
+svgLinegraph.append('line')
     .attr('x1', x(2001) + margin.left)
     .attr('y1', y(12100000)) // Adjusted y-coordinate for the line
     .attr('x2', x(2001) + margin.left)
@@ -128,7 +128,7 @@ svg.append('line')
     .style('stroke', 'black')
     .style('stroke-width', '1.75px');
 
-    svg.append('text')
+    svgLinegraph.append('text')
     .attr('x', x(2005) + margin.left) // Adjust x-coordinate based on the year
     .attr('y', y(19600000) + margin.top - 10) // Adjusted y-coordinate for text
     .attr('dy', '-1em') // Offset the text slightly above the point
@@ -138,7 +138,7 @@ svg.append('line')
     .text('travel decreases - 2008 Recession');
 
 // Append the line for the arrow
-svg.append('line')
+svgLinegraph.append('line')
     .attr('x1', x(2009) + margin.left)
     .attr('y1', y(18000000)) // Adjusted y-coordinate for the line
     .attr('x2', x(2009) + margin.left)
@@ -146,7 +146,7 @@ svg.append('line')
     .style('stroke', 'black')
     .style('stroke-width', '2px');
 
-    svg.append('text')
+    svgLinegraph.append('text')
     .attr('x', x(1984) + margin.left) // Adjust x-coordinate based on the year
     .attr('y', y(800000) + margin.top - 10) // Adjusted y-coordinate for text
     .attr('dy', '-1em') // Offset the text slightly above the point
@@ -155,7 +155,7 @@ svg.append('line')
     .style('font-size', '12px') // Adjust font size
     .text('60s & 70s - air travel becomes more common');
 
-    svg.append('line')
+    svgLinegraph.append('line')
     .attr('x1', x(1973) + margin.left)
     .attr('y1', y(15)) // Adjusted y-coordinate for the line
     .attr('x2', x(1968) + margin.left)
@@ -163,7 +163,7 @@ svg.append('line')
     .style('stroke', 'black')
     .style('stroke-width', '2px');
 
-    svg.append('text')
+    svgLinegraph.append('text')
     .attr('x', 1200) // Adjust x-coordinate based on your requirement
     .attr('y', 100) // Adjust y-coordinate based on your requirement
     .attr('text-anchor', 'end') // Align the text to the end of the specified coordinates
@@ -173,7 +173,7 @@ svg.append('line')
     .style('font-weight', 'bold') // Change text color to light blue
     .text('1928');
 
-    svg.append('text')
+    svgLinegraph.append('text')
     .attr('x', 1248) // Adjust x-coordinate based on your requirement
     .attr('y', 130) // Adjust y-coordinate to position it below "1920"
     .attr('text-anchor', 'end') // Align the text to the end of the specified coordinates
@@ -182,7 +182,7 @@ svg.append('line')
     .style('fill', 'black') // Change text color if needed
     .text('Construction of SAN airport!');
 
-    svg.append('text')
+    svgLinegraph.append('text')
     .attr('x', 1280) // Adjust x-coordinate based on your requirement
     .attr('y', 250) // Adjust y-coordinate based on your requirement
     .attr('text-anchor', 'end') // Align the text to the end of the specified coordinates
@@ -192,7 +192,7 @@ svg.append('line')
     .style('font-weight', 'bold') // Change text color if needed
     .text('+ 17322.3%');
 
-    svg.append('text')
+    svgLinegraph.append('text')
     .attr('x', 1315) // Adjust x-coordinate based on your requirement
     .attr('y', 277) // Adjust y-coordinate to position it below "1920"
     .attr('text-anchor', 'end') // Align the text to the end of the specified coordinates
@@ -201,7 +201,7 @@ svg.append('line')
     .style('fill', 'black') // Change text color if needed
     .text('Percentage increase in passengers since 1949');
 
-    svg.append('text')
+    svgLinegraph.append('text')
     .attr('x', 1170) // Adjust x-coordinate based on your requirement
     .attr('y', 405) // Adjust y-coordinate based on your requirement
     .attr('text-anchor', 'end') // Align the text to the end of the specified coordinates
@@ -211,7 +211,7 @@ svg.append('line')
     .style('font-weight', 'bold') // Change text color if needed
     .text('#3');
 
-    svg.append('text')
+    svgLinegraph.append('text')
     .attr('x', 1273) // Adjust x-coordinate based on your requirement
     .attr('y', 430) // Adjust y-coordinate to position it below "1920"
     .attr('text-anchor', 'end') // Align the text to the end of the specified coordinates
@@ -220,7 +220,7 @@ svg.append('line')
     .style('fill', 'black') // Change text color if needed
     .text('3rd most busiest airport in California');
 
-    svg.append('text')
+    svgLinegraph.append('text')
     .attr('x', (width + margin.left + margin.right) / 2)
     .attr('y', margin.top + 3) // Adjust y-coordinate based on your requirement
     .attr('text-anchor', 'middle')
@@ -230,7 +230,7 @@ svg.append('line')
     .text('Hover over points to see total values for each year!');
 
     // Append the plane image
-svg.append('image')
+svgLinegraph.append('image')
     .attr('xlink:href', 'plane.png')
     .attr('x', x(1200)) // Set the initial x-coordinate of the plane (point A)
     .attr('y', y(460)) // Set the initial y-coordinate of the plane (point A)
@@ -242,7 +242,7 @@ svg.append('image')
     .attr('opacity', 1); // Set opacity to 1 (visible)
 
 // Append animateMotion element to animate the movement of the plane
-svg.append('animateMotion')
+svgLinegraph.append('animateMotion')
     .attr('dur', '5s') // Set the duration of the animation (in seconds)
     .attr('repeatCount', 'indefinite') // Make the animation repeat indefinitely
     .attr('path', `M${x(1200)} ${y(460)} L${x(1400)} ${y(500)}`) // Define the path for the plane to follow from point A to point B
@@ -250,7 +250,7 @@ svg.append('animateMotion')
     .attr('xlink:href', 'plane.png'); // Reference the plane image
 
 
-    svg.append('text')
+    svgLinegraph.append('text')
     .attr('x', 1170) // Adjust x-coordinate based on your requirement
     .attr('y', 405) // Adjust y-coordinate based on your requirement
     .attr('text-anchor', 'end') // Align the text to the end of the specified coordinates
@@ -260,7 +260,7 @@ svg.append('animateMotion')
     .style('font-weight', 'bold') // Change text color if needed
     .text('#3');
 
-    svg.append('text')
+    svgLinegraph.append('text')
     .attr('x', 1273) // Adjust x-coordinate based on your requirement
     .attr('y', 430) // Adjust y-coordinate to position it below "1920"
     .attr('text-anchor', 'end') // Align the text to the end of the specified coordinates
@@ -269,7 +269,7 @@ svg.append('animateMotion')
     .style('fill', 'black') // Change text color if needed
     .text('3rd most busiest airport in California');
 
-    svg.append('text')
+    svgLinegraph.append('text')
     .attr('x', (width + margin.left + margin.right) / 2)
     .attr('y', margin.top + 3) // Adjust y-coordinate based on your requirement
     .attr('text-anchor', 'middle')
@@ -282,9 +282,9 @@ svg.append('animateMotion')
 
 <style>
     svg {
-        width: 100%; /* Make SVG responsive, expand to fill its container */
+        width: 100%; /* Make svgLinegraph responsive, expand to fill its container */
         height: auto; /* Maintain aspect ratio, scale height accordingly */
     }
 </style>
 
-<svg></svg>
+<svg id = svgLinegraph></svg>

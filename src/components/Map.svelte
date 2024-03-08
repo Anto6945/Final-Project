@@ -30,7 +30,6 @@
             lat: +dataBargraph[i].CoordinatesN,
             passengers: +dataBargraph[i].Passengers.replace(',', '') // Convert string to number
         };
-        console.log(coordinate);
         coordinates.push(coordinate);
     }
   
@@ -43,7 +42,9 @@
             .attr('width', width)
             .attr('height', height)
             .style('display', 'none')
-            .style('scale','.5');
+            .style('scale','.5')
+            .style('transform','translate(0, 0)');
+            //.style('z-index','1');
   
         await loadWorldData();
         
