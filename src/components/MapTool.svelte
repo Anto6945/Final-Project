@@ -5,11 +5,11 @@
  <script>
 	import { getContext, createEventDispatcher } from 'svelte';
 	import { geoPath } from 'd3-geo';
-    import * as d3 from 'd3';
-    import { data_BarGraphUS } from '../lib/data_BarGraphUS';
+  import * as d3 from 'd3';
+  import data_BarGraphUS from '../lib/data_BarGraphUS';
 
 	const { data, width, height, zGet } = getContext('LayerCake');
-
+  
 	/** @type {Function} projection – A D3 projection function. Pass this in as an uncalled function, e.g. `projection={geoAlbersUsa}`. */
 	export let projection;
 
@@ -32,6 +32,7 @@
 	 * Here's how you would do cross-component hovers
 	 */
 	const dispatch = createEventDispatcher();
+  console.log(data_BarGraphUS);
     let coordinates = data_BarGraphUS.map(({ CoordinatesE, CoordinatesN, Passengers }) => ({
       long: +CoordinatesE,
       lat: +CoordinatesN,

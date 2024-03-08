@@ -2,12 +2,12 @@
   //<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
   import Scroller from "@sveltejs/svelte-scroller";
   import BarGraph1 from './BarGraph1.svelte';
-  import BarGraphUS from './BarGraphUS.svelte';
+  //import BarGraphUS from './BarGraphUS.svelte';
   import Linegraph from "./Linegraph.svelte";
   import PieChart from "./PieChart.svelte";
   import Introduction from "./Introduction.svelte";
   import Map from "./Map.svelte";
-  //import svgMap from "./Map.js";
+  //import MapUS from "./MapUS.svelte";
   
   let count, index, offset, progress;
   let width, height;
@@ -35,7 +35,7 @@
       <section><Introduction/></section>
       <section><Linegraph/></section>
       <section><PieChart/></section>
-      <section><BarGraphUS/></section>
+      <section></section>
       <section><BarGraph1/></section>
       <section></section>
       <section></section>
