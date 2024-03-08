@@ -1,6 +1,6 @@
 <script>
 	import { LayerCake, ScaledSvg, Html } from 'layercake';
-	import { feature } from 'topojson';
+	import { feature } from 'topojson-client';
 	import { geoAlbersUsa } from 'd3-geo';
 	import { scaleQuantize } from 'd3-scale';
 
@@ -8,17 +8,16 @@
 
 	import MapSvg from './Map-svg.svelte';
 
-	import usStates from './us-states-topojson.js';
-	import stateData from './us-states-data.js';
+	import usStates from '../lib/us-states-topojson.js';
 
-	const colorKey = 'myValue';
+
 
 	/* --------------------------------------------
 	 * Create lookups to more easily join our data
 	 * `dataJoinKey` is the name of the field in the data
 	 * `mapJoinKey` is the name of the field in the map file
 	 */
-	const dataJoinKey = 'name';
+  
 	const mapJoinKey = 'name';
 	const dataLookup = new Map();
 
