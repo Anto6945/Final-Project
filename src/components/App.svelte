@@ -7,7 +7,6 @@
   import PieChart from "./PieChart.svelte";
   import Introduction from "./Introduction.svelte";
   import Map from "./Map.svelte";
-  //import svgMap from "./Map.js";
   
   let count, index, offset, progress;
   let width, height;
