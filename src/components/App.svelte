@@ -2,7 +2,7 @@
 	import { LayerCake, ScaledSvg, Html } from 'layercake';
 	import { feature } from 'topojson-client';
 	import { geoAlbersUsa } from 'd3-geo';
-	import { scaleQuantize } from 'd3-scale';
+
 
 
 
@@ -19,11 +19,9 @@
 	const geojson = feature(usStates, usStates.objects.collection);
 	const aspectRatio = 2.63;
 	const projection = geoAlbersUsa;
-
+console.log("geojson",geojson);
 	// Create a flat array of objects that LayerCake can use to measure
 	// extents for the color scale
-	const flatData = geojson.features.map(d => d.properties);
-	const colors = ['#ffdecc', '#ffc09c', '#ffa06b', '#ff7a33'];
 </script>
 
 <style>
@@ -45,10 +43,6 @@
 		ssr={true}
 		position='absolute'
 		data={geojson}
-		z={d => dataLookup.get(d[mapJoinKey])}
-		zScale={scaleQuantize()}
-		zRange={colors}
-		{flatData}
 	>
 		<ScaledSvg
 			fixedAspectRatio={aspectRatio}

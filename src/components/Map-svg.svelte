@@ -9,7 +9,7 @@
     import { data_BarGraphUS } from '../lib/data_BarGraphUS';
 
 	const { data, width, height, zGet } = getContext('LayerCake');
-
+	console.log(data);
 	/** @type {Function} projection – A D3 projection function. Pass this in as an uncalled function, e.g. `projection={geoAlbersUsa}`. */
 	export let projection;
 
@@ -32,11 +32,14 @@
 	 * Here's how you would do cross-component hovers
 	 */
 	const dispatch = createEventDispatcher();
-    let coordinates = data_BarGraphUS.map(({ CoordinatesE, CoordinatesN, Passengers }) => ({
+    let coordinates = data_BarGraphUS.map(({ CoordinatesE, CoordinatesN, Passengers, City }) => ({
       long: +CoordinatesE,
       lat: +CoordinatesN,
-      passengers: +Passengers
+      passengers: +Passengers,
+      city: City
   }));
+  let hovered = -1;
+  let recorded_mouse_position = {x: 0, y: 0};
   const radiusScale = d3.scaleLinear()
       .domain([0, d3.max(data_BarGraphUS, d => +d.Passengers)])
       .range([0, 1]);
@@ -57,7 +60,14 @@
 		}
 	}
 </script>
-
+<div class={hovered === -1 ? "tooltip-hidden": "tooltip-visible"}
+		style="z-index: 1000;">
+		{#if hovered !== -1}
+    {console.log(hovered)}; 
+			{hovered.city} with {hovered.passengers} annual passengers
+		{/if}
+	</div>
+<svg viewBox = "0 0 80 80" style = "z-index: 1;" >
 <g
 	class="map-group"
 	on:mouseout={(e) => dispatch('mouseout')}
@@ -70,10 +80,12 @@
 			stroke={stroke}
 			stroke-width={strokeWidth}
 			d="{geoPathFn(feature)}"
+			style = "z-index: 1;"
 			on:mouseover={(e) => dispatch('mousemove', { e, props: feature.properties })}
 			on:focus={(e) => dispatch('mousemove', { e, props: feature.properties })}
 			on:mousemove={handleMousemove(feature)}
 		></path>
+
 	{/each}
     {#each coordinates as coordinate}
           <circle
@@ -81,27 +93,53 @@
               cy={projectionFn([coordinate.long, coordinate.lat])[1]}
               r={radiusScale(coordinate.passengers)}
               fill="hotpink"
+              on:mouseover={(event) => {hovered = {city: coordinate.city, passengers: coordinate.passengers};
+                        recorded_mouse_position = {
+						x: event.pageX,
+						y: event.pageY
+						}}}
+					    on:mouseout={(event) => { hovered = -1; }}
+
           />
     {/each}
 </g>
-
+</svg>
+<div class={hovered === -1 ? "tooltip-hidden": "tooltip-visible"}
+		style="left: 40px; top:
+		40px; z-index: 1000;">
+		{#if hovered !== -1}
+    {console.log(hovered)}; 
+			{hovered.city} with {hovered.passengers} annual passengers
+		{/if}
+	</div>
 <style>
-	/* .feature-path {
+	.feature-path {
 		stroke: #333;
 		stroke-width: 0.5px;
-	} */
+	} 
 	.feature-path:hover {
 		stroke: #000;
 		stroke-width: 2px;
 	}
-	/**
-	 * Disable the outline on feature click.
-	 * Depending on map funtionality and accessiblity issues,
-	 * you may not want this rule. Read more:
-	 * https://developer.mozilla.org/en-US/docs/Web/CSS/:focus
-	 * https://github.com/mhkeller/layercake/issues/63
-	 */
 	.feature-path:focus {
 		outline: none;
+	}
+  .tooltip-hidden {
+		visibility: hidden;
+		font-family: "Nunito", sans-serif;
+		width: 200px;
+		position: absolute;
+	}
+
+	.tooltip-visible {
+		font: 14px sans-serif;
+		font-family: "Nunito", sans-serif;
+		visibility: visible;
+		background-color: #f0dba8;
+		border-radius: 10px;
+		width: 200px;
+		color: black;
+		position: absolute;
+		padding: 10px;
 	}
 </style>
