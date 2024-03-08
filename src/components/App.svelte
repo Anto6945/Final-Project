@@ -16,7 +16,6 @@
 	const path = geoPath().projection(null);
 	
 	let states = [];
-	let counties = []
 	let mesh;
 	let selected;
 	//$: console.log({ selected })
