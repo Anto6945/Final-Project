@@ -6,7 +6,7 @@
 
 
 
-	import MapTool from './MapTool.svelte';
+	import MapSvg from './Map-svg.svelte';
 
 	import usStates from '../lib/us-states-topojson.js';
 
@@ -20,6 +20,8 @@
 	const aspectRatio = 2.63;
 	const projection = geoAlbersUsa;
 
+	// Create a flat array of objects that LayerCake can use to measure
+	// extents for the color scale
 	const flatData = geojson.features.map(d => d.properties);
 	const colors = ['#ffdecc', '#ffc09c', '#ffa06b', '#ff7a33'];
 </script>
@@ -51,7 +53,7 @@
 		<ScaledSvg
 			fixedAspectRatio={aspectRatio}
 		>
-			<MapTool
+			<MapSvg
 				fixedAspectRatio={aspectRatio}
 				{projection}
 			/>
