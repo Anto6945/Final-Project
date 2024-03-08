@@ -37,12 +37,15 @@
       <section><PieChart/></section>
       <section><BarGraphUS/></section>
       <section><BarGraph1/></section>
+      <section><MapUS/></section>
+      <section></section>
+      <section></section>
       <section></section>
       <section></section>
       <section></section>
       <section></section>
       <section><Map/></section>
-      <section><MapUS/></section>
+
 
     </div>
   </Scroller>

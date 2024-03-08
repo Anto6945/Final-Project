@@ -57,7 +57,7 @@
 		}
 	}
 </script>
-
+<svg viewBox = "0 0 80 80" p >
 <g
 	class="map-group"
 	on:mouseout={(e) => dispatch('mouseout')}
@@ -84,7 +84,7 @@
           />
     {/each}
 </g>
-
+</svg>
 <style>
 	/* .feature-path {
 		stroke: #333;
@@ -94,13 +94,6 @@
 		stroke: #000;
 		stroke-width: 2px;
 	}
-	/**
-	 * Disable the outline on feature click.
-	 * Depending on map funtionality and accessiblity issues,
-	 * you may not want this rule. Read more:
-	 * https://developer.mozilla.org/en-US/docs/Web/CSS/:focus
-	 * https://github.com/mhkeller/layercake/issues/63
-	 */
 	.feature-path:focus {
 		outline: none;
 	}
