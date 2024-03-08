@@ -1,4 +1,4 @@
-<!-- Your main Svelte file -->
+<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
 <script>
   import Scroller from "@sveltejs/svelte-scroller";
   import BarGraph1 from './BarGraph1.svelte';
