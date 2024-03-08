@@ -84,16 +84,9 @@
             .attr('x', (width + margin.left + margin.right) / 2)
             .attr('y', margin.top / 2)
             .attr('text-anchor', 'middle')
-            .style('font-size', '20px')
-            .style('font-weight', 'bold')
+            .style('font-size', '18px')
+            .style('font-size', '18px')
             .text('Annual Number of Passengers in SAN airport from 1949-2018');
-
-        svg.append('text')
-            .attr('x', (width + margin.left + margin.right) / 2)
-            .attr('y', (margin.top / 2)+28)
-            .attr('text-anchor', 'middle')
-            .style('font-size', '14px')
-            .text('Hover over the points to see values!');
         
         // Add x-axis label
         svgLinegraph.append('text')
@@ -210,7 +203,7 @@ svgLinegraph.append('line')
 
     svgLinegraph.append('text')
     .attr('x', 1170) // Adjust x-coordinate based on your requirement
-    .attr('y', 400) // Adjust y-coordinate based on your requirement
+    .attr('y', 405) // Adjust y-coordinate based on your requirement
     .attr('text-anchor', 'end') // Align the text to the end of the specified coordinates
     .style('font-size', '55px') // Adjust font size if needed
     .style('font-family', 'Arial, sans-serif') // Change font family if needed
@@ -220,7 +213,7 @@ svgLinegraph.append('line')
 
     svgLinegraph.append('text')
     .attr('x', 1273) // Adjust x-coordinate based on your requirement
-    .attr('y', 425) // Adjust y-coordinate to position it below "1920"
+    .attr('y', 430) // Adjust y-coordinate to position it below "1920"
     .attr('text-anchor', 'end') // Align the text to the end of the specified coordinates
     .style('font-size', '15px') // Adjust font size if needed
     .style('font-family', 'Verdana, sans-serif') // Change font family if needed
@@ -263,9 +256,9 @@ svgLinegraph.append('animateMotion')
     .attr('text-anchor', 'end') // Align the text to the end of the specified coordinates
     .style('font-size', '55px') // Adjust font size if needed
     .style('font-family', 'Arial, sans-serif') // Change font family if needed
-    .style('fill', 'darkblue')
+    .style('fill', '#336699')
     .style('font-weight', 'bold') // Change text color if needed
-    .text('#24');
+    .text('#3');
 
     svgLinegraph.append('text')
     .attr('x', 1273) // Adjust x-coordinate based on your requirement
@@ -276,14 +269,14 @@ svgLinegraph.append('animateMotion')
     .style('fill', 'black') // Change text color if needed
     .text('3rd most busiest airport in California');
 
-    svg.append('text')
+    svgLinegraph.append('text')
     .attr('x', (width + margin.left + margin.right) / 2)
     .attr('y', margin.top + 3) // Adjust y-coordinate based on your requirement
     .attr('text-anchor', 'middle')
     .style('font-size', '13px')
     .style('font-family', 'Verdana, sans-serif')
     .style('fill', 'black')
-    .text('24th busiest airport in the United States');
+    .text('Hover over points to see total values for each year!');
 });
 </script>
 
