@@ -6,7 +6,7 @@
 
 
 
-	import MapSvg from './Map-svg.svelte';
+	import MapTool from './MapTool.svelte';
 
 	import usStates from '../lib/us-states-topojson.js';
 
@@ -53,7 +53,7 @@
 		<ScaledSvg
 			fixedAspectRatio={aspectRatio}
 		>
-			<MapSvg
+			<MapTool
 				fixedAspectRatio={aspectRatio}
 				{projection}
 			/>

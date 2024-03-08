@@ -7,6 +7,7 @@
   import PieChart from "./PieChart.svelte";
   import Introduction from "./Introduction.svelte";
   import Map from "./Map.svelte";
+  import MapUS from "./MapUS.svelte";
   
   let count, index, offset, progress;
   let width, height;
@@ -40,8 +41,8 @@
       <section></section>
       <section></section>
       <section></section>
-      <section></section>
-      <section><div class="display"><Map/></div></section>
+      <section><Map/></section>
+      <section><MapUS/></section>
 
     </div>
   </Scroller>
