@@ -52,6 +52,10 @@
       <section><PieChart/></section>
       <section><BarGraphUS/></section>
       <section><BarGraph1/></section>
+      <section></section>
+      <section></section>
+      <section></section>
+      <section></section>
       <section><div class="display"><Map/></div></section>
 
     </div>
