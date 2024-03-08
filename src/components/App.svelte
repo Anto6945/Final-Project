@@ -6,6 +6,7 @@
 	// TODO: https://observablehq.com/@jeantimex/us-state-county-map
 	
 	import { onMount } from 'svelte';
+  import { data_BarGraphUS } from '../lib/data_BarGraphUS';
 	import * as topojson from 'topojson-client';
 	import { geoPath, geoAlbersUsa } from 'd3-geo';
 	import { draw } from 'svelte/transition';
@@ -19,10 +20,17 @@
 	let mesh;
 	let selected;
 	//$: console.log({ selected })
-	
-	const points = [
-		{ lat: 38.421115245736, long: -82.44432596047203 },
-	].map(p => projection([p.long, p.lat]))
+	let coordinates = [];
+  for (let i = 0; i < data_BarGraphUS.length; i++) {
+        let coordinate = {
+            long: +data_BarGraphUS[i].CoordinatesE,
+            lat: +data_BarGraphUS[i].CoordinatesN,
+            passengers: +data_BarGraphUS[i].Passengers
+        };
+        console.log(coordinate);
+        coordinates.push(coordinate);
+    }
+	const points = coordinates.map(p => projection([p.long, p.lat]))
 	
 	onMount(async () => {
 		const us = await fetch('https://cdn.jsdelivr.net/npm/us-atlas@3/counties-albers-10m.json')

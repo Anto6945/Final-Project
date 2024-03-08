@@ -1,12 +1,20 @@
 <script>
-    import { dataBarGraphUS } from '../lib/data_BarGraphUS';
+    import { data_BarGraphUS } from '../lib/data_BarGraphUS';
     import { feature } from 'topojson-client';
     import { geoPath, geoAlbersUsa } from 'd3-geo';
     import { csv } from 'd3-fetch';
   
     let us;
     let coordinates = [];
-  
+    for (let i = 0; i < data_BarGraphUS.length; i++) {
+        let coordinate = {
+            long: +data_BarGraphUS[i].CoordinatesE,
+            lat: +data_BarGraphUS[i].CoordinatesN,
+            passengers: +data_BarGraphUS[i].Passengers
+        };
+        console.log(coordinate);
+        coordinates.push(coordinate);
+    }
     const projection = geoAlbersUsa()
         .scale(1000)
         .translate([400, 275]);
@@ -17,18 +25,18 @@
         us = feature(data, data.objects.countries);
     });
   
-    for (let i = 0; i < dataBarGraphUS.length; i++) {
+    for (let i = 0; i < data_BarGraphUS.length; i++) {
         let coordinate = {
-            long: +dataBarGraphUS[i].CoordinatesE,
-            lat: +dataBarGraphUS[i].CoordinatesN,
-            passengers: +dataBarGraphUS[i].Passengers
+            long: +data_BarGraphUS[i].CoordinatesE,
+            lat: +data_BarGraphUS[i].CoordinatesN,
+            passengers: +data_BarGraphUS[i].Passengers
         };
         console.log(coordinate);
         coordinates.push(coordinate);
     }
   
     const radiusScale = d3.scaleLinear()
-        .domain([0, d3.max(dataBarGraphUS, d => +d.Passengers)])
+        .domain([0, d3.max(data_BarGraphUS, d => +d.Passengers)])
         .range([2, 10]);
   </script>
   
