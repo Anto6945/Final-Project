@@ -15,6 +15,15 @@
   let domestic = false;
   let inter = false;
   let barmap = true;
+  let barmapUS = true;
+  let start = false;
+  let sectlinegraph;
+  function scrollToSectionlinegraph() {
+        if (sectlinegraph) {
+            sectlinegraph.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+
 
  </script>
  
@@ -37,8 +46,9 @@
       bind:clientWidth={width} bind:clientHeight={height}
     ></div>
     <div class="foreground" slot="foreground">
-      <section><Introduction/></section>
-      <section><Linegraph/></section>
+      <section><Introduction/><button class = "btn bg custom-button btn-start" on:click={() => {start = !start;scrollToSectionlinegraph()}}>{!start ? "Let's get started !":"Reset"} </button></section>
+      {#if start}
+      <section bind:this={sectlinegraph}><Linegraph/></section>
       <button class = "btn bg custom-button btn-petit" on:click={() => {airlines = !airlines; ftimeAirline = true}}>Airlines</button>
       {#if ftimeAirline}
       {#if airlines}
@@ -46,8 +56,8 @@
       {/if}
       <button class = "btn bg custom-button btn-petit" on:click={() => domestic = !domestic}>Domestic Flight</button>
       {#if domestic}
-      <button class = "btn bg custom-button btn-petit" on:click={() => barmap = !barmap}>{barmap ? "Map":"Barchart"}</button>
-      {#if barmap}
+      <button class = "btn bg custom-button btn-petit" on:click={() => barmapUS = !barmapUS}>{barmapUS ? "Map":"Barchart"}</button>
+      {#if barmapUS}
       <section><BarGraphUS/></section>
       {:else}
       <section><MapUS/></section>
@@ -59,12 +69,16 @@
       {#if barmap}
       <section><BarGraph1/></section>
       {:else}
+      {#if airlines}
       <section></section>
+      {/if}
+      {#if domestic}
       <section></section>
-      <section></section>
+      {/if}
       <section></section>
       <section></section>
       <section><Map/></section>
+      {/if}
       {/if}
       {/if}
       {/if}
@@ -77,6 +91,8 @@
  
  
  <style>
+
+@import '../../bootstrap/css/bootstrap.css';
   .background {
     width: 100%;
     height: 100vh;
@@ -117,9 +133,16 @@
     color: #333; /* Optionally, specify font color */
     text-align: center;
   }
-  @import '../../bootstrap/css/bootstrap.css';
- 
- 
+  .btn-start{
+    font-size: 30px;
+    padding: 15px 30px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center; /* Centre horizontalement */
+    margin:auto;
+    margin-top: 50px
+  }
+  
  </style>
  
  
