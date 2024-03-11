@@ -38,8 +38,8 @@
       passengers: +Passengers,
       city: City
   }));
-  let hovered = -1;
-  let recorded_mouse_position = {x: 0, y: 0};
+  export let hovered = -1;
+  export let recorded_mouse_position = {x: 0, y: 0};
   const radiusScale = d3.scaleLinear()
       .domain([0, d3.max(data_BarGraphUS, d => +d.Passengers)])
       .range([0, 1]);
@@ -99,7 +99,6 @@
 		style="left: 40px; top:
 		40px; z-index: 3;">
 		{#if hovered !== -1}
-    {console.log(hovered)}; 
 			{hovered.city} with {hovered.passengers} annual passengers
 		{/if}
 	</div>

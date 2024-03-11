@@ -4,7 +4,8 @@
 	import { geoAlbersUsa } from 'd3-geo';
 	import { scaleQuantize } from 'd3-scale';
 
-
+    import hovered from './MapTool.svelte';
+    import recorded_mouse_position from './MapTool.svelte';
 
 	import MapTool from './MapTool.svelte';
 
@@ -38,8 +39,34 @@
 		position: relative;
 		width: 100%;
 	}
-</style>
+    .tooltip-hidden {
+		visibility: hidden;
+		font-family: "Nunito", sans-serif;
+		width: 200px;
+		position: absolute;
+	}
 
+	.tooltip-visible {
+		font: 14px sans-serif;
+		font-family: "Nunito", sans-serif;
+		visibility: visible;
+		background-color: #f0dba8;
+		border-radius: 10px;
+		width: 200px;
+		color: black;
+		position: absolute;
+		padding: 10px;
+	}
+</style>
+Text for cities toDO with export
+<div class={$hovered === -1 ? "tooltip-hidden": "tooltip-visible"}
+		style="left: {$recorded_mouse_position.x + 40}px; top:
+		{$recorded_mouse_position.y + 40}px; z-index: 3;">
+		{#if $hovered !== -1}
+    {console.log($hovered)}; 
+			{$hovered.city} with {$hovered.passengers} annual passengers
+		{/if}
+	</div>
 <div class="chart-container" style="padding-bottom:{100 / aspectRatio}%">
 	<LayerCake
 		ssr={true}
