@@ -96,13 +96,6 @@
     {/each}
 </g>
 </svg>
-<div class={$hovered === -1 ? "tooltip-hidden": "tooltip-visible"}
-		style="left: 40px; top:
-		40px; z-index: 3;">
-		{#if $hovered !== -1}
-			{$hovered.city} with {$hovered.passengers} annual passengers
-		{/if}
-	</div>
 <style>
 	/* .feature-path {
 		stroke: #333;
