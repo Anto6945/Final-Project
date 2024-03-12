@@ -58,8 +58,8 @@
 	}
 </style>
 <div class={($hovered === -1) ? "tooltip-hidden": "tooltip-visible"}
-		style="left: {$recorded_mouse_position.x + 20}px; top:
-		{$recorded_mouse_position.y + 20}px; z-index: 3;">
+		style="left: {$recorded_mouse_position.x - 20}px; top:
+		{$recorded_mouse_position.y -20}px; z-index: 3;">
 		{#if ($hovered !== -1)}
 			{$hovered.city} with {$hovered.passengers} annual passengers
 		{/if}
