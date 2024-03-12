@@ -7,6 +7,7 @@
 	import { geoPath } from 'd3-geo';
     import * as d3 from 'd3';
     import { data_BarGraphUS } from '../lib/data_BarGraphUS';
+  import { hovered, recorded_mouse_position } from './stores.js';
 
 	const { data, width, height, zGet } = getContext('LayerCake');
 
@@ -38,8 +39,8 @@
       passengers: +Passengers,
       city: City
   }));
-  export let hovered = -1;
-  export let recorded_mouse_position = {x: 0, y: 0};
+
+
   const radiusScale = d3.scaleLinear()
       .domain([0, d3.max(data_BarGraphUS, d => +d.Passengers)])
       .range([0, 1]);
@@ -84,22 +85,22 @@
               cy={projectionFn([coordinate.long, coordinate.lat])[1]}
               r={radiusScale(coordinate.passengers)}
               fill="hotpink"
-              on:mouseover={(event) => {hovered = {city: coordinate.city, passengers: coordinate.passengers};
-                        recorded_mouse_position = {
+              on:mouseover={(event) => {hovered.set({city: coordinate.city, passengers: coordinate.passengers});
+                        recorded_mouse_position.set({
 						x: event.pageX,
 						y: event.pageY
-						}}}
-					    on:mouseout={(event) => { hovered = -1; }}
+						})}}
+					    on:mouseout={(event) => { hovered.set(-1); }}
 
           />
     {/each}
 </g>
 </svg>
-<div class={hovered === -1 ? "tooltip-hidden": "tooltip-visible"}
+<div class={$hovered === -1 ? "tooltip-hidden": "tooltip-visible"}
 		style="left: 40px; top:
 		40px; z-index: 3;">
-		{#if hovered !== -1}
-			{hovered.city} with {hovered.passengers} annual passengers
+		{#if $hovered !== -1}
+			{$hovered.city} with {$hovered.passengers} annual passengers
 		{/if}
 	</div>
 <style>
