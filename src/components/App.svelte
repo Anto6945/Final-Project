@@ -76,6 +76,7 @@
   import Introduction from "./Introduction.svelte";
   import Map from "./Map.svelte";
   import MapUS from "./MapUS.svelte";
+
   
   let count, index, offset, progress;
   let width, height;
@@ -90,6 +91,7 @@
   function scrollToSectionlinegraph() {
         if (sectlinegraph) {
             sectlinegraph.scrollIntoView({ behavior: 'smooth' });
+            startTransition();
         }
     }
 
@@ -117,6 +119,7 @@
     <div class="foreground" slot="foreground">
       <section><Introduction/><button class = "btn bg custom-button btn-start" on:click={() => {start = !start;scrollToSectionlinegraph()}}>{!start ? "Let's get started !":"Reset"} </button></section>
       {#if start}
+	  <space></space>
       <section bind:this={sectlinegraph}><Linegraph/></section>
       <button class = "btn bg custom-button btn-petit" on:click={() => {airlines = !airlines; ftimeAirline = true}}>Airlines</button>
       {#if ftimeAirline}
@@ -140,10 +143,11 @@
       {:else}
       {#if airlines}
       <section></section>
-	  <space></space>
+	  <section></section>
       {/if}
       {#if domestic}
       <section></section>
+	  <section></section>
       {/if}
       <section></section>
       <section></section>
@@ -152,9 +156,7 @@
       {/if}
       {/if}
       {/if}
-	  {#if airlines && !domestic && !inter}
-	  <space></space>
-	  {/if}
+	  
 
     </div>
   </Scroller>

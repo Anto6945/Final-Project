@@ -41,7 +41,7 @@
           {#each data as country}
             <text
               text-anchor="end"
-              x={hovered == country["Passengers"] ? -15 :-10}
+              x={hovered == country["Passengers"] ? -30 :-20}
               y={yScale(country.City) + yScale.bandwidth() / 2}
               opacity={hovered ? hovered == country["Passengers"] ? "1" : ".3" : "1"}
               dy=".35em"

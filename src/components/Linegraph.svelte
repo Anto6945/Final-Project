@@ -246,6 +246,7 @@ svg.append('line')
     .style('fill', 'black')
     .text('24th busiest airport in the United States');
 });
+
 </script>
 
 <style>
