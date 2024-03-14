@@ -74,6 +74,17 @@
         </g>
       </svg>
     </div>
+    <div class="inf-box">
+      <p> As we can see, Southwest has been dominating consistently in terms of being the most flown airline in the airspace.
+        Among all the years in the visualization, we see that it has the largest share among all airlines. 
+      </p>
+      <p>We notice something interesting that <strong>majority of the flights passing through the San Diego airport are domestic 
+        flights.</strong> Delta, United, Southwest, etc. that seem to be the leading flights are all U.S nationally owned airlines. Even if you 
+        change the year, the "other" portion indicating various international airlines only seem to make up a really small 
+        portion (less than 25 percent) of the pie chart. </p>
+      <p> What does this tell us about SAN airport? Many people use it for connecting flights and to travel domestically within the U.S.
+        While people a good amount of passengers do international travel, domestic travel seems to dominate by a large margin. </p>
+    </div>
 </div>
 <style>
     @import url("https://fonts.googleapis.com/css?family=Merriweather:700&display=swap");
@@ -101,7 +112,18 @@
     width: 100%;
     max-width: 700px;
   }
-
+  .inf-box {
+        width: 450px;
+        padding: 20px;
+        background-color: #f9f1f9;
+        border: 2px solid #000000;
+        border-radius: 10px;
+        position: absolute;
+        top: 1530px; /* Adjust as needed */
+        right: 240px; /* Adjust as needed */
+        font-family: Arial, sans-serif; /* Change font to Arial */
+        font-size: 16px; /* Reduce font size */
+    }
   rect {
     fill: #af23d5;
   }
