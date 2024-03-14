@@ -117,7 +117,7 @@
       bind:clientWidth={width} bind:clientHeight={height}
     ></div>
     <div class="foreground" slot="foreground">
-      <section><Introduction/><button class = "btn bg custom-button btn-start" on:click={() => {start = !start;scrollToSectionlinegraph()}}>{!start ? "Let's get started !":"Reset"} </button></section>
+      <section><Introduction/><button class = "btn bg custom-button btn-start" on:click={() => {start = !start;scrollToSectionlinegraph()}}>{!start ? "Start Here!":"Reset"} </button></section>
       {#if start}
 	  <space></space>
       <section bind:this={sectlinegraph}><Linegraph/></section>
@@ -126,7 +126,7 @@
       {#if airlines}
       <section><PieChart/></section>
       {/if}
-      <button class = "btn bg custom-button btn-petit" on:click={() => domestic = !domestic}>Popular Domestic Destinations</button>
+      <button class = "btn bg custom-button btn-petit" on:click={() => domestic = !domestic}>Domestic Destinations</button>
       {#if domestic}
       <button class = "btn bg custom-button btn-petit" on:click={() => barmapUS = !barmapUS}>{barmapUS ? "Map":"Barchart"}</button>
       {#if barmapUS}
@@ -135,7 +135,7 @@
       <section><MapUS/></section>
       {/if}
       {/if}
-      <button class = "btn bg custom-button btn-petit" on:click={() => inter = !inter}> Popular International Destinations</button>
+      <button class = "btn bg custom-button btn-petit" on:click={() => inter = !inter}> International Destinations</button>
       {#if inter}
       <button class = "btn bg custom-button btn-petit" on:click={() => barmap = !barmap}>{barmap ? "Map":"Barchart"}</button>
       {#if barmap}
