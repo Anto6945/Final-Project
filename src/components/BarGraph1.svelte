@@ -33,6 +33,7 @@
     .padding(0.25);
   </script>
 
+<div class="space"></div>
 <div class="app">
     <div class="wrapper" bind:clientWidth={width}>
       <svg {width} {height}>
@@ -101,6 +102,10 @@
     position: relative;
     width: 100%;
     max-width: 700px;
+  }
+
+  .space{
+    margin-top:100px;
   }
 
   rect {

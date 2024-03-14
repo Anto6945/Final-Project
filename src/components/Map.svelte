@@ -86,6 +86,7 @@
 		position: absolute;
 	}
 
+
 	.tooltip-visible {
 		font: 14px sans-serif;
 		font-family: "Nunito", sans-serif;

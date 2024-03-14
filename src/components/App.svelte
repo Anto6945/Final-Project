@@ -1,13 +1,6 @@
  <style>
 
   @import '../../bootstrap/css/bootstrap.css';
-  .background {
-    width: 100%;
-    height: 100vh;
-    position: relative;
-    background-color: rgba(0, 0, 0, 0); /* 20% opaque */
-    outline: white 3px;
-  }
 
   .background-image {
   width: 100%;
@@ -22,16 +15,8 @@
   background-attachment: fixed;
 }
 
-  space{
-	height: 20vh;
-    background-color: white; /* 20% opaque */
-    /* color: white; */
-    outline: white 3px;
-    text-align: center;
-    max-width: 2000px; /* adjust at will */
-    color: black;
-    padding: 1em;
-    margin: 0 0 2em 0;
+  .space{
+	margin-top: 20px;
 }
  .btn-petit{
   font-size: 12px;
@@ -48,10 +33,16 @@
     outline: white 3px;
   }
  
- 
+  section_btn{
+    height: 20vh;
+    text-align: center;
+    max-width: 2000px; /* adjust at will */
+    color: black;
+    padding: 1em;
+    margin: 0 0 2em 0;
+ }
   section {
     height: 80vh;
-    outline: white 3px;
     text-align: center;
     max-width: 2000px; /* adjust at will */
     color: black;
@@ -132,18 +123,17 @@
     <h1 class="custom-heading">Visualizing San Diego Airport (SAN) Air Traffic</h1>
       <section><Introduction/><button class = "btn bg custom-button btn-start" on:click={() => {start = !start;scrollToSectionlinegraph()}}>{!start ? "Let's get started !":"Reset"} </button></section>
       {#if start}
-	  <space></space>
       <section bind:this={sectlinegraph}><Linegraph/></section>
-      <button class = "btn bg custom-button btn-petit" on:click={() => {airlines = !airlines; ftimeAirline = true}}>Airline Distribution</button>
+      <section_btn><button class = "btn bg custom-button btn-petit" on:click={() => {airlines = !airlines; ftimeAirline = true}}>Airline Distribution</button></section_btn>
       {#if ftimeAirline}
       {#if airlines}
       <section><PieChart/></section>
       {/if}
-      <button class = "btn bg custom-button btn-petit" on:click={() => domestic = !domestic}>Domestic Destinations</button>
+      <section_btn><button class = "btn bg custom-button btn-petit" on:click={() => domestic = !domestic}>Domestic Destinations</button></section_btn>
       {#if domestic}
-      <button class = "btn bg custom-button btn-petit" on:click={() => barmapUS = !barmapUS}>{barmapUS ? "Map":"Barchart"}</button>
+      <section_btn><button class = "btn bg custom-button btn-petit" on:click={() => barmapUS = !barmapUS}>{barmapUS ? "Map":"Barchart"}</button></section_btn>
       {#if barmapUS}
-      <section><BarGraphUS/></section>
+      <section><div calss="container"><BarGraphUS/></div></section>
       {:else}
       <section><MapUS/></section>
       {/if}

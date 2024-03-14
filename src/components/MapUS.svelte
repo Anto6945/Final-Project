@@ -45,6 +45,10 @@
 		position: absolute;
 	}
 
+	.space{
+		margin-top: 200px;
+	}
+
 	.tooltip-visible {
 		font: 14px sans-serif;
 		font-family: "Nunito", sans-serif;
@@ -64,7 +68,8 @@
 			{$hovered.city} with {$hovered.passengers} annual passengers
 		{/if}
 </div>
-<div class="chart-container" style="padding-bottom:{100 / aspectRatio}%">
+<div class="space"></div>
+<div class="chart-container" style="padding-bottom:{100 / aspectRatio}%; scale:1.5; left:-400px">
 	<LayerCake
 		ssr={true}
 		position='absolute'
