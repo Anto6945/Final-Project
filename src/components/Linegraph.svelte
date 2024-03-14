@@ -69,7 +69,7 @@
         
         // Append a tooltip background rectangle
         const tooltipRect = svg.append('rect')
-            .attr('width', 200)
+            .attr('width', 230)
             .attr('height', 20)
             .attr('fill', 'lightgray')
             .style('opacity', 0);
@@ -246,6 +246,7 @@ svg.append('line')
     .style('fill', 'black')
     .text('24th busiest airport in the United States');
 });
+
 </script>
 
 <style>

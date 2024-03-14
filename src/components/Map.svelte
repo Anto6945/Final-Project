@@ -7,12 +7,14 @@
         .scale(100)
         .translate([400, 275]);
     const path = d3.geoPath().projection(projection);
-  
+    let hovered = -1;
+    let recorded_mouse_position = {x: 0, y: 0};
     for (let i = 0; i < dataBargraph.length; i++) {
         let coordinate = {
             long: +dataBargraph[i].CoordinatesE,
             lat: +dataBargraph[i].CoordinatesN,
-            passengers: +dataBargraph[i].Passengers
+            passengers: +dataBargraph[i].Passengers,
+            city: dataBargraph[i].City
         };
         coordinates.push(coordinate);
     }
@@ -42,6 +44,14 @@
                         cy={projection([coordinate.long, coordinate.lat])[1]}
                         r={radiusScale(coordinate.passengers)}
                         fill="hotpink"
+                        on:mouseover={(event) => {hovered = {city: coordinate.city, passengers: coordinate.passengers};
+                        console.log(hovered); 
+                        recorded_mouse_position = {
+						x: event.pageX,
+						y: event.pageY
+						}}}
+					    on:mouseout={(event) => { hovered = -1; }}
+
                     />
                 {/each}
             {:else}
@@ -49,6 +59,13 @@
             {/if}
         {/await}
     </svg>
+    <div class={hovered === -1 ? "tooltip-hidden": "tooltip-visible"}
+		style="left: {recorded_mouse_position.x + 40}px; top:
+		{recorded_mouse_position.y + 40}px; z-index: 3;">
+		{#if hovered !== -1}
+			{hovered.city} with {hovered.passengers} annual passengers
+		{/if}
+	</div>
   </main>
   
   <style>
@@ -62,5 +79,23 @@
         max-height: 80vh;
         z-index: 1;
     }
+    .tooltip-hidden {
+		visibility: hidden;
+		font-family: "Nunito", sans-serif;
+		width: 200px;
+		position: absolute;
+	}
+
+	.tooltip-visible {
+		font: 14px sans-serif;
+		font-family: "Nunito", sans-serif;
+		visibility: visible;
+		background-color: #f0dba8;
+		border-radius: 10px;
+		width: 200px;
+		color: black;
+		position: absolute;
+		padding: 10px;
+	}
   </style>
   

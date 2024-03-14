@@ -7,6 +7,7 @@
 	import { geoPath } from 'd3-geo';
     import * as d3 from 'd3';
     import { data_BarGraphUS } from '../lib/data_BarGraphUS';
+  import { hovered, recorded_mouse_position } from './stores.js';
 
 	const { data, width, height, zGet } = getContext('LayerCake');
 
@@ -32,11 +33,14 @@
 	 * Here's how you would do cross-component hovers
 	 */
 	const dispatch = createEventDispatcher();
-    let coordinates = data_BarGraphUS.map(({ CoordinatesE, CoordinatesN, Passengers }) => ({
+    let coordinates = data_BarGraphUS.map(({ CoordinatesE, CoordinatesN, Passengers, City }) => ({
       long: +CoordinatesE,
       lat: +CoordinatesN,
-      passengers: +Passengers
+      passengers: +Passengers,
+      city: City
   }));
+
+
   const radiusScale = d3.scaleLinear()
       .domain([0, d3.max(data_BarGraphUS, d => +d.Passengers)])
       .range([0, 1]);
@@ -57,7 +61,7 @@
 		}
 	}
 </script>
-<svg viewBox = "0 0 80 80" p >
+<svg viewBox = "0 0 80 80" style = "z-index: 1;" >
 <g
 	class="map-group"
 	on:mouseout={(e) => dispatch('mouseout')}
@@ -81,6 +85,13 @@
               cy={projectionFn([coordinate.long, coordinate.lat])[1]}
               r={radiusScale(coordinate.passengers)}
               fill="hotpink"
+              on:mouseover={(event) => {hovered.set({city: coordinate.city, passengers: coordinate.passengers});
+                        recorded_mouse_position.set({
+						x: event.pageX,
+						y: event.pageY
+						})}}
+					    on:mouseout={(event) => { hovered.set(-1); }}
+
           />
     {/each}
 </g>
@@ -96,5 +107,23 @@
 	}
 	.feature-path:focus {
 		outline: none;
+	}
+  .tooltip-hidden {
+		visibility: hidden;
+		font-family: "Nunito", sans-serif;
+		width: 200px;
+		position: absolute;
+	}
+
+	.tooltip-visible {
+		font: 14px sans-serif;
+		font-family: "Nunito", sans-serif;
+		visibility: visible;
+		background-color: #f0dba8;
+		border-radius: 10px;
+		width: 200px;
+		color: black;
+		position: absolute;
+		padding: 10px;
 	}
 </style>
