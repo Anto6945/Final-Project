@@ -121,12 +121,12 @@
       {#if start}
 	  <space></space>
       <section bind:this={sectlinegraph}><Linegraph/></section>
-      <button class = "btn bg custom-button btn-petit" on:click={() => {airlines = !airlines; ftimeAirline = true}}>Airlines</button>
+      <button class = "btn bg custom-button btn-petit" on:click={() => {airlines = !airlines; ftimeAirline = true}}>Airline Distribution</button>
       {#if ftimeAirline}
       {#if airlines}
       <section><PieChart/></section>
       {/if}
-      <button class = "btn bg custom-button btn-petit" on:click={() => domestic = !domestic}>Domestic Flight</button>
+      <button class = "btn bg custom-button btn-petit" on:click={() => domestic = !domestic}>Popular Domestic Destinations</button>
       {#if domestic}
       <button class = "btn bg custom-button btn-petit" on:click={() => barmapUS = !barmapUS}>{barmapUS ? "Map":"Barchart"}</button>
       {#if barmapUS}
@@ -135,7 +135,7 @@
       <section><MapUS/></section>
       {/if}
       {/if}
-      <button class = "btn bg custom-button btn-petit" on:click={() => inter = !inter}>International Flight</button>
+      <button class = "btn bg custom-button btn-petit" on:click={() => inter = !inter}> Popular International Destinations</button>
       {#if inter}
       <button class = "btn bg custom-button btn-petit" on:click={() => barmap = !barmap}>{barmap ? "Map":"Barchart"}</button>
       {#if barmap}
