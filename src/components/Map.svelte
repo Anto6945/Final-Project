@@ -36,7 +36,7 @@
         {:then}
             {#if worldData}
                 {#each worldData.features as feature}
-                    <path d={path(feature)} fill="lightblue" stroke="white" stroke-width="0.5" />
+                    <path d={path(feature)} fill="#CBC3E3" stroke="white" stroke-width="0.5" />
                 {/each}
                 {#each coordinates as coordinate}
                     <circle
@@ -90,7 +90,7 @@
 		font: 14px sans-serif;
 		font-family: "Nunito", sans-serif;
 		visibility: visible;
-		background-color: #f0dba8;
+		background-color: purple;
 		border-radius: 10px;
 		width: 200px;
 		color: black;

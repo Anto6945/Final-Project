@@ -8,6 +8,20 @@
     background-color: rgba(0, 0, 0, 0); /* 20% opaque */
     outline: white 3px;
   }
+
+  .background-image {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-image: url('../../sky-background-video-conferencing_23-2148630092.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  outline: white 3px;
+  z-index: -1;
+  background-attachment: fixed;
+}
+
   space{
 	height: 20vh;
     background-color: white; /* 20% opaque */
@@ -37,8 +51,6 @@
  
   section {
     height: 80vh;
-    background-color: white; /* 20% opaque */
-    /* color: white; */
     outline: white 3px;
     text-align: center;
     max-width: 2000px; /* adjust at will */
@@ -49,7 +61,6 @@
     font-family: Arial, sans-serif; /* Specify the desired font family */
     font-size: 34px; /* Adjust font size as needed */
     font-weight: bold; /* Optionally, adjust font weight */
-    color: #333; /* Optionally, specify font color */
     text-align: center;
   }
   .btn-start{
@@ -100,7 +111,7 @@
  
  
  <main>
-  <h1 class="custom-heading">Visualizing San Diego Airport (SAN) Air Traffic</h1>
+
   <Scroller
     top={0.0}
     bottom={1}
@@ -113,11 +124,13 @@
  
  
     <div
-      class="background" slot="background"
+      class="background-image" slot="background"
       bind:clientWidth={width} bind:clientHeight={height}
     ></div>
+    
     <div class="foreground" slot="foreground">
-      <section><Introduction/><button class = "btn bg custom-button btn-start" on:click={() => {start = !start;scrollToSectionlinegraph()}}>{!start ? "Start Here!":"Reset"} </button></section>
+    <h1 class="custom-heading">Visualizing San Diego Airport (SAN) Air Traffic</h1>
+      <section><Introduction/><button class = "btn bg custom-button btn-start" on:click={() => {start = !start;scrollToSectionlinegraph()}}>{!start ? "Let's get started !":"Reset"} </button></section>
       {#if start}
 	  <space></space>
       <section bind:this={sectlinegraph}><Linegraph/></section>
@@ -143,11 +156,13 @@
       {:else}
       {#if airlines}
       <section></section>
-	  <section></section>
+	    <section></section>
+      {#if domestic}
+      <section></section>
+      {/if}
       {/if}
       {#if domestic}
       <section></section>
-	  <section></section>
       {/if}
       <section></section>
       <section></section>
