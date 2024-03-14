@@ -35,8 +35,8 @@
  
   section_btn{
     height: 20vh;
-    text-align: center;
-    max-width: 2000px; /* adjust at will */
+    text-align: left;
+    max-width: 2000px; 
     color: black;
     padding: 1em;
     margin: 0 0 2em 0;
@@ -44,7 +44,7 @@
   section {
     height: 80vh;
     text-align: center;
-    max-width: 2000px; /* adjust at will */
+    max-width: 2000px; 
     color: black;
     padding: 1em;
     margin: 0 0 2em 0;}
@@ -153,6 +153,12 @@
       {/if}
       {#if domestic}
       <section></section>
+      <div class="space"></div>
+      <div class="space"></div>
+      <div class="space"></div>
+      <div class="space"></div>
+      <div class="space"></div>
+      <div class="space"></div>
       {/if}
       <section></section>
       <section></section>
