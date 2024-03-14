@@ -13,7 +13,7 @@
     left: 290,
   };
 
-	let width = 500;
+	let width = 550;
   let height = 400;
   let recorded_mouse_position = {x: 0, y: 0};
   let hovered = -1;
@@ -36,7 +36,7 @@
 <div class="app">
     <div class="wrapper" bind:clientWidth={width}>
       <svg {width} {height}>
-        <text x="250" y="16" text-anchor="middle" font-size="20px" font-weight="bold"> Most Popular international Destinations from San Diego</text>
+        <text x="250" y="16" text-anchor="middle" font-size="20px" font-weight="bold"> Most Popular International Destinations from SAN</text>
         <g transform={`translate(${margin.left}, ${margin.top})`}>
           {#each data as country}
             <text
