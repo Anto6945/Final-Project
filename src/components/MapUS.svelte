@@ -56,6 +56,15 @@
 		position: absolute;
 		padding: 10px;
 	}
+	.chart-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.chart-title h2 {
+    font-size: 24px;
+    font-weight: bold;
+}
 </style>
 <div class={($hovered === -1) ? "tooltip-hidden": "tooltip-visible"}
 		style="left: {$recorded_mouse_position.x - 20}px; top:
@@ -63,6 +72,9 @@
 		{#if ($hovered !== -1)}
 			{$hovered.city} with {$hovered.passengers} annual passengers
 		{/if}
+</div>
+<div class="chart-title">
+    <h2>Domestic Map Visualization</h2>
 </div>
 <div class="chart-container" style="padding-bottom:{100 / aspectRatio}%">
 	<LayerCake
