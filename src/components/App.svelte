@@ -41,7 +41,7 @@
       position: absolute;
       top: 50%;
       left: 10px;
-      transform: translateY(-50%);
+      transform: translateY(-50%) rotate(-45deg);
       width: 30px;
       height: 30px;
       fill: white;
@@ -53,20 +53,20 @@
   }
 
   .plane-button:hover .plane-icon {
-      transform: translateY(-50%) rotate(45deg);
+      transform: translateY(-50%) rotate(0deg);
   }
 
   /* Animation de l'avion */
   @keyframes fly {
       100% {
-          transform: translate(200px, -100px);
+          transform: translate(200px, 0px);
           opacity: 0;
       }
   }
 
   /* Appliquer l'animation lorsque le bouton est cliqué */
   .is-clicked .plane-icon {
-      animation: fly 0.4s ease both;
+      animation: fly 0.8s ease both;
   }
 </style>
 
@@ -75,7 +75,7 @@
       <!-- Bouton qui déclenche l'animation -->
       <button class="plane-button" on:click={handleClick} class:is-clicked={isClicked}>
           <!-- Icone de l'avion -->
-          <svg class="plane-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <svg class="plane-icon" viewBox="0 0 24 24">
               <image href="airplane-flying-svgrepo-com.svg" width="24" height="24" />
           </svg>
           <!-- Texte du bouton -->
