@@ -24,7 +24,7 @@
   /* Nouveau style pour le bouton d'avion */
   .plane-button {
       display: inline-block;
-      padding: 10px 20px;
+      padding: 20px 40px;
       background-color: #007bff;
       color: white;
       text-align: right;
@@ -46,7 +46,6 @@
       width: 30px;
       height: 30px;
       fill: white;
-      transition: transform 0.3s;
   }
 
   .plane-button:hover {
@@ -60,7 +59,7 @@
   /* Animation de l'avion */
   @keyframes fly {
       100% {
-          transform: translate(200px, 0px);
+          transform: translate(220px, 0px);
           opacity: 0;
       }
   }
