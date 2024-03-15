@@ -81,7 +81,7 @@
 	{/each}
     {#each coordinates as coordinate}
           <circle
-		  	  style = "z-index: 100;"
+		  	  style = "z-index: 10;"
               cx={projectionFn([coordinate.long, coordinate.lat])[0]}
               cy={projectionFn([coordinate.long, coordinate.lat])[1]}
               r={radiusScale(coordinate.passengers)}
@@ -95,6 +95,13 @@
 
           />
     {/each}
+	<circle 
+	style = "z-index: 10;" 
+	cx={projectionFn([-117.197624,32.731770])[0]} 
+	cy={projectionFn([-117.197624,32.731770])[1]} 
+	r="1" 
+	fill="purple"
+	on:mouseout={(event) => { hovered.set(1); }}/>
 </g>
 </svg>
 <style>
@@ -108,23 +115,5 @@
 	}
 	.feature-path:focus {
 		outline: none;
-	}
-  .tooltip-hidden {
-		visibility: hidden;
-		font-family: "Nunito", sans-serif;
-		width: 200px;
-		position: absolute;
-	}
-
-	.tooltip-visible {
-		font: 14px sans-serif;
-		font-family: "Nunito", sans-serif;
-		visibility: visible;
-		background-color: #f0dba8;
-		border-radius: 10px;
-		width: 200px;
-		color: black;
-		position: absolute;
-		padding: 10px;
 	}
 </style>

@@ -30,13 +30,13 @@
   </script>
   
   <main>
-    <svg viewBox="0 0 800 550">
+    <svg viewBox="0 0 800 550" style = "left:300px; scale:0.9">
         {#await loadWorldData()}
             <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">Loading...</text>
         {:then}
             {#if worldData}
                 {#each worldData.features as feature}
-                    <path d={path(feature)} fill="#CBC3E3" stroke="white" stroke-width="0.5" />
+                    <path d={path(feature)} fill="lightblue" stroke="white" stroke-width="0.5" />
                 {/each}
                 {#each coordinates as coordinate}
                     <circle
@@ -45,25 +45,35 @@
                         r={radiusScale(coordinate.passengers)}
                         fill="hotpink"
                         on:mouseover={(event) => {hovered = {city: coordinate.city, passengers: coordinate.passengers};
-                        console.log(hovered); 
                         recorded_mouse_position = {
 						x: event.pageX,
 						y: event.pageY
 						}}}
 					    on:mouseout={(event) => { hovered = -1; }}
-
                     />
                 {/each}
+                <circle 
+	style = "z-index: 10;" 
+	cx={projection([-117.197624,32.731770])[0]} 
+	cy={projection([-117.197624,32.731770])[1]} 
+	r="10" 
+	fill="purple"
+    on:mouseover={(event) => hovered = 1}
+    />
             {:else}
                 <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">Failed to load data</text>
             {/if}
         {/await}
     </svg>
-    <div class={hovered === -1 ? "tooltip-hidden": "tooltip-visible"}
+    <div class={hovered === -1 ? "tooltip-hidden" : (hovered === 1 ? "tooltip-sd" : "tooltip-visible")}
 		style="left: {recorded_mouse_position.x + 40}px; top:
 		{recorded_mouse_position.y + 40}px; z-index: 3;">
 		{#if hovered !== -1}
-			{hovered.city} with {hovered.passengers} annual passengers
+            {#if hovered == 1}
+                San Diego with 24,000,000 annual passengers
+            {:else}
+                {hovered.city} with {hovered.passengers} annual passengers
+            {/if}
 		{/if}
 	</div>
   </main>
@@ -91,7 +101,19 @@
 		font: 14px sans-serif;
 		font-family: "Nunito", sans-serif;
 		visibility: visible;
-		background-color: purple;
+		background-color: #ebcc88;
+		border-radius: 10px;
+		width: 200px;
+		color: black;
+		position: absolute;
+		padding: 10px;
+	}
+
+    .tooltip-sd {
+		font: 14px sans-serif;
+		font-family: "Nunito", sans-serif;
+		visibility: visible;
+		background-color: #CBC3E3;
 		border-radius: 10px;
 		width: 200px;
 		color: black;

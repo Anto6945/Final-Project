@@ -53,23 +53,40 @@
 		font: 14px sans-serif;
 		font-family: "Nunito", sans-serif;
 		visibility: visible;
-		background-color: #f0dba8;
+		background-color: #ebcc88;
 		border-radius: 10px;
 		width: 200px;
 		color: black;
 		position: absolute;
 		padding: 10px;
 	}
+
+	.tooltip-sd {
+		font: 14px sans-serif;
+		font-family: "Nunito", sans-serif;
+		visibility: visible;
+		background-color: #CBC3E3;
+		border-radius: 10px;
+		width: 200px;
+		color: black;
+		position: absolute;
+		padding: 10px;
+	}
+	
 </style>
-<div class={($hovered === -1) ? "tooltip-hidden": "tooltip-visible"}
+<div class={$hovered === -1 ? "tooltip-hidden" : ($hovered === 1 ? "tooltip-sd" : "tooltip-visible")}
 		style="left: {$recorded_mouse_position.x + 40}px; top:
 		{$recorded_mouse_position.y + 40}px; z-index: 3;">
 		{#if ($hovered !== -1)}
+			{#if ($hovered === 1)}
+				San Diego with 24,000,000 annual passengers
+			{:else}
 			{$hovered.city} with {$hovered.passengers} annual passengers
+			{/if}
 		{/if}
 </div>
 <div class="space"></div>
-<div class="chart-container" style="padding-bottom:{100 / aspectRatio}%; scale:1.5; left:-400px; z-index:2">
+<div class="chart-container" style="padding-bottom:{100 / aspectRatio}%; scale:1.5; left:-400px;z-index:2">
 	<LayerCake
 		ssr={true}
 		position='absolute'

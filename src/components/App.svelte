@@ -143,27 +143,22 @@
       {#if barmapUS}
       <section><BarGraphUS/></section>
       {:else}
-      <section><MapUS/></section>
+      <section style="height:105vh"><MapUS/></section>
       {/if}
       {/if}
-      <button class = "btn bg custom-button btn-petit" on:click={() => inter = !inter}>International Flight</button>
+      <button class = "btn bg custom-button btn-petit" style ="z-index:11" on:click={() => inter = !inter}>International Flight</button>
       {#if inter}
-      <button class = "btn bg custom-button btn-petit" on:click={() => barmap = !barmap}>{barmap ? "Map":"Barchart"}</button>
+      <button class = "btn bg custom-button btn-petit" style ="z-index:11" on:click={() => barmap = !barmap}>{barmap ? "Map":"Barchart"}</button>
       {#if barmap}
       <section><BarGraph1/></section>
       {:else}
       {#if airlines}
       <section></section>
-	    <section></section>
-      {#if domestic}
-      <section></section>
-      {/if}
       {/if}
       {#if domestic}
-      <section></section>
+      <section style="height: 120vh"></section>
       {/if}
-      <section></section>
-      <section></section>
+      <section style = "height:40vh"></section>
       <section><Map/></section>
       {/if}
       {/if}
