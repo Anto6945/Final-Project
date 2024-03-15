@@ -101,7 +101,7 @@
 	cy={projectionFn([-117.197624,32.731770])[1]} 
 	r="1" 
 	fill="purple"
-	on:mouseout={(event) => { hovered.set(1); }}/>
+	on:mouseover={(event) => { hovered.set(1); }}/>
 </g>
 </svg>
 <style>
