@@ -62,14 +62,14 @@
 	}
 </style>
 <div class={($hovered === -1) ? "tooltip-hidden": "tooltip-visible"}
-		style="left: {$recorded_mouse_position.x - 20}px; top:
-		{$recorded_mouse_position.y -20}px; z-index: 3;">
+		style="left: {$recorded_mouse_position.x + 40}px; top:
+		{$recorded_mouse_position.y + 40}px; z-index: 3;">
 		{#if ($hovered !== -1)}
 			{$hovered.city} with {$hovered.passengers} annual passengers
 		{/if}
 </div>
 <div class="space"></div>
-<div class="chart-container" style="padding-bottom:{100 / aspectRatio}%; scale:1.5; left:-400px">
+<div class="chart-container" style="padding-bottom:{100 / aspectRatio}%; scale:1.5; left:-400px; z-index:2">
 	<LayerCake
 		ssr={true}
 		position='absolute'

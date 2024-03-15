@@ -43,7 +43,7 @@
 
   const radiusScale = d3.scaleLinear()
       .domain([0, d3.max(data_BarGraphUS, d => +d.Passengers)])
-      .range([0, 1]);
+      .range([0, 1.5]);
 
 	$: fitSizeRange = fixedAspectRatio ? [100, 100 / fixedAspectRatio] : [$width, $height];
 
@@ -81,6 +81,7 @@
 	{/each}
     {#each coordinates as coordinate}
           <circle
+		  	  style = "z-index: 100;"
               cx={projectionFn([coordinate.long, coordinate.lat])[0]}
               cy={projectionFn([coordinate.long, coordinate.lat])[1]}
               r={radiusScale(coordinate.passengers)}
