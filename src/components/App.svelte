@@ -21,17 +21,6 @@
 
 }
 
-  space{
-	height: 20vh;
-    background-color: white; /* 20% opaque */
-    /* color: white; */
-    outline: white 3px;
-    text-align: center;
-    max-width: 2000px; /* adjust at will */
-    color: black;
-    padding: 1em;
-    margin: 0 0 2em 0;
-}
  .btn-petit{
   font-size: 12px;
   padding: 7px 15px;
