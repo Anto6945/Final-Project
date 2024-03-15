@@ -5,27 +5,15 @@
   .background-image {
   width: 100%;
   height: 100vh;
-  position: relative;
+  position: absolute;
   background-image: url('../../sky-background-video-conferencing_23-2148630092.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  outline: white 3px;
   z-index: -1;
-  background-attachment: fixed;
+
 }
 
-  space{
-	height: 20vh;
-    background-color: white; /* 20% opaque */
-    /* color: white; */
-    outline: white 3px;
-    text-align: center;
-    max-width: 2000px; /* adjust at will */
-    color: black;
-    padding: 1em;
-    margin: 0 0 2em 0;
-}
  .btn-petit{
   font-size: 12px;
   padding: 7px 15px;
@@ -44,7 +32,6 @@
  
   section {
     height: 80vh;
-    outline: white 3px;
     text-align: center;
     max-width: 2000px; /* adjust at will */
     color: black;
@@ -197,7 +184,7 @@ function handleClick() {
           </button>
       </section>
       {#if start}
-	  <space></space>
+
       <section bind:this={sectlinegraph}><Linegraph/></section>
       <button class = "btn bg custom-button btn-petit" on:click={() => {airlines = !airlines; ftimeAirline = true}}>Airlines</button>
       {#if ftimeAirline}
@@ -210,31 +197,27 @@ function handleClick() {
       {#if barmapUS}
       <section><BarGraphUS/></section>
       {:else}
-      <section><MapUS/></section>
+      <section style="height:105vh"><MapUS/></section>
       {/if}
       {/if}
-      <button class = "btn bg custom-button btn-petit" on:click={() => inter = !inter}>International Flight</button>
+      <button class = "btn bg custom-button btn-petit" style ="z-index:11" on:click={() => inter = !inter}>International Flight</button>
       {#if inter}
-      <button class = "btn bg custom-button btn-petit" on:click={() => barmap = !barmap}>{barmap ? "Map":"Barchart"}</button>
+      <button class = "btn bg custom-button btn-petit" style ="z-index:11" on:click={() => barmap = !barmap}>{barmap ? "Map":"Barchart"}</button>
       {#if barmap}
       <section><BarGraph1/></section>
       {:else}
       {#if airlines}
       <section></section>
-	    <section></section>
-      {#if domestic}
-      <section></section>
-      {/if}
       {/if}
       {#if domestic}
-      <section></section>
+      <section style="height: 120vh"></section>
       {/if}
-      <section></section>
-      <section></section>
+      <section style = "height:40vh"></section>
       <section><Map/></section>
       {/if}
       {/if}
       {/if}
+      <section style = "height:20vh;margin-top:1000px"> Made by Aadhya Naveen and Antoine Carré</section>
       {/if}
 	  
 
