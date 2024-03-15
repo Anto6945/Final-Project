@@ -1,22 +1,36 @@
  <style>
 
   @import '../../bootstrap/css/bootstrap.css';
+  .background {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0); /* 20% opaque */
+    outline: white 3px;
+  }
 
   .background-image {
   width: 100%;
   height: 100vh;
-  position: relative;
+  position: absolute;
   background-image: url('../../sky-background-video-conferencing_23-2148630092.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  outline: white 3px;
   z-index: -1;
-  background-attachment: fixed;
+
 }
 
-  .space{
-	margin-top: 20px;
+  space{
+	height: 20vh;
+    background-color: white; /* 20% opaque */
+    /* color: white; */
+    outline: white 3px;
+    text-align: center;
+    max-width: 2000px; /* adjust at will */
+    color: black;
+    padding: 1em;
+    margin: 0 0 2em 0;
 }
  .btn-petit{
   font-size: 12px;
@@ -33,18 +47,11 @@
     outline: white 3px;
   }
  
-  section_btn{
-    height: 20vh;
-    text-align: left;
-    max-width: 2000px; 
-    color: black;
-    padding: 1em;
-    margin: 0 0 2em 0;
- }
+ 
   section {
     height: 80vh;
     text-align: center;
-    max-width: 2000px; 
+    max-width: 2000px; /* adjust at will */
     color: black;
     padding: 1em;
     margin: 0 0 2em 0;}
@@ -123,22 +130,23 @@
     <h1 class="custom-heading">Visualizing San Diego Airport (SAN) Air Traffic</h1>
       <section><Introduction/><button class = "btn bg custom-button btn-start" on:click={() => {start = !start;scrollToSectionlinegraph()}}>{!start ? "Let's get started !":"Reset"} </button></section>
       {#if start}
+
       <section bind:this={sectlinegraph}><Linegraph/></section>
-      <section_btn><button class = "btn bg custom-button btn-petit" on:click={() => {airlines = !airlines; ftimeAirline = true}}>Airline Distribution</button></section_btn>
+      <button class = "btn bg custom-button btn-petit" on:click={() => {airlines = !airlines; ftimeAirline = true}}>Airlines</button>
       {#if ftimeAirline}
       {#if airlines}
       <section><PieChart/></section>
       {/if}
-      <section_btn><button class = "btn bg custom-button btn-petit" on:click={() => domestic = !domestic}>Domestic Destinations</button></section_btn>
+      <button class = "btn bg custom-button btn-petit" on:click={() => domestic = !domestic}>Domestic Flight</button>
       {#if domestic}
-      <section_btn><button class = "btn bg custom-button btn-petit" on:click={() => barmapUS = !barmapUS}>{barmapUS ? "Map":"Barchart"}</button></section_btn>
+      <button class = "btn bg custom-button btn-petit" on:click={() => barmapUS = !barmapUS}>{barmapUS ? "Map":"Barchart"}</button>
       {#if barmapUS}
-      <section><div calss="container"><BarGraphUS/></div></section>
+      <section><BarGraphUS/></section>
       {:else}
       <section><MapUS/></section>
       {/if}
       {/if}
-      <button class = "btn bg custom-button btn-petit" on:click={() => inter = !inter}> International Destinations</button>
+      <button class = "btn bg custom-button btn-petit" on:click={() => inter = !inter}>International Flight</button>
       {#if inter}
       <button class = "btn bg custom-button btn-petit" on:click={() => barmap = !barmap}>{barmap ? "Map":"Barchart"}</button>
       {#if barmap}
@@ -153,12 +161,6 @@
       {/if}
       {#if domestic}
       <section></section>
-      <div class="space"></div>
-      <div class="space"></div>
-      <div class="space"></div>
-      <div class="space"></div>
-      <div class="space"></div>
-      <div class="space"></div>
       {/if}
       <section></section>
       <section></section>
@@ -166,6 +168,7 @@
       {/if}
       {/if}
       {/if}
+      <section style = "height:20vh;margin-top:1000px"> Made by Aadhya Naveen and Antoine Carré</section>
       {/if}
 	  
 
