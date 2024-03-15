@@ -1,61 +1,85 @@
 <script>
-  import { data_BarGraphUS } from '../lib/data_BarGraphUS';
-  import { feature } from 'topojson-client';
-  import { geoPath, geoAlbersUsa } from 'd3-geo';
+  let isClicked = false;
 
-  const projection = geoAlbersUsa().scale(1300).translate([487.5, 305]);
-  const path = geoPath().projection(projection);
-
-  let states = [];
-  let mesh;
-  let selected;
-
-  let coordinates = data_BarGraphUS.map(({ CoordinatesE, CoordinatesN, Passengers }) => ({
-      long: +CoordinatesE,
-      lat: +CoordinatesN,
-      passengers: +Passengers
-  }));
-
-  const points = coordinates.map(p => projection([p.long, p.lat]));
-
-  const loadMapData = async () => {
-      const us = await fetch('https://cdn.jsdelivr.net/npm/us-atlas@3/counties-albers-10m.json')
-          .then(d => d.json());
-
-      states = feature(us, us.objects.states).features;
-      mesh = feature(us, us.objects.states).features;
+  function handleClick() {
+      isClicked = true;
+      setTimeout(() => {
+          isClicked = false;
+      }, 400);
   }
-
-  loadMapData();
 </script>
 
-<svg viewBox="0 0 975 610">
-  <!-- State shapes -->
-  <g fill="white" stroke="black">
-      {#await states}
-          <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">Loading...</text>
-      {:then}
-          {#each states as feature, i}
-              <path d={path(feature)} on:click={() => selected = feature} class="state" />
-          {/each}
-      {/await}
-  </g>
-
-  {#if selected}
-      <path d={path(selected)} fill="hsl(0 0% 50% / 20%)" stroke="black" stroke-width={2} />
-  {/if}
-</svg>
-
-<div class="selectedName">{selected?.properties.name ?? ''}</div>
-
 <style>
-  .state:hover {
-      fill: hsl(0 0% 50% / 20%);
+
+  .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      height: 100vh;
   }
 
-  .selectedName {
-      text-align: center;
-      margin-top: 8px;
-      font-size: 1.5rem;
+  /* Votre code CSS existant */
+
+  /* Nouveau style pour le bouton d'avion */
+  .plane-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: background-color 0.3s;
+  }
+
+  .plane-icon {
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      transform: translateY(-50%);
+      width: 30px;
+      height: 30px;
+      fill: white;
+      transition: transform 0.3s;
+  }
+
+  .plane-button:hover {
+      background-color: #0056b3;
+  }
+
+  .plane-button:hover .plane-icon {
+      transform: translateY(-50%) rotate(45deg);
+  }
+
+  /* Animation de l'avion */
+  @keyframes fly {
+      100% {
+          transform: translate(200px, -100px);
+          opacity: 0;
+      }
+  }
+
+  /* Appliquer l'animation lorsque le bouton est cliqué */
+  .is-clicked .plane-icon {
+      animation: fly 0.4s ease both;
   }
 </style>
+
+<main>
+  <div class="container">
+      <!-- Bouton qui déclenche l'animation -->
+      <button class="plane-button" on:click={handleClick} class:is-clicked={isClicked}>
+          <!-- Icone de l'avion -->
+          <svg class="plane-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <image href="airplane-flying-svgrepo-com.svg" width="24" height="24" />
+          </svg>
+          <!-- Texte du bouton -->
+          Book Flight
+      </button>
+  </div>
+</main>
