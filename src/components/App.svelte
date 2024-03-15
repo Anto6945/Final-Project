@@ -27,6 +27,7 @@
       padding: 10px 20px;
       background-color: #007bff;
       color: white;
+      text-align: right;
       font-size: 16px;
       font-weight: bold;
       border: none;
@@ -72,14 +73,11 @@
 
 <main>
   <div class="container">
-      <!-- Bouton qui déclenche l'animation -->
       <button class="plane-button" on:click={handleClick} class:is-clicked={isClicked}>
-          <!-- Icone de l'avion -->
           <svg class="plane-icon" viewBox="0 0 24 24">
               <image href="airplane-flying-svgrepo-com.svg" width="24" height="24" />
           </svg>
-          <!-- Texte du bouton -->
-          Book Flight
+          Let's get started
       </button>
   </div>
 </main>
