@@ -92,7 +92,14 @@
             startTransition();
         }
     }
+    let isClicked = false;
 
+function handleClick() {
+    isClicked = true;
+    setTimeout(() => {
+        isClicked = false;
+    }, 400);
+}
 
  </script>
  
