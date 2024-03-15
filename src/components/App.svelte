@@ -124,7 +124,17 @@ function handleClick() {
     
     <div class="foreground" slot="foreground">
     <h1 class="custom-heading">Visualizing San Diego Airport (SAN) Air Traffic</h1>
-      <section><Introduction/><button class = "btn bg custom-button btn-start" on:click={() => {start = !start;scrollToSectionlinegraph()}}>{!start ? "Let's get started !":"Reset"} </button></section>
+      <section><Introduction/>
+        <button class = "btn bg custom-button btn-start" on:click={() => {start = !start;scrollToSectionlinegraph()}}>{!start ? "Let's get started !":"Reset"} </button>
+        <div class="container">
+          <button class="plane-button" on:click={handleClick} class:is-clicked={isClicked}>
+              <svg class="plane-icon" viewBox="0 0 24 24">
+                  <image href="airplane-flying-svgrepo-com.svg" width="24" height="24" />
+              </svg>
+              Let's get started
+          </button>
+      </div>
+      </section>
       {#if start}
 
       <section bind:this={sectlinegraph}><Linegraph/></section>
