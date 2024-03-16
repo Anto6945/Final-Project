@@ -78,17 +78,17 @@
        {/each}
      </g>
    </svg>
- </div>
-  <div class="info-box">
-     <p> Las Vegas is the most popular destination from San Diego, with almost 800K travelers annually, with 
-      Denver and Phoenix in subsequent popularity. Other airports in California like San Francisco, San Jose, 
-      Sacramento, and Oakland (NorCal regions) seem to be popular destinations as well!
-     </p>
-     <p> According to our data, the most popular domestic destination is Las Vegas with 800K passengers, and the most traveled 
-      international destination is London with 200K travelers. We see that there is a huge difference in margin (almost 600K difference!).
-      We can infer that <strong>domestic travel is a lot more popular than international travel</strong> among those who use the 
-      San Diego Airport.
-     </p>
+   <div class="info-box">
+    <p> Las Vegas is the most popular destination from San Diego, with almost 800K travelers annually, with 
+     Denver and Phoenix in subsequent popularity. Other airports in California like San Francisco, San Jose, 
+     Sacramento, and Oakland (NorCal regions) seem to be popular destinations as well!
+    </p>
+    <p> According to our data, the most popular domestic destination is Las Vegas with 800K passengers, and the most traveled 
+     international destination is London with 200K travelers. We see that there is a huge difference in margin (almost 600K difference!).
+     We can infer that <strong>domestic travel is a lot more popular than international travel</strong> among those who use the 
+     San Diego Airport.
+    </p>
+</div>
  </div>
 </div>
 <style>
@@ -121,17 +121,19 @@
  .info-box {
   background-color: #f9f1f9;
   border: 2px solid #000000;
-   border-radius: 5px;
-   padding: 20px;
-   margin-right: 20px; /* Add margin to separate from the visualization */
-   font-family: Arial, sans-serif; /* Change font to Arial */
-   font-size: 16px;
-   width: 30%;
-   position: absolute; /* Position the box absolutely */
-   bottom: 1410px;
-   right: 160px;
-   text-align: left;
- }
+  border-radius: 5px;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  width: 65%; /* Adjust width as needed */
+  position: absolute;
+  right: -490px; /* Adjust as needed */
+  top: 0;
+  transform: translateY(30px);
+  text-align: left;
+  z-index: 10; /* Ensure the info box is above other elements */
+}
+
 
 
  rect {
