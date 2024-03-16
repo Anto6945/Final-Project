@@ -79,11 +79,12 @@
     <div class="inf-box">
       <p> London-Heathrow is the most popular international destination from San Diego, with almost 200K travelers annually!
         We can see that destinations in North America like Canada and Mexico tend to be the most popular areas
-        that San Diego travelers visit the most. Europe tends to be popular as well. 
+        that San Diego travelers visit the most. Europe tends to be popular as well. You can click the map visualizations to see
+        the location of where these destinations are.
       </p>
         Something interesting is that the 10th most popular domestic destination is Chicago with 398K travelers from the domestic 
         travel data. However, the most traveled international destination is 183K to London. This is again supporting the idea that 
-        San Diego's population tend to use the airport more for domestic travel over international travel.  
+        San Diego's airport is more used for domestic travel over international travel.  
       <p> 
       </p>
   </div>
