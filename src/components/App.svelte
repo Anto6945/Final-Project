@@ -66,8 +66,8 @@
   .plane-button {
       display: inline-block;
       padding: 30px 60px;
-      background-color: rgb(255, 65, 0);
-      opacity: 0.8;
+      background-color: #FFC570;
+      opacity: 1;
       color: white;
       text-align: right;
       font-size: 16px;
@@ -94,7 +94,7 @@
 
   .plane-button:hover {
       background-color: rgb(255, 64, 0);
-      opacity: 0.5;
+      opacity: 0.7;
   }
 
   .plane-button:hover .plane-icon {
@@ -215,9 +215,9 @@
       <section></section>
       {/if}
       {#if domestic}
-      <section style="height: 120vh"></section>
+      <section style="height: 115vh"></section>
       {/if}
-      <section style="height:40vh"></section>
+      <section style="height:35vh"></section>
       <section><Map/></section>
       {/if}
       {/if}

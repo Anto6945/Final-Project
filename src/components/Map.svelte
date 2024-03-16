@@ -36,14 +36,14 @@
         {:then}
             {#if worldData}
                 {#each worldData.features as feature}
-                    <path d={path(feature)} fill="lightblue" stroke="white" stroke-width="0.5" />
+                    <path d={path(feature)} fill="#FFFFFF" stroke="black" stroke-width="0.5" />
                 {/each}
                 {#each coordinates as coordinate}
                     <circle
                         cx={projection([coordinate.long, coordinate.lat])[0]}
                         cy={projection([coordinate.long, coordinate.lat])[1]}
                         r={radiusScale(coordinate.passengers)}
-                        fill="hotpink"
+                        fill="orange"
                         on:mouseover={(event) => {hovered = {city: coordinate.city, passengers: coordinate.passengers};
                         recorded_mouse_position = {
 						x: event.pageX,
@@ -72,7 +72,7 @@
             {#if hovered == 1}
                 San Diego with 24,000,000 annual passengers
             {:else}
-                {hovered.city} with {hovered.passengers} annual passengers
+                {hovered.city} with {hovered.passengers} annual passengers (from SD)
             {/if}
 		{/if}
 	</div>
