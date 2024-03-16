@@ -53,7 +53,7 @@
 		font: 14px sans-serif;
 		font-family: "Nunito", sans-serif;
 		visibility: visible;
-		background-color: #FFB6C1;
+		background-color: #ebcc88;
 		border-radius: 10px;
 		width: 200px;
 		color: black;
@@ -84,7 +84,7 @@
 			{#if ($hovered === 1)}
 				San Diego with 24,000,000 annual passengers
 			{:else}
-			{$hovered.city} with {$hovered.passengers} annual passengers (from SD)
+			{$hovered.city} with {$hovered.passengers} annual passengers
 			{/if}
 		{/if}
 </div>
