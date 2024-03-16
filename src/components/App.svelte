@@ -124,6 +124,7 @@
   import Introduction from "./Introduction.svelte";
   import Map from "./Map.svelte";
   import MapUS from "./MapUS.svelte";
+  import { startTransition } from 'svelte';
 
   
   let count, index, offset, progress;
@@ -144,11 +145,13 @@
     }
     let isClicked = false;
 
-function handleClick() {
+    function handleClick() {
     isClicked = true;
     setTimeout(() => {
         isClicked = false;
     }, 400);
+    start = !start;
+    scrollToSectionlinegraph();
 }
 
  </script>
