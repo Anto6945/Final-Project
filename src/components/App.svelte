@@ -147,6 +147,7 @@
       {#if domestic}
       <section style="height: 120vh"></section>
       {/if}
+      <section style="height:40vh"></section>
       <section><Map/></section>
       {/if}
       {/if}
