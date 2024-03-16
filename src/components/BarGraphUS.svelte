@@ -40,7 +40,7 @@
 <div class="app">
  <div class="wrapper" bind:clientWidth={width}>
    <svg {width} {height}>
-     <text x="250" y="16" text-anchor="middle" font-size="20px" font-weight="bold"> Most Popular Domestic Destinations from SAN</text>
+     <text x="250" y="16" text-anchor="middle" font-size="22px" font-weight="bold"> Most Popular Domestic Destinations from SAN</text>
      <g transform={`translate(${margin.left}, ${margin.top})`}>
        {#each data as country}
          <text
@@ -128,7 +128,7 @@
    font-size: 16px;
    width: 30%;
    position: absolute; /* Position the box absolutely */
-   bottom: 250px;
+   bottom: 1410px;
    right: 160px;
    text-align: left;
  }
