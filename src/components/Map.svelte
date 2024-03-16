@@ -36,7 +36,7 @@
         {:then}
             {#if worldData}
                 {#each worldData.features as feature}
-                    <path d={path(feature)} fill="#EEEEEE" stroke="white" stroke-width="0.5" />
+                    <path d={path(feature)} fill="#DDDDDD" stroke="white" stroke-width="0.5" />
                 {/each}
                 {#each coordinates as coordinate}
                     <circle
