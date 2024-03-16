@@ -128,7 +128,6 @@
    font-size: 16px;
    width: 30%;
    position: absolute; /* Position the box absolutely */
-   bottom: 1410px;
    right: 160px;
    text-align: left;
  }
