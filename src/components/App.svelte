@@ -65,14 +65,15 @@
   /* Nouveau style pour le bouton d'avion */
   .plane-button {
       display: inline-block;
-      padding: 20px 40px;
-      background-color: #007bff;
+      padding: 30px 60px;
+      background-color: rgb(255, 65, 0,0.8);
       color: white;
       text-align: right;
       font-size: 16px;
       font-weight: bold;
       border: none;
-      border-radius: 5px;
+      margin-top: 80px;
+      border-radius: 25px;
       cursor: pointer;
       position: relative;
       overflow: hidden;
@@ -83,18 +84,19 @@
       position: absolute;
       top: 50%;
       left: 10px;
-      transform: translateY(-50%) rotate(-45deg);
+      transform: translateX(30%) translateY(-50%) rotate(-45deg);
       width: 30px;
       height: 30px;
+      scale: 1.3;
       fill: white;
   }
 
   .plane-button:hover {
-      background-color: #0056b3;
+      background-color: rgb(255, 65, 0,0.5);
   }
 
   .plane-button:hover .plane-icon {
-      transform: translateY(-50%) rotate(0deg);
+      transform: translateY(-40%) rotate(0deg);
   }
 
   /* Animation de l'avion */
