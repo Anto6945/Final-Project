@@ -80,15 +80,15 @@
    </svg>
  </div>
   <div class="info-box">
-     <p> As we can see, Southwest has been dominating consistently in terms of being the most flown airline in the airspace.
-         Among all the years in the visualization, we see that it has the largest share among all airlines.
+     <p> Las Vegas is the most popular destination from San Diego, with almost 800K travelers annually, with 
+      Denver and Phoenix in subsequent popularity. Other airports in California like San Francisco, San Jose, 
+      Sacramento, and Oakland (NorCal regions) seem to be popular destinations as well!
      </p>
-     <p>We notice something interesting that <strong>majority of the flights passing through the San Diego airport are domestic
-         flights.</strong> Delta, United, Southwest, etc. that seem to be the leading flights are all U.S nationally owned airlines. Even if you
-         change the year, the "other" portion indicating various international airlines only seem to make up a really small
-         portion (less than 25 percent) of the pie chart. </p>
-     <p> What does this tell us about SAN airport? Many people use it for connecting flights and to travel domestically within the U.S.
-         While people a good amount of passengers do international travel, domestic travel seems to dominate by a large margin. </p>
+     <p> According to our data, the most popular domestic destination is Las Vegas with 800K passengers, and the most traveled 
+      international destination is London with 200K travelers. We see that there is a huge difference in margin (almost 600K difference!).
+      We can infer that <strong>domestic travel is a lot more popular than international travel</strong> among those who use the 
+      San Diego Airport.
+     </p>
  </div>
 </div>
 <style>
@@ -119,18 +119,18 @@
    max-width: 700px;
  }
  .info-box {
-   background-color: #f8f8f8;
-   border: 1px solid #ddd;
+  background-color: #f9f1f9;
+  border: 2px solid #000000;
    border-radius: 5px;
    padding: 20px;
    margin-right: 20px; /* Add margin to separate from the visualization */
-   font-family: "Lato", sans-serif;
-   font-size: 14px;
-   line-height: 1.6;
+   font-family: Arial, sans-serif; /* Change font to Arial */
+   font-size: 16px;
    width: 30%;
    position: absolute; /* Position the box absolutely */
    bottom: 250px;
    right: 160px;
+   text-align: left;
  }
 
 
