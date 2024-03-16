@@ -52,6 +52,63 @@
     margin:auto;
     margin-top: 50px
   }
+  .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      height: 100vh;
+  }
+
+  /* Votre code CSS existant */
+
+  /* Nouveau style pour le bouton d'avion */
+  .plane-button {
+      display: inline-block;
+      padding: 20px 40px;
+      background-color: #007bff;
+      color: white;
+      text-align: right;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: background-color 0.3s;
+  }
+
+  .plane-icon {
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      transform: translateY(-50%) rotate(-45deg);
+      width: 30px;
+      height: 30px;
+      fill: white;
+  }
+
+  .plane-button:hover {
+      background-color: #0056b3;
+  }
+
+  .plane-button:hover .plane-icon {
+      transform: translateY(-50%) rotate(0deg);
+  }
+
+  /* Animation de l'avion */
+  @keyframes fly {
+      100% {
+          transform: translate(220px, 0px);
+          opacity: 0;
+      }
+  }
+
+  /* Appliquer l'animation lorsque le bouton est cliqué */
+  .is-clicked .plane-icon {
+      animation: fly 0.8s ease both;
+  }
   
  </style>
 
