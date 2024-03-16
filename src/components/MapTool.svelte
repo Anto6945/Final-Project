@@ -70,7 +70,7 @@
 	{#each (features || $data.features) as feature}
 		<path
 			class="feature-path"
-			fill="{"#DDDDDD" || $zGet(feature.properties)}"
+			fill="{"white" || $zGet(feature.properties)}"
 			stroke={stroke}
 			stroke-width={strokeWidth}
 			d="{geoPathFn(feature)}"

@@ -6,7 +6,7 @@
   width: 100%;
   height: 100vh;
   position: absolute;
-  background-image: url('../../static/sky-background-video-conferencing_23-2148630092.jpg');
+  background-image: url('../../sky-background-video-conferencing_23-2148630092.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -215,9 +215,9 @@
       <section></section>
       {/if}
       {#if domestic}
-      <section style="height: 120vh"></section>
+      <section style="height: 115vh"></section>
       {/if}
-      <section style="height:40vh"></section>
+      <section style="height:35vh"></section>
       <section><Map/></section>
       {/if}
       {/if}
