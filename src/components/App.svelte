@@ -124,7 +124,7 @@
   import Introduction from "./Introduction.svelte";
   import Map from "./Map.svelte";
   import MapUS from "./MapUS.svelte";
-  import { startTransition } from 'svelte';
+  //import { startTransition } from 'svelte';
 
   
   let count, index, offset, progress;
@@ -140,7 +140,7 @@
   function scrollToSectionlinegraph() {
         if (sectlinegraph) {
             sectlinegraph.scrollIntoView({ behavior: 'smooth' });
-            startTransition();
+            //startTransition();
         }
     }
     let isClicked = false;
@@ -181,7 +181,7 @@
         <svg id = 'plane' class="plane-icon" viewBox="0 0 24 24">
             <image href="airplane-flying-svgrepo-com.svg" width="24" height="24" />
         </svg>
-        {!start ? "Let's get started !":"Reset"}
+        {!start ? "      Click here !":"Reset"}
     </button>
   </section>
       {#if start}
