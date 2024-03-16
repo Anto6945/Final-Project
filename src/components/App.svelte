@@ -6,7 +6,7 @@
   width: 100%;
   height: 100vh;
   position: absolute;
-  background-image: url('../../sky-background-video-conferencing_23-2148630092.jpg');
+  background-image: url('../../static/sky-background-video-conferencing_23-2148630092.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
