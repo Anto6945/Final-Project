@@ -8,17 +8,19 @@
     background-color: rgba(0, 0, 0, 0); /* 20% opaque */
     outline: white 3px;
   }
-  space{
-	height: 20vh;
-    background-color: white; /* 20% opaque */
-    /* color: white; */
-    outline: white 3px;
-    text-align: center;
-    max-width: 2000px; /* adjust at will */
-    color: black;
-    padding: 1em;
-    margin: 0 0 2em 0;
+
+  .background-image {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  background-image: url('../../sky-background-video-conferencing_23-2148630092.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+
 }
+
  .btn-petit{
   font-size: 12px;
   padding: 7px 15px;
@@ -37,9 +39,6 @@
  
   section {
     height: 80vh;
-    background-color: white; /* 20% opaque */
-    /* color: white; */
-    outline: white 3px;
     text-align: center;
     max-width: 2000px; /* adjust at will */
     color: black;
@@ -49,7 +48,6 @@
     font-family: Arial, sans-serif; /* Specify the desired font family */
     font-size: 34px; /* Adjust font size as needed */
     font-weight: bold; /* Optionally, adjust font weight */
-    color: #333; /* Optionally, specify font color */
     text-align: center;
   }
   .btn-start{
@@ -100,7 +98,7 @@
  
  
  <main>
-  <h1 class="custom-heading">Visualizing San Diego Airport (SAN) Air Traffic</h1>
+
   <Scroller
     top={0.0}
     bottom={1}
@@ -113,48 +111,48 @@
  
  
     <div
-      class="background" slot="background"
+      class="background-image" slot="background"
       bind:clientWidth={width} bind:clientHeight={height}
     ></div>
+    
     <div class="foreground" slot="foreground">
-      <section><Introduction/><button class = "btn bg custom-button btn-start" on:click={() => {start = !start;scrollToSectionlinegraph()}}>{!start ? "Click Here!":"Reset"} </button></section>
+    <h1 class="custom-heading">Visualizing San Diego Airport (SAN) Air Traffic</h1>
+      <section><Introduction/><button class = "btn bg custom-button btn-start" on:click={() => {start = !start;scrollToSectionlinegraph()}}>{!start ? "Let's get started !":"Reset"} </button></section>
       {#if start}
-	  <space></space>
+
       <section bind:this={sectlinegraph}><Linegraph/></section>
-      <button class = "btn bg custom-button btn-petit" on:click={() => {airlines = !airlines; ftimeAirline = true}}>Airline Distribution</button>
+      <button class = "btn bg custom-button btn-petit" on:click={() => {airlines = !airlines; ftimeAirline = true}}>Airlines</button>
       {#if ftimeAirline}
       {#if airlines}
       <section><PieChart/></section>
       {/if}
-      <button class = "btn bg custom-button btn-petit" on:click={() => domestic = !domestic}>Domestic Destinations</button>
+      <button class = "btn bg custom-button btn-petit" on:click={() => domestic = !domestic}>Domestic Flight</button>
       {#if domestic}
       <button class = "btn bg custom-button btn-petit" on:click={() => barmapUS = !barmapUS}>{barmapUS ? "Map":"Barchart"}</button>
       {#if barmapUS}
       <section><BarGraphUS/></section>
       {:else}
-      <section><MapUS/></section>
+      <section style="height:105vh"><MapUS/></section>
       {/if}
       {/if}
-      <button class = "btn bg custom-button btn-petit" on:click={() => inter = !inter}> International Destinations</button>
+      <button class = "btn bg custom-button btn-petit" style ="z-index:11" on:click={() => inter = !inter}>International Flight</button>
       {#if inter}
-      <button class = "btn bg custom-button btn-petit" on:click={() => barmap = !barmap}>{barmap ? "Map":"Barchart"}</button>
+      <button class = "btn bg custom-button btn-petit" style ="z-index:11" on:click={() => barmap = !barmap}>{barmap ? "Map":"Barchart"}</button>
       {#if barmap}
       <section><BarGraph1/></section>
       {:else}
       {#if airlines}
       <section></section>
-	  <section></section>
       {/if}
       {#if domestic}
-      <section></section>
-	  <section></section>
+      <section style="height: 120vh"></section>
       {/if}
-      <section></section>
-      <section></section>
+      <section style = "height:40vh"></section>
       <section><Map/></section>
       {/if}
       {/if}
       {/if}
+      <section style = "height:20vh;margin-top:1000px"> Made by Aadhya Naveen and Antoine Carré</section>
       {/if}
 	  
 
