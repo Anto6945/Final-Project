@@ -33,41 +33,19 @@
 </script>
 <div class="space"></div>
 <div class="app">
-    <div class="wrapper" bind:clientWidth={width}>
-      <svg {width} {height}>
-        <text x="250" y="16" text-anchor="middle" font-size="20px" font-weight="bold"> Most Popular Domestic Destinations from SAN</text>
-        <g transform={`translate(${margin.left}, ${margin.top})`}>
-          {#each data as country}
-            <text
-              text-anchor="end"
-              x={hovered == country["Passengers"] ? -15 :-10}
-              y={yScale(country.City) + yScale.bandwidth() / 2}
-              opacity={hovered ? hovered == country["Passengers"] ? "1" : ".3" : "1"}
-              dy=".35em"
-            >
-              {country.City}
-            </text>
-            <rect
-              x={0}
-              y={hovered == country["Passengers"] ? yScale(country.City)-1: yScale(country.City)}
-              width={xScale(+country["Passengers"])}
-              height={hovered == country["Passengers"] ? yScale.bandwidth()+2 : yScale.bandwidth()}
-              on:mouseover={(event) => { hovered = country["Passengers"];
-                recorded_mouse_position = {
-                  x: event.pageX,
-                  y: event.pageY
-                  }}}
-              on:mouseout={() => hovered = -1}
-            />
-            {#if hovered !== -1 && hovered == country["Passengers"]}
-            <text
-            text-anchor="start"
-            x={xScale(+country["Passengers"])}
-            dx="10"
+  <div class="wrapper" bind:clientWidth={width}>
+    <svg {width} {height}>
+      <text x="250" y="16" text-anchor="middle" font-size="20px" font-weight="bold"> Most Popular Domestic Destinations from SAN</text>
+      <g transform={`translate(${margin.left}, ${margin.top})`}>
+        {#each data as country}
+          <text
+            text-anchor="end"
+            x={hovered == country["Passengers"] ? -15 :-10}
             y={yScale(country.City) + yScale.bandwidth() / 2}
+            opacity={hovered ? hovered == country["Passengers"] ? "1" : ".3" : "1"}
             dy=".35em"
           >
-            {formatLabel(+country["Passengers"])}
+            {country.City}
           </text>
             {/if}
           {/each}

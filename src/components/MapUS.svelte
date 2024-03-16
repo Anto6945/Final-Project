@@ -60,6 +60,7 @@
 		position: absolute;
 		padding: 10px;
 	}
+<<<<<<< HEAD
 
 	.tooltip-sd {
 		font: 14px sans-serif;
@@ -73,6 +74,17 @@
 		padding: 10px;
 	}
 	
+=======
+	.chart-title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.chart-title h2 {
+    font-size: 24px;
+    font-weight: bold;
+}
+>>>>>>> aadhya
 </style>
 <div class={$hovered === -1 ? "tooltip-hidden" : ($hovered === 1 ? "tooltip-sd" : "tooltip-visible")}
 		style="left: {$recorded_mouse_position.x + 40}px; top:
@@ -85,8 +97,15 @@
 			{/if}
 		{/if}
 </div>
+<<<<<<< HEAD
 <div class="space"></div>
 <div class="chart-container" style="padding-bottom:{100 / aspectRatio}%; scale:1.5; left:-400px;z-index:2">
+=======
+<div class="chart-title">
+    <h2>Domestic Map Visualization</h2>
+</div>
+<div class="chart-container" style="padding-bottom:{100 / aspectRatio}%">
+>>>>>>> aadhya
 	<LayerCake
 		ssr={true}
 		position='absolute'
