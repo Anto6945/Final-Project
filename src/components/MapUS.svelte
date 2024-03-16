@@ -74,6 +74,9 @@
 	}
 	
 </style>
+<div class="title-container" style="position: absolute; left: 170px; text-align: left;">
+    <h2>Domestic Flights Map Visualization</h2>
+</div>
 <div class={$hovered === -1 ? "tooltip-hidden" : ($hovered === 1 ? "tooltip-sd" : "tooltip-visible")}
 		style="left: {$recorded_mouse_position.x + 40}px; top:
 		{$recorded_mouse_position.y + 40}px; z-index: 3;">
