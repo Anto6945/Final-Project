@@ -76,6 +76,17 @@
         </g>
       </svg>
     </div>
+    <div class="inf-box">
+      <p> London-Heathrow is the most popular international destination from San Diego, with almost 200K travelers annually!
+        We can see that destinations in North America like Canada and Mexico tend to be the most popular areas
+        that San Diego travelers tend to visit the most. Europe tends to be popular as well. 
+      </p>
+        Something interesting is that the 10th most popular domestic destination is Chicago with 398K travelers from the domestic 
+        travel data. However, the most traveled international destination is 183K to London. This is again supporting the idea that 
+        San Diego's population tend to use the airport more for domestic travel over international travel.  
+      <p> 
+      </p>
+  </div>
 </div>
 <style>
     @import url("https://fonts.googleapis.com/css?family=Merriweather:700&display=swap");
@@ -107,6 +118,19 @@
   .space{
     margin-top:100px;
   }
+  .inf-box {
+  background-color: #f9f1f9;
+  border: 2px solid #000000;
+   border-radius: 5px;
+   padding: 20px;
+   margin-right: 20px; /* Add margin to separate from the visualization */
+   font-family: Arial, sans-serif; /* Change font to Arial */
+   font-size: 16px;
+   width: 30%;
+   position: absolute; /* Position the box absolutely */
+   right: 160px;
+   text-align: left;
+ }
 
   rect {
     fill: orange;
