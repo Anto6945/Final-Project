@@ -9,7 +9,7 @@
     let height = 600 - margin.top - margin.bottom;
     
     onMount(() => {
-        const svg = d3.select('svg')
+        const svg = d3.select('#linegraph')
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom);
         
@@ -245,10 +245,11 @@ svg.append('line')
     .style('font-family', 'Verdana, sans-serif') // Change font family if needed
     .style('fill', 'black')
     .text('24th busiest airport in the United States');
+    console.log('svg', svg);
 });
 
 </script>
-
+<svg id='linegraph'></svg>
 <style>
     svg {
         width: 100%; /* Make SVG responsive, expand to fill its container */
@@ -256,4 +257,3 @@ svg.append('line')
     }
 </style>
 
-<svg></svg>
