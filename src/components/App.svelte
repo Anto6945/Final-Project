@@ -177,7 +177,13 @@
     
     <div class="container-fluid foreground" slot="foreground">
     <h1 class="custom-heading">Visualizing San Diego Airport (SAN) Air Traffic</h1>
-      <section><Introduction/><button class = "btn bg custom-button btn-start" on:click={() => {start = !start;scrollToSectionlinegraph()}}>{!start ? "Click Here!":"Reset"} </button></section>
+      <section><Introduction/><button class="plane-button" on:click={handleClick} class:is-clicked={isClicked}>
+        <svg id = 'plane' class="plane-icon" viewBox="0 0 24 24">
+            <image href="airplane-flying-svgrepo-com.svg" width="24" height="24" />
+        </svg>
+        {!start ? "Let's get started !":"Reset"}
+    </button>
+  </section>
       {#if start}
 
       <section bind:this={sectlinegraph}><Linegraph/></section>
