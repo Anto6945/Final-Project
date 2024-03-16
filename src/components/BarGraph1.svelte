@@ -37,7 +37,7 @@
 <div class="app">
     <div class="wrapper" bind:clientWidth={width}>
       <svg {width} {height}>
-        <text x="250" y="16" text-anchor="middle" font-size="20px" font-weight="bold"> Most Popular International Destinations from SAN</text>
+        <text x="250" y="16" text-anchor="middle" font-size="21px" font-weight="bold"> Most Popular International Destinations from SAN</text>
         <g transform={`translate(${margin.left}, ${margin.top})`}>
           {#each data as country}
             <text
@@ -79,7 +79,7 @@
     <div class="inf-box">
       <p> London-Heathrow is the most popular international destination from San Diego, with almost 200K travelers annually!
         We can see that destinations in North America like Canada and Mexico tend to be the most popular areas
-        that San Diego travelers tend to visit the most. Europe tends to be popular as well. 
+        that San Diego travelers visit the most. Europe tends to be popular as well. 
       </p>
         Something interesting is that the 10th most popular domestic destination is Chicago with 398K travelers from the domestic 
         travel data. However, the most traveled international destination is 183K to London. This is again supporting the idea that 
