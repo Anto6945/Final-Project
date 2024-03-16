@@ -115,9 +115,9 @@
       bind:clientWidth={width} bind:clientHeight={height}
     ></div>
     
-    <div class="foreground" slot="foreground">
+    <div class="container-fluid foreground" slot="foreground">
     <h1 class="custom-heading">Visualizing San Diego Airport (SAN) Air Traffic</h1>
-      <section><Introduction/><button class = "btn bg custom-button btn-start" on:click={() => {start = !start;scrollToSectionlinegraph()}}>{!start ? "Let's get started !":"Reset"} </button></section>
+      <section><Introduction/><button class = "btn bg custom-button btn-start" on:click={() => {start = !start;scrollToSectionlinegraph()}}>{!start ? "Click Here!":"Reset"} </button></section>
       {#if start}
 
       <section bind:this={sectlinegraph}><Linegraph/></section>
@@ -147,7 +147,7 @@
       {#if domestic}
       <section style="height: 120vh"></section>
       {/if}
-      <section style = "height:40vh"></section>
+      <section style="height:40vh"></section>
       <section><Map/></section>
       {/if}
       {/if}
