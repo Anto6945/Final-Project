@@ -116,7 +116,7 @@
       class="background" slot="background"
       bind:clientWidth={width} bind:clientHeight={height}
     ></div>
-    <div class="foreground" slot="foreground">
+    <div class="container-fluid foreground" slot="foreground">
       <section><Introduction/><button class = "btn bg custom-button btn-start" on:click={() => {start = !start;scrollToSectionlinegraph()}}>{!start ? "Click Here!":"Reset"} </button></section>
       {#if start}
 	  <space></space>
