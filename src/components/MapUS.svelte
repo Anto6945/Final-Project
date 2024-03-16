@@ -53,7 +53,7 @@
 		font: 14px sans-serif;
 		font-family: "Nunito", sans-serif;
 		visibility: visible;
-		background-color: #ebcc88;
+		background-color: #FFB6C1;
 		border-radius: 10px;
 		width: 200px;
 		color: black;
@@ -74,6 +74,9 @@
 	}
 	
 </style>
+<div class="title-container" style="position: absolute; left: 170px; text-align: left;">
+    <h2>Domestic Flights Map Visualization</h2>
+</div>
 <div class={$hovered === -1 ? "tooltip-hidden" : ($hovered === 1 ? "tooltip-sd" : "tooltip-visible")}
 		style="left: {$recorded_mouse_position.x + 40}px; top:
 		{$recorded_mouse_position.y + 40}px; z-index: 3;">
@@ -81,7 +84,7 @@
 			{#if ($hovered === 1)}
 				San Diego with 24,000,000 annual passengers
 			{:else}
-			{$hovered.city} with {$hovered.passengers} annual passengers
+			{$hovered.city} with {$hovered.passengers} annual passengers (from SD)
 			{/if}
 		{/if}
 </div>

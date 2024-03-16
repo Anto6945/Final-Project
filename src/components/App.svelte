@@ -6,7 +6,7 @@
   width: 100%;
   height: 100vh;
   position: absolute;
-  background-image: url('../../sky-background-video-conferencing_23-2148630092.jpg');
+  background-image: url('../../static/sky-background-video-conferencing_23-2148630092.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -65,36 +65,40 @@
   /* Nouveau style pour le bouton d'avion */
   .plane-button {
       display: inline-block;
-      padding: 20px 40px;
-      background-color: #007bff;
+      padding: 30px 60px;
+      background-color: rgb(255, 65, 0);
+      opacity: 0.8;
       color: white;
       text-align: right;
       font-size: 16px;
       font-weight: bold;
       border: none;
-      border-radius: 5px;
+      margin-top: 80px;
+      border-radius: 25px;
       cursor: pointer;
       position: relative;
       overflow: hidden;
       transition: background-color 0.3s;
-      margin-top: 50px;
   }
 
   .plane-icon {
       position: absolute;
       top: 50%;
       left: 10px;
-      transform: translateY(-50%) rotate(-45deg);
+      transform: translateX(30%) translateY(-50%) rotate(-45deg);
       width: 30px;
       height: 30px;
+      scale: 1.3;
+      fill: white;
   }
 
   .plane-button:hover {
-      background-color: #0056b3;
+      background-color: rgb(255, 64, 0);
+      opacity: 0.5;
   }
 
   .plane-button:hover .plane-icon {
-      transform: translateY(-50%) rotate(0deg);
+      transform: translateY(-40%) rotate(0deg);
   }
 
   /* Animation de l'avion */
@@ -124,6 +128,7 @@
   import Introduction from "./Introduction.svelte";
   import Map from "./Map.svelte";
   import MapUS from "./MapUS.svelte";
+  //import { startTransition } from 'svelte';
 
   
   let count, index, offset, progress;
@@ -139,11 +144,12 @@
   function scrollToSectionlinegraph() {
         if (sectlinegraph) {
             sectlinegraph.scrollIntoView({ behavior: 'smooth' });
+            //startTransition();
         }
     }
     let isClicked = false;
 
-function handleClick() {
+    function handleClick() {
     isClicked = true;
     setTimeout(() => {
         isClicked = false;
@@ -173,16 +179,15 @@ function handleClick() {
       bind:clientWidth={width} bind:clientHeight={height}
     ></div>
     
-    <div class="foreground" slot="foreground">
+    <div class="container-fluid foreground" slot="foreground">
     <h1 class="custom-heading">Visualizing San Diego Airport (SAN) Air Traffic</h1>
-      <section><Introduction/>
-          <button class="plane-button" on:click={handleClick} class:is-clicked={isClicked}>
-              <svg id = 'plane' class="plane-icon" viewBox="0 0 24 24">
-                  <image href="airplane-flying-svgrepo-com.svg" width="24" height="24" />
-              </svg>
-              {!start ? "Let's get started !":"Reset"}
-          </button>
-      </section>
+      <section><Introduction/><button class="plane-button" on:click={handleClick} class:is-clicked={isClicked}>
+        <svg id = 'plane' class="plane-icon" viewBox="0 0 24 24">
+            <image href="airplane-flying-svgrepo-com.svg" width="24" height="24" />
+        </svg>
+        {!start ? "      Click here !":"Reset"}
+    </button>
+  </section>
       {#if start}
 
       <section bind:this={sectlinegraph}><Linegraph/></section>
@@ -212,7 +217,7 @@ function handleClick() {
       {#if domestic}
       <section style="height: 120vh"></section>
       {/if}
-      <section style = "height:40vh"></section>
+      <section style="height:40vh"></section>
       <section><Map/></section>
       {/if}
       {/if}
