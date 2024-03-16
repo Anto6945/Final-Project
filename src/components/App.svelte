@@ -66,7 +66,8 @@
   .plane-button {
       display: inline-block;
       padding: 30px 60px;
-      background-color: rgb(255, 65, 0,0.8);
+      background-color: rgb(255, 65, 0);
+      opacity: 0.8;
       color: white;
       text-align: right;
       font-size: 16px;
@@ -92,7 +93,8 @@
   }
 
   .plane-button:hover {
-      background-color: rgb(255, 65, 0,0.5);
+      background-color: rgb(255, 64, 0);
+      opacity: 0.5;
   }
 
   .plane-button:hover .plane-icon {
