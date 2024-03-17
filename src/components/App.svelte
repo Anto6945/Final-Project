@@ -194,13 +194,15 @@
       {#if barmap}
       <section><BarGraph1/></section>
       {:else}
-      <section style="height: 35vh"><h2 x="1%" y="1%" text-align="left" text-anchor="left" font-size="22px" font-weight="bold"> International Flights Map Visualization</h2></section>
       {#if airlines}
       <section></section>
       {/if}
       {#if domestic}
       <section style="height: 115vh"></section>
       {/if}
+      <section style="height:35vh"><div class="title-container" style="position: absolute; left: 170px; text-align: left;">
+        <h2>Domestic Flights Map Visualization</h2>
+    </div></section>
       <section><Map/></section>
       {/if}
       {/if}
