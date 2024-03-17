@@ -43,22 +43,6 @@
     font-weight: bold; /* Optionally, adjust font weight */
     text-align: center;
   }
-  .btn-start{
-    font-size: 30px;
-    padding: 15px 30px;
-    border-radius: 8px;
-    display: flex;
-    justify-content: center; /* Centre horizontalement */
-    margin:auto;
-    margin-top: 50px
-  }
-  .container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100vw;
-      height: 100vh;
-  }
 
   /* Votre code CSS existant */
 
@@ -89,7 +73,6 @@
       width: 30px;
       height: 30px;
       scale: 1.3;
-      fill: white;
   }
 
   .plane-button:hover {
@@ -217,7 +200,9 @@
       {#if domestic}
       <section style="height: 115vh"></section>
       {/if}
-      <section style="height:35vh"></section>
+      <section style="height:35vh"><div class="title-container" style="position: absolute; left: 170px; text-align: left;">
+        <h2>Domestic Flights Map Visualization</h2>
+    </div></section>
       <section><Map/></section>
       {/if}
       {/if}
